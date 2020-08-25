@@ -1,0 +1,142 @@
+[1mdiff --git a/app/controllers/skills_controller.rb b/app/controllers/skills_controller.rb[m
+[1mindex 69c145e..20936ae 100644[m
+[1m--- a/app/controllers/skills_controller.rb[m
+[1m+++ b/app/controllers/skills_controller.rb[m
+[36m@@ -10,16 +10,20 @@[m [mclass SkillsController < ApplicationController[m
+   end[m
+ [m
+   def new[m
+[31m-    @skill = current_user.skills.new[m
+[32m+[m[32m    @user = current_user[m
+[32m+[m[32m    @skill = Skill.new[m
+[32m+[m[32m    @skill.user = current_user[m
+     authorize @skill[m
+   end[m
+ [m
+   def create[m
+[31m-    @skill = current_user.skills.new(skill_params)[m
+[32m+[m[32m    @user = current_user[m
+[32m+[m[32m    @skill = Skill.new(skill_params)[m
+[32m+[m[32m    @skill.user = @user[m
+     authorize @skill[m
+ [m
+     if @skill.save[m
+[31m-    redirect_to skill_path(@skill)[m
+[32m+[m[32m      redirect_to skill_path(@skill)[m
+     else[m
+       render :new[m
+     end[m
+[36m@@ -51,6 +55,6 @@[m [mclass SkillsController < ApplicationController[m
+   end[m
+ [m
+   def skill_params[m
+[31m-    params.require(:skill).permit(:name, :location, :description, :user_id)[m
+[32m+[m[32m    params.require(:skill).permit(:name, :location, :description)[m
+   end[m
+ end[m
+[1mdiff --git a/app/policies/application_policy.rb b/app/policies/application_policy.rb[m
+[1mindex 239997c..16e5f8c 100644[m
+[1m--- a/app/policies/application_policy.rb[m
+[1m+++ b/app/policies/application_policy.rb[m
+[36m@@ -3,6 +3,7 @@[m [mclass ApplicationPolicy[m
+ [m
+   def initialize(user, record)[m
+     @user = user[m
+[32m+[m
+     @record = record[m
+   end[m
+ [m
+[1mdiff --git a/app/policies/skill_policy.rb b/app/policies/skill_policy.rb[m
+[1mindex 235259a..c939d47 100644[m
+[1m--- a/app/policies/skill_policy.rb[m
+[1m+++ b/app/policies/skill_policy.rb[m
+[36m@@ -8,9 +8,9 @@[m [mclass SkillPolicy < ApplicationPolicy[m
+   def show?[m
+     true[m
+   end[m
+[31m-[m
+[32m+[m[41m  [m
+   def create?[m
+[31m-    current_user == user[m
+[32m+[m[32m    record.user == user[m
+   end[m
+ [m
+   def update?[m
+[1mdiff --git a/app/views/shared/_navbar.html.erb b/app/views/shared/_navbar.html.erb[m
+[1mindex 6f26788..cedd48f 100644[m
+[1m--- a/app/views/shared/_navbar.html.erb[m
+[1m+++ b/app/views/shared/_navbar.html.erb[m
+[36m@@ -1,9 +1,8 @@[m
+ <div class="navbar navbar-expand-sm navbar-light navbar-trainup">[m
+[31m-  <%= link_to "#", class: "navbar-brand" do %>[m
+[32m+[m[32m  <%= link_to root_path, class: "navbar-brand" do %>[m
+     <%= image_tag "logo.png", class:"logo" %>[m
+     <% end %>[m
+ [m
+[31m-  <h1>Train Up</h1>[m
+ [m
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">[m
+     <span class="navbar-toggler-icon"></span>[m
+[36m@@ -13,23 +12,27 @@[m
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">[m
+     <ul class="navbar-nav mr-auto">[m
+       <% if user_signed_in? %>[m
+[31m-        <li class="nav-item active">[m
+[31m-          <%= link_to "Home", "#", class: "nav-link" %>[m
+[32m+[m[32m        <%# <li class="nav-item active"> %>[m
+[32m+[m[32m          <%# <%= link_to "Home", "#", class: "nav-link" %>[m
+[32m+[m[32m        <%# </li> %>[m
+[32m+[m[32m        <li class="nav-item">[m
+[32m+[m[32m          <%= link_to "Deviens coach",  new_skill_path, class: "nav-link" %>[m
+         </li>[m
+         <li class="nav-item">[m
+[31m-          <%= link_to "Messages", "#", class: "nav-link" %>[m
+[32m+[m[32m          <%= link_to "Réserve un cours", skills_path, class: "nav-link" %>[m
+         </li>[m
+         <li class="nav-item dropdown">[m
+[31m-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>[m
+[32m+[m[32m          <%= image_tag "https://kitt.lewagon.com/placeholder/users/brivdarcy", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>[m
+           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">[m
+[31m-            <%= link_to "Action", "#", class: "dropdown-item" %>[m
+[31m-            <%= link_to "Another action", "#", class: "dropdown-item" %>[m
+[31m-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>[m
+[32m+[m[32m            <%= link_to "Mon profil", "#", class: "dropdown-item" %>[m
+[32m+[m[32m            <%# <%= link_to "Another action", "#", class: "dropdown-item" %>[m
+[32m+[m[32m            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>[m
+           </div>[m
+         </li>[m
+       <% else %>[m
+[31m-        <li class="nav-item">[m
+[31m-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>[m
+[32m+[m[32m        <li class="nav-item d-flex justify-content-center">[m
+[32m+[m[32m          <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>[m
+[32m+[m[32m           <%= link_to "Inscription", new_user_registration_path, class: "nav-link active" %>[m
+         </li>[m
+       <% end %>[m
+     </ul>[m
+[1mdiff --git a/app/views/skills/_form.html.erb b/app/views/skills/_form.html.erb[m
+[1mindex 997f19a..a9f3981 100644[m
+[1m--- a/app/views/skills/_form.html.erb[m
+[1m+++ b/app/views/skills/_form.html.erb[m
+[36m@@ -1,5 +1,5 @@[m
+ <div class="container" id="form-skills">[m
+[31m-  <%= simple_form_for[@skill] do |f| %>[m
+[32m+[m[32m  <%= simple_form_for[@user, @skill] do |f| %>[m
+     <%= f.input :name, :label => "Catégorie", :placeholder => "Entraineur ou Préparateur physique ou Préparateur mental " %>[m
+     <%= f.input :address, :label => "Localisation", :placeholder => "16 villa Gaudelet 75011 Paris" %>[m
+     <%= f.input :description, :label => "Description", :placeholder => "Détaille ton profil" %>[m
+[1mdiff --git a/app/views/skills/new.html.erb b/app/views/skills/new.html.erb[m
+[1mindex c549ea3..1a08164 100644[m
+[1m--- a/app/views/skills/new.html.erb[m
+[1m+++ b/app/views/skills/new.html.erb[m
+[36m@@ -2,7 +2,9 @@[m
+ [m
+   <h2>Renseigne ta compétence</h2>[m
+   <br>[m
+[31m-  <%= render 'form' %>[m
+[32m+[m[32m  <% if policy(Skill).create? %>[m
+[32m+[m[32m    <%= render 'form' %>[m
+[32m+[m[32m  <% end %>[m
+ </div>[m
+ [m
+ [m

@@ -2,7 +2,9 @@
 
   <h2>Renseigne ta compétence</h2>
   <br>
-  <%= render 'form' %>
+  <% if policy(@skill).create? %>
+    <%= render 'form' %>
+  <% end %>
 </div>
 
 
