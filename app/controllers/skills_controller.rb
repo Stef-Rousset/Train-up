@@ -1,28 +1,32 @@
 class SkillsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_skill, only: [:show, :edit, :update, :destroy ]
+
   def index
-    @skills=Skill.all
+    @skills = policy_scope(Skill)
   end
 
   def show
-    @skill=Skill.find(params[:id])
   end
 
   def new
-    @skill =Skill.new
+    @skill = current_user.skills.new
+    authorize @skill
   end
 
   def create
-    @skill = Skill.new(skill_params)
-    @skill.user = current_user
+    @skill = current_user.skills.new(skill_params)
+    authorize @skill
+
     if @skill.save
     redirect_to skill_path(@skill)
     else
       render :new
     end
+
   end
 
   def edit
-    @skill=Skill.find(params[:id])
   end
 
   def update
@@ -31,10 +35,11 @@ class SkillsController < ApplicationController
     redirect_to skill_path(@skill)
     else
       render :edit
+    end
   end
 
   def destroy
-    @skill=@skill.destroy
+    @skill = @skill.destroy
     redirect_to skill_path(@skill)
   end
 
@@ -42,14 +47,10 @@ class SkillsController < ApplicationController
 
   def set_skill
     @skill = Skill.find(params[:id])
+    authorize @skill
   end
 
   def skill_params
     params.require(:skill).permit(:name, :location, :description, :user_id)
   end
-  end
-
-
-
-
-
+end

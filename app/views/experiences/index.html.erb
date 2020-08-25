@@ -1,0 +1,16 @@
+<h2>Choisis un sport et renseignes ton expérience</h2>
+
+<% if @experience.nil? %>
+  <p> Tu n'as pas encore renseigné d'expérience</p>
+<% else %>
+  <p> As-tu une autre expérience à renseigner ?</p>
+<% end %>
+
+<%= simple_form_for ([@skill, @restaurant]) do |f| %>
+<%= f.input :sport, "Sélectionne ton sport" %>
+<%= f.input :years, "Années d'expérience" %>
+<%= f.input :specialty, "Renseignes une spécialité" %>
+<%= f.submit "Valide cette expérience", class: "btn btn-secondary" %>
+<% end %>
+
+<%= link_to "J'ai terminé", skills_path, class: "btn btn-secondary" %>
