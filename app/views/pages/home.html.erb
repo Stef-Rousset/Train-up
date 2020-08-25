@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "banner.png" %>)'>
+  <div class="container">
+    <h1>Améliore tes compétences techniques, mentales, physique !</h1>
+  </div>
+</div>
+
+<div class="container">
+	<div class="home-cards d-flex justify-content-between">
+		<div class="home-card">
+	    	<%= image_tag "home-run.png", class:"home-card-image" %>
+	    	<h2>Des pros spécialistes de ton sport</h2>
+	     </div>
+		<div class="home-card">
+	    	<%= image_tag "home-fusee.png", class:"home-card-image" %>
+	    	<h2>Réservation rapide</h2>
+	    </div>
+		<div class="home-card">
+	    	<%= image_tag "home-calandar.png", class:"home-card-image" %>
+	    	<h2>À la carte</h2>
+	    </div>
+	</div>
+</div>

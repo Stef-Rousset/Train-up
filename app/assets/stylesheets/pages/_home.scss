@@ -1,1 +1,14 @@
-// Specific CSS for your home-page
+.container {
+	width: 850px;
+}
+
+.home-cards {
+	margin-top: 25px;
+}
+
+.home-card {
+	img {
+		width: 238px;
+		height: 216px;
+	}
+}
