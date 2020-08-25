@@ -7,6 +7,13 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :skills
   has_many :reviews
-  validates :first_name, :last_name, :address, :email, :sex, :birth_date, :encrypted_password, presence: true
+  
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :address, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :sex, presence: true
+  validates :birth_date, presence: true
+  validates :encrypted_password, presence: true
 
 end
