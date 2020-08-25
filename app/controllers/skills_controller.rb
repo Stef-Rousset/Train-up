@@ -31,6 +31,7 @@ class SkillsController < ApplicationController
     redirect_to skill_path(@skill)
     else
       render :edit
+    end
   end
 
   def destroy
@@ -47,7 +48,7 @@ class SkillsController < ApplicationController
   def skill_params
     params.require(:skill).permit(:name, :location, :description, :user_id)
   end
-  end
+end
 
 
 

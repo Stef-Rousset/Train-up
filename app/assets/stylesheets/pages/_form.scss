@@ -1,0 +1,19 @@
+#form-skills, #form {
+  margin: 0 auto;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid;
+  border-radius: 1em;
+}
+
+#label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+#input {
+  width: 300px;
+	box-sizing: border-box;
+	border: 1px solid #999;
+}
