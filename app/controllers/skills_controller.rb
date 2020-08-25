@@ -5,6 +5,8 @@ class SkillsController < ApplicationController
 
   def show
     @skill=Skill.find(params[:id])
+    @sport = Sport.new
+    @experience = Experience.new
   end
 
   def new
