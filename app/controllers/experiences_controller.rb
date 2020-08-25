@@ -10,7 +10,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @experience.skill = @skill
     if experience.save
-      redirect_to experience_path
+      redirect_to skill_experiences_path
     else
       render :index
     end
@@ -25,7 +25,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:skill_id])
     @experience.update(experience_params)
     if @experience.save
-      redirect_to experience_path
+      redirect_to skill_experiences_path
     else
       render :index
     end
@@ -34,6 +34,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:years, :specialty, :skill_id, :sport_id)
+    params.require(:experience).permit(:years, :specialty, :skill_id)
   end
 end
