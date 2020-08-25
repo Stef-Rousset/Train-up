@@ -5,8 +5,12 @@ class SkillPolicy < ApplicationPolicy
     end
   end
 
-  def create?
+  def show?
     true
+  end
+
+  def create?
+    current_user == user
   end
 
   def update?
