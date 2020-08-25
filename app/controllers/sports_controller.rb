@@ -1,8 +1,9 @@
 class SportsController < ApplicationController
 
   def create
-    @user = current_user
+    authorize @sport
     @sport = Sport.new(params[:sport_params])
+    @sport.user = current_user
     if @sport.save
       redirect_to skill_path(@skill)
     else
@@ -11,8 +12,11 @@ class SportsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
+    authorize @sport
+    @sport.user = current_user
     @sport = Sport.find(params[:id])
+    @sport.destroy
+    redirect_to skill_path(@skill)
   end
 
   private
