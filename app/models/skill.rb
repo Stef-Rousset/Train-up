@@ -1,6 +1,6 @@
 class Skill < ApplicationRecord
   belongs_to :user
-  has_many :experiences
+  has_many :experiences, dependent: :destroy
   has_many :bookings
 
   validates :name, presence: true
