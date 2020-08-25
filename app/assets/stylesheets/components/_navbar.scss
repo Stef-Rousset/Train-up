@@ -1,12 +1,21 @@
-.navbar-lewagon {
+.navbar-trainup {
   justify-content: space-between;
-  background: white;
+  background: #0F5D5E;
+  height: 50px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-trainup .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// .navbar-trainup .navbar-brand img {
+//   width: 40px;
+// }
+
+.logo {
+  width: 62px;			
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $light-gray;
 }
