@@ -1,4 +1,4 @@
-class SportPolicy < ApplicationPolicy
+class ExperiencePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -8,8 +8,11 @@ class SportPolicy < ApplicationPolicy
       true
     end
 
-    def destroy?
+    def edit?
+      true
+    end
+
+    def update?
       record.user == user
   end
-
 end
