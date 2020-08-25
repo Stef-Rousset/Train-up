@@ -1,0 +1,11 @@
+<div class="container" id="form-skills">
+  <%= simple_form_for[@skill] do |f| %>
+    <%= f.input :name, :label => "Catégorie", :placeholder => "Entraineur ou Préparateur physique ou Préparateur mental " %>
+    <%= f.input :address, :label => "Localisation", :placeholder => "16 villa Gaudelet 75011 Paris" %>
+    <%= f.input :description, :label => "Description", :placeholder => "Détaille ton profil" %>
+
+    <div class= "btn btn-warning btn-create">
+      <%= f.button :submit, "Soumettre" %>
+    </div>
+  <% end %>
+</div>
