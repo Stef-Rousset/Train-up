@@ -1,16 +1,14 @@
 class SkillsController < ApplicationController
   def index
-    @skills=Skill.all
+    @skills = Skill.all
   end
 
   def show
-    @skill=Skill.find(params[:id])
-    @sport = Sport.new
-    @experience = Experience.new
+    @skill = Skill.find(params[:id])
   end
 
   def new
-    @skill =Skill.new
+    @skill = Skill.new
   end
 
   def create
@@ -21,6 +19,7 @@ class SkillsController < ApplicationController
     else
       render :new
     end
+
   end
 
   def edit
