@@ -3,7 +3,8 @@ class ExperiencePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
+  end
+  
     def create?
       true
     end
