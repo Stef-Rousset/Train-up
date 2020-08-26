@@ -1,15 +1,14 @@
 class PagesController < ApplicationController
-	skip_before_action :authenticate_user!, only: [ :home ]
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-=======
+  skip_before_action :authenticate_user!, only: [:home]
 
->>>>>>> 3d05955a8ee2e08c9a1b02eec8084b371aa11f80
-=======
 
->>>>>>> 3d05955a8ee2e08c9a1b02eec8084b371aa11f80
 	def home
 	end
 
+  def profile
+    @profile = current_user
+    @skills = Skill.where(user: current_user)
+    @bookings = Booking.where(user: current_user)
+    @experiences = Experience.where(user: current_user)
+  end
 end
