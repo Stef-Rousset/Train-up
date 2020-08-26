@@ -6,4 +6,17 @@ class Skill < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
   validates :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :description, :location ],
+    associated_against: {
+      experience: [ :specialty ]
+    },
+    associated_against: {
+    sport: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end

@@ -1,12 +1,23 @@
 <div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "banner.png" %>)'>
   <div class="container">
   <!--   <h1>Améliore tes compétences <span id="textFade">techniques</span> !</h1> -->
-  <h1>Améliore tes compétences <span class="fade-in" id="banner-typed-text">techniques</span></h1>
-  	<%= link_to "#" do %>
-  		<div class="btn-green">Trouve ton coach</div>
-  	<% end %>
+	<h1>Améliore tes compétences <span class="fade-in" id="banner-typed-text">techniques</span></h1>
+
+	<%= form_tag skills_path, method: :get do %>
+	  <%= text_field_tag :query,
+	    params[:query],
+	    class: "form-control",
+	    placeholder: "Coach escrime Paris"
+	  %>
+	  <%= submit_tag "Search", class: "btn btn-green" %>
+	<% end %>
+
+	<%= link_to "#" do %>
+		<div class="btn-green">Trouve ton coach</div>
+	<% end %>
   </div>
 </div>
+
 
 <div class="container">
 	<div class="home-cards d-flex justify-content-between">
