@@ -1,5 +1,5 @@
 class Skill < ApplicationRecord
-  NAMES = ["Entraîneur", "Préparateur mental", "Préparateur Physique" ]
+  NAMES = ["Entraîneur", "Préparateur mental", "Préparateur physique" ]
   
   belongs_to :user
   has_many :experiences, dependent: :destroy
