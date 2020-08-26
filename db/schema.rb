@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_093525) do
+ActiveRecord::Schema.define(version: 2020_08_26_134224) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +60,15 @@ ActiveRecord::Schema.define(version: 2020_08_25_093525) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["skill_id"], name: "index_experiences_on_skill_id"
     t.index ["sport_id"], name: "index_experiences_on_sport_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "reviews", force: :cascade do |t|
