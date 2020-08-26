@@ -35,6 +35,18 @@
         <%= link_to "Annuler", class: "btn-green" %>
       </div>
   <% else %>
+    <h4>Ton indentité :</h4>
+      <div class="identité">
+        <h5>Nom : <%= user.last_name.capitlize %></h5>
+        <h5>Prénom : <%= user.first_name.capitalize %></h5>
+        <p><i class="fas fa-map-marker-alt"></i> <%= user.address %></p>
+        <p><i class="fas fa-at"></i> <%= user.email %></p>
+        <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
+      </div>
+      <h4>Ta séance : </h4>
+      <p>Description : <%= @user.skill.description %></p>
+      <p>Localisation : <%= @user.skill.location %></p>
+      <p>Tarif : <%= @user.skill.price %></p>
 
 
 </div>
