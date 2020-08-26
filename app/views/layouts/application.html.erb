@@ -17,7 +17,7 @@
     <%= render 'shared/flashes' %>
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
-    <div class="<%= "container" unless controller.controller_name == "pages" && controller.action_name == "home" %>">
+    <div class="<%= "container custom-container" unless controller.controller_name == "pages" && controller.action_name == "home" %>">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
