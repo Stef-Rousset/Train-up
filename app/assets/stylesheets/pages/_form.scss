@@ -1,4 +1,4 @@
-#form-skills, #skill-new {
+#form-skills, #skill-new, .edit_skill {
   //box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 10px;
   padding: 10px 10px;
@@ -10,7 +10,7 @@
   font-size: 24px;
 }
 
-#new_skill label {
+#new_skill label, .edit_skill label {
   color: #3D4345;
 }
 
