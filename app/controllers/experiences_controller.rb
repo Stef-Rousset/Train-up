@@ -2,11 +2,14 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = policy_scope(Experience).order(created_at: :desc)
+    @experience = Experience.new
+    @skill = Skill.find(params[:skill_id])
+    @experiences = Experience.where(skill_id: @skill.id)
   end
 
   def create
     authorize @experience
-    @skill = Skill.find(params[:id])
+    @skill = Skill.find(params[:skill_id])
     @experience = Experience.new(experience_params)
     @experience.skill = @skill
     if experience.save
