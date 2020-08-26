@@ -1,7 +1,7 @@
 class ExperiencesController < ApplicationController
 
   def index
-    @experience = policy_scope(Experience).order(created_at: :desc)
+    @experiences = policy_scope(Experience).order(created_at: :desc)
   end
 
   def create

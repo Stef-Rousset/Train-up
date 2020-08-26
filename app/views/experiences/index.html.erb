@@ -1,14 +1,21 @@
 <h2>Choisis un sport et renseignes ton expérience :</h2>
 
 <% if @experience.nil? %>
-  <p> Tu n'as pas encore renseigné d'expérience</p>
+  <p> Tu n'as pas encore renseigné d'expérience...</p>
 <% else %>
   <p> As-tu une autre expérience à renseigner ?</p>
+  <% @experiences.each do |experience|  %>
+    <div class="experience">
+      <%= experience.sport %>
+      <%= experience.years %>
+      <%= experience.specialty %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= simple_form_for ([@skill, @experience]) do |f| %>
 <%= f.input :sport, :label => "Sélectionne ton sport" %>
-<%= f.input :years, :label => "Années d'expérience" %>
+<%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
 <%= f.input :specialty, :label => "Renseignes une spécialité", :placeholder => "Épée" %>
 <%= f.submit "Valide cette expérience", class: "btn-green" %>
 <% end %>
