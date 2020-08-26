@@ -1,3 +1,25 @@
 <div class="container" id="form-design">
-  <h2>La liste de tes compétences</h2>
+  <h2>Trouve ton coach!</h2>
+
+  <%= form_tag skills_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a skill"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+  <% @skills.each do |skill| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= skill.user.first_name.capitalize %> <%= skill.user.last_name.capitalize %></h2>
+        <h1><%= skill.name.capitalize %></h1>
+        <p><%= skill.location.capitalize %></p>
+        <p><%= skill.description.capitalize %></p>
+      </div>
+    </div> 
+  <% end %>
+
 </div>
