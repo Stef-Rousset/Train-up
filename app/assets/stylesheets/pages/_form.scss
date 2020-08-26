@@ -10,7 +10,15 @@
   font-size: 24px;
 }
 
-#new_skill label, .edit_skill label {
+#new_skill, .edit_skill {
+  margin-top: 0px;
+
+  .form-control {
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+}
+
+#new_skill label, .edit_skill label, #new_experience label {
   color: #3D4345;
 }
 
