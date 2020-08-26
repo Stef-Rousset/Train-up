@@ -1,0 +1,41 @@
+.experience-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+h2 {
+  margin-top: 20px;
+}
+h4 {
+  font-size: 17px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: black;
+}
+.experience {
+ background-color: white;
+ box-shadow: 0 0 8px rgba(0,0,0,0.2);
+ padding: 5px 10px;
+ margin: 20px 0;
+ width: 300px;
+  span {
+  font-weight: bold;
+ }
+}
+.simple_form {
+  margin-top: 0px;
+  width: 300px;
+  .form-control {
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+}
+#new_experience label {
+  color: #3D4345;
+}
+.btn-exp {
+  padding: 5px 2px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
