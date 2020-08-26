@@ -26,12 +26,12 @@ user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jb
 puts "users done"
 
 puts "creating skills"
-skill_first = Skill.create!(name: "entraîneur", location: "gymase Rosa Parks, 2 rue du Moulin des Lapins 75014 Paris", description: "J'enseigne aux enfants et aux adultes", user: user_one)
+skill_first = Skill.create!(name: "Entraîneur", location: "gymase Rosa Parks, 2 rue du Moulin des Lapins 75014 Paris", description: "J'enseigne aux enfants et aux adultes", user: user_one)
 skill_first.save!
-skill_second = Skill.create!(name: "préparateur physique", location: "99 Boulevard Kellermann, 75013 Paris", description: "Je m'adapte à votre niveau et à vos besoins", user: user_two)
+skill_second = Skill.create!(name: "Préparateur physique", location: "99 Boulevard Kellermann, 75013 Paris", description: "Je m'adapte à votre niveau et à vos besoins", user: user_two)
 skill_second.save!
 
-skill_third = Skill.create!(name: "preparateur mental", location: "15 Boulevard Voltaire 75011 Paris", description: "Grâce à la sophrologie, vous améliorez vos performances", user: user_three)
+skill_third = Skill.create!(name: "Préparateur mental", location: "15 Boulevard Voltaire 75011 Paris", description: "Grâce à la sophrologie, vous améliorez vos performances", user: user_three)
 skill_third.save!
 puts "skills done"
 
@@ -60,7 +60,7 @@ puts "sports done"
 
 
 puts "creating experiences"
-experience_one = Experience.create(years: 3)
+experience_one = Experience.create(years: 3, specialty: "Sabre")
 experience_one.skill = skill_first
 experience_one.sport = sport_one
 experience_one.save!

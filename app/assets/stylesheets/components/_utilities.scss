@@ -3,6 +3,10 @@
 	margin: 0 auto;
 }
 
+.custom-container {
+	min-height: calc(100vh - 100px);
+}
+
 h1 {
 	color: $light-gray;
 	font-size: 24px;
@@ -22,4 +26,5 @@ h2 {
 p {
   font-family: Roboto;
   font-size: 16px;
+  color: black;
 }

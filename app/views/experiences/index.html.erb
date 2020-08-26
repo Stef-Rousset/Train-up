@@ -1,23 +1,31 @@
+
 <h2>Choisis un sport et renseignes ton expérience :</h2>
-
-<% if @experience.nil? %>
-  <p> Tu n'as pas encore renseigné d'expérience...</p>
-<% else %>
-  <p> As-tu une autre expérience à renseigner ?</p>
-  <% @experiences.each do |experience|  %>
-    <div class="experience">
-      <%= experience.sport %>
-      <%= experience.years %>
-      <%= experience.specialty %>
-    </div>
+  <% if @experiences.nil? %>
+    <h4> Tu n'as pas encore renseigné d'expérience...</h4>
+  <% else %>
+    <h4> As-tu une autre expérience à renseigner ?</h4>
   <% end %>
-<% end %>
+<div class="experience-container">
+  <div class="experience-form">
+    <%= simple_form_for ([@skill, @experience]) do |f| %>
+    <%= f.input :sport, :label => "Sélectionne ton sport", :collection => %w[Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation
+    Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf
+    Tennis de table Voile Yoga]  %>
+    <%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
+    <%= f.input :specialty, :label => "Renseignes une spécialité", :placeholder => "Épée"%>
+    <%= f.submit "Valider l'expérience", class: "btn-green btn-exp" %>
+    <% end %>
+  </div>
+  <div class="experience-list">
+      <% @experiences.each do |experience|  %>
+        <div class="experience">
+          <p><span>Sport : </span><%= experience.sport.name %></p>
+         <p> <span>Expérience : </span><%= experience.years %> ans</p>
+         <p><span>Spécialité : </span><%= experience.specialty %></p>
+        </div>
+      <% end %>
+      <%= link_to "J'ai terminé", skills_path, class: "btn-green mt" %>
+  </div>
+</div>
 
-<%= simple_form_for ([@skill, @experience]) do |f| %>
-<%= f.input :sport, :label => "Sélectionne ton sport" %>
-<%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
-<%= f.input :specialty, :label => "Renseignes une spécialité", :placeholder => "Épée" %>
-<%= f.submit "Valide cette expérience", class: "btn-green" %>
-<% end %>
 
-<%= link_to "J'ai terminé", skills_path, class: "btn-green" %>
