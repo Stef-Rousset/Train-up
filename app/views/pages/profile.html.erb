@@ -1,7 +1,7 @@
 <h2>Ton profil :</h2>
 
-<div class="profile-container">
-  <% if @profile.skills.empty? %>
+<% if @profile.skills.empty? %>
+  <div class="profile-container">
       <h4>Ton indentité :</h4>
       <div class="identity">
         <p><span class="bold">Nom :</span> <%= @profile.last_name.capitalize %></p>
@@ -36,24 +36,54 @@
           <% end %>
         <% end %>
       </div>
-  <% else %>
-    <h4>Ton indentité :</h4>
-      <div class="identity">
-        <p><span class="bold">Nom : </span><%= @profile.last_name.capitalize %></p>
-        <p><span class="bold">Prénom : </span><%= @profile.first_name.capitalize %></p>
-        <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address %></p>
-        <p><i class="fas fa-at"></i> <%= @profile.email %></p>
+  </div>
 
-          <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
-      </div>
-      <h4>Ta séance : </h4>
-      <div class="seance">
-        <% @profile.skills.each do |skill|  %>
-          <p><span class="bold">Description : </span><%= skill.description %></p>
-          <p><i class="fas fa-map-marker-alt"></i> <%= skill.location %></p>
-          <p>Tarif : </p>
+<% else %>
+  <div class="profile-coach-container">
+    <div class="profile-identity">
+      <h4>Ton indentité :</h4>
+        <div class="identity">
+          <p><span class="bold">Nom : </span><%= @profile.last_name.capitalize %></p>
+          <p><span class="bold">Prénom : </span><%= @profile.first_name.capitalize %></p>
+          <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address %></p>
+          <p><i class="fas fa-at"></i> <%= @profile.email %></p>
+            <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
+        </div>
+        <h4>Ta séance : </h4>
+        <div class="seance">
+          <% @profile.skills.each do |skill|  %>
+            <p><span class="bold">Description : </span><%= skill.description %></p>
+            <p><i class="fas fa-map-marker-alt"></i> <%= skill.location %></p>
+            <p>Tarif : </p>
+          <% end %>
+        </div>
+    </div>
+    <div class="profile-reservations">
+      <div class="reservations-en-cours">
+        <% if @booking.status == "pending" %>
+          <% @bookings.each do |booking| %>
+            <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
+            <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
+            <p>Total : </p>
+            <% if policy(booking).destroy? %>
+              <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
-  <% end %>
-</div>
+      <div class="reservations-past">
+        <% if @booking.status != "pending" %>
+          <% @bookings.each do |booking| %>
+            <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
+            <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
+            <p>Total : </p>
+           <!--  <%= link_to Laisse un commentaire %> -->
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
