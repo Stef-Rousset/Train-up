@@ -6,39 +6,44 @@
 	 </div>
 
 	<div class="container">
+		<div class="show-card d-flex flex-row align-items-center">
+			<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
+		<div class="details-show d-flex flex-column">
+			<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
+			<div class="skill"><%= @skill.name %></div>
+		</div>
+		</div>
+	
 		<div class="show d-flex flex-row justify-content-between">
-			<div class="show-card d-flex flex-column align-items-center">
-				<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
-				<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
-				<div class="skill"><%= @skill.name %></div>
-			</div>
 			
 			<div class="competences">
 				<p>Spécialité:</p>
 				<p>Expérience:</p>
 				<p>Profil:</p>
 				<p>Localisation:</p>
+				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 			</div>	
+
+			<div class="calandar">
+				<p>Réserver</p>
+			</div>
 		</div>
 
-		<div class="show d-flex flex-row justify-content-between">
-			<div class="comment">
-				<h1>Derniers commentaires</h1>
-			</div>
+		<div class="show d-flex flex-column justify-content-between">
 			<div class="video">
 				<h1>Video d'une séance</h1>
+			</div>
+			<div class="comment">
+				<h1>Commentaires</h1>
 			</div>
 		</div>
 	</div>
 
 	<div class="right-run">
- 		<%= image_tag "left-runners.svg", class: "run" %>
+ 		<%= image_tag "right-runners.svg", class: "run" %>
 	</div>
 </div>
 
-<div class="container">
-	<%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-primary" %>
-</div>
 
 
 

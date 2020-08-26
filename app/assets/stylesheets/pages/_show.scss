@@ -2,8 +2,11 @@
 	background-color: white;
 }
 
+.container h1 {
+	margin-top: 30px;
+}
 .run {
-	height: 80vh;
+	height: 70vh;
 	margin-top: 40px;
 }
 
@@ -14,8 +17,9 @@
 
 .show-avatar {
 	border-radius: 50%;
-	width: 150px;
+	width: 90px;
 	margin-top: 10px;
+	margin-right: 10px;
 }
 
 .show {
@@ -23,39 +27,56 @@
 }
 
 .show-card {
-	width: 30%;
-	height: 270px;
-	background-color: $light-gray;
+	width: 90%;
+	height: 100px;
+	// background-color: $light-gray;
 	margin-left: 0;
 }
 
 .name {
+	font-size: 18px;
+	color: $green;
+	
+}
+
+.skill {
 	font-size: 24px;
 	color: $green;
 	font-weight: bold;
 }
 
-.skill {
-	font-size: 18px;
-	color: $green;
-}
-
 .competences {
 	height: 270px;
-	width: 60%;	
-	background-color: $light-gray;
-	padding: 33px;
+	width: 70%;	
+	// background-color: $light-gray;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 5px 5px $light-gray;
+	position: relative;
+}
+
+.btn-delete {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.calandar {
+	width: 20%
 }
 
 .comment {
-	width: 30%;
+	width: 70%;
+	box-shadow: 0px 5px 5px $light-gray;;
+	margin-bottom: 10px;
 	h1 {
 		color: $green;
 	}
 }
 
 .video {
-	width: 60%;
+	width: 70%;
+	box-shadow: 0px 5px 5px $light-gray;
 	h1 {
 		color: $green;
 	}
