@@ -44,7 +44,7 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill = @skill.destroy
-    redirect_to skill_path(@skill)
+    redirect_to skills_path(@skill)
   end
 
   private
