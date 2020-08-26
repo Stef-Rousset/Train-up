@@ -8,7 +8,9 @@
 <div class="experience-container">
   <div class="experience-form">
     <%= simple_form_for ([@skill, @experience]) do |f| %>
-    <%= f.input :sport, :label => "Sélectionne ton sport" %>
+    <%= f.input :sport, :label => "Sélectionne ton sport", :collection => %w[Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation
+    Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf
+    Tennis de table Voile Yoga]  %>
     <%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
     <%= f.input :specialty, :label => "Renseignes une spécialité", :placeholder => "Épée"%>
     <%= f.submit "Valider l'expérience", class: "btn-green btn-exp" %>
@@ -25,4 +27,5 @@
       <%= link_to "J'ai terminé", skills_path, class: "btn-green mt" %>
   </div>
 </div>
+
 
