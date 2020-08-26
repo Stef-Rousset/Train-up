@@ -60,7 +60,7 @@ puts "sports done"
 
 
 puts "creating experiences"
-experience_one = Experience.create(years: 3)
+experience_one = Experience.create(years: 3, specialty: "Sabre")
 experience_one.skill = skill_first
 experience_one.sport = sport_one
 experience_one.save!
