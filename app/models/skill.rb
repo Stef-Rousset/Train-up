@@ -1,6 +1,7 @@
 class Skill < ApplicationRecord
   belongs_to :user
   has_many :experiences, dependent: :destroy
+  has_many :sports, through: :experiences
   has_many :bookings
 
   validates :name, presence: true
@@ -9,16 +10,14 @@ class Skill < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
+    ignoring: :accents,
     against: [ :name, :description, :location ],
-    associated_against: {
-      experience: [ :specialty ]
-    },
-    associated_against: {
-    sport: [ :name ]
-    },
     using: {
-      tsearch: { prefix: true, :dictionary => "french"}
+     trigram: { word_similarity: true },
+     tsearch: { prefix: true, any_word: true }
     },
-    ignoring: :accents
-
+  	associated_against: {
+  		experiences: [:years],
+  		sports: [:name]
+  	}
 end
