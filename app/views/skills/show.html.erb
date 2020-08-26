@@ -1,4 +1,5 @@
 <div class="container" id="form-design">
+  <div class="avatar"> <%= image_tag "julie.jpg" %> </div>
   <h2><%= @skill.name %></h2>
   <%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-primary" %>
 </div>
