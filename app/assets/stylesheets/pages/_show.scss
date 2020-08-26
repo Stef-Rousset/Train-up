@@ -1,5 +1,15 @@
-.container-show {
-	width: 800px;
+#skills-show {
+	background-color: white;
+}
+
+.run {
+	height: 80vh;
+	margin-top: 40px;
+}
+
+.container-small {
+	width: 1000px;
+	margin: 0 auto;
 }
 
 .show-avatar {
@@ -13,9 +23,9 @@
 }
 
 .show-card {
-	width: 300px;
+	width: 30%;
 	height: 270px;
-	background-color: white;
+	background-color: $light-gray;
 	margin-left: 0;
 }
 
@@ -32,6 +42,29 @@
 
 .competences {
 	height: 270px;
-	width: 400px;
-	background-color: white;
+	width: 60%;	
+	background-color: $light-gray;
+	padding: 33px;
 }
+
+.comment {
+	width: 30%;
+	h1 {
+		color: $green;
+	}
+}
+
+.video {
+	width: 60%;
+	h1 {
+		color: $green;
+	}
+}
+
+
+
+
+
+
+
+
