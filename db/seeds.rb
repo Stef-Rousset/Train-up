@@ -19,7 +19,8 @@ Sport.destroy_all
 
 
 puts "creating users"
-user_one = User.create!(first_name: "Julie", last_name: "Grison", email: "jgrisond@gmail.com", password: "coucou123", sex: "femme", address: "25 boulvard Voltaire 75011 Paris", birth_date: Date.parse("04/11/1990"))
+user = User.create!(first_name: "Julie", last_name: "Grison", email: "jgrisond@gmail.com", password: "coucou123", sex: "femme", address: "25 boulevard Voltaire 75011 Paris", birth_date: Date.parse("04/11/1990"))
+user_one = User.create!(first_name: "Charles", last_name: "Martin", email: "cmartin@gmail.com", password: "escrime", sex: "homme", address: "50 rue Saint Martin 75004 Paris", birth_date: Date.parse("12/07/1992"))
 user_two = User.create!(first_name: "Catherine", last_name: "Durand", email: "cdurand@gmail.com", password: "123456", sex: "femme", address: "1 rue de Lille 75007 Paris", birth_date: Date.parse("10/01/1995"))
 user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jblondet@gmail.com", password: "123hello", sex: "homme", address:"35 rue Beauregard 75002 Paris", birth_date: Date.parse("25/05/1983"))
 puts "users done"
