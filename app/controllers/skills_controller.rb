@@ -3,19 +3,7 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy ]
 
   def index
-<<<<<<< HEAD
-    if params[:query].present?
-      @skills = policy_scope(Skill).where("name ILIKE ?", "%#{params[:query]}%")
-=======
 
-    policy_scope(Skill)
-    if params[:query].present?
-      @skills = policy_scope(Skill).where("name ILIKE ?", "%#{params[:query]}%")
-      @skills = Skill.global_search(params[:query])
->>>>>>> 3d05955a8ee2e08c9a1b02eec8084b371aa11f80
-    else
-      @skills = policy_scope(Skill)
-    end
   end
 
   def show
