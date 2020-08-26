@@ -5,6 +5,7 @@ def create
   @skill = Skill.find(params[:skill_id])
   @booking = Booking.new(booking_params)
   @booking.skill = @skill
+  @booking.user = current_user
   if booking.save
     redirect_to profile_path
   else
