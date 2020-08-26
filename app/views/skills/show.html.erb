@@ -1,8 +1,19 @@
-<div class="container" id="form-design">
-  <h2><%= @skill.name %></h2>
-  <%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-primary" %>
-</div>
-<div class="container" id="form-design">
-  <h2>Tes compétences</h2>
-  <br>
+
+	<div class="show d-flex flex-row	">
+		<div class="show-card d-flex flex-column align-items-center justify-content-between">
+			<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
+			<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
+			<div class="skill"><%= @skill.name %></div>
+		</div>
+		
+		<div class="competences">
+			<p>Spécialité:</p>
+			<p>Expérience:</p>
+			<p>Profil</p>
+			<p>Localisation:</p>
+		</div>
+	  
+		
+	</div>
+	<%#= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-primary" %>
 
