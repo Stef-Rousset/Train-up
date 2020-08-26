@@ -38,9 +38,9 @@ puts "skills done"
 
 puts "creating sports"
 
-sports = %w[Aikido, Athlétisme, Aviron, Badminton, Boxe, Danse, Escalade, Equitation,
-   Judo, Kendo, Karaté, Kitesurf, Natation, Pilates, Plongée, Squash, Ski, Surf,
-Tennis de table, Voile, Yoga]
+sports = %w[Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation
+   Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf
+Tennis de table Voile Yoga]
 
 sports.each do |sport|
   sport = Sport.create!(name: sport)
@@ -60,7 +60,7 @@ puts "sports done"
 
 
 puts "creating experiences"
-experience_one = Experience.create(years: 3)
+experience_one = Experience.create(years: 3, specialty: "Sabre")
 experience_one.skill = skill_first
 experience_one.sport = sport_one
 experience_one.save!

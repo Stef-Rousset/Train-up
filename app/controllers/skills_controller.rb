@@ -3,11 +3,14 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy ]
 
   def index
-    if params[:skill_name].present?
-      @skills = policy_scope(Skill).where("name ILIKE ?", "%#{params[:skill_name]}%")
-    else
-      @skills = policy_scope(Skill)
-    end
+    @skills = policy_scope(Skill)
+    
+    @skills = Skill.global_search(params[:query]) if params[:query].present?
+    @skills = @skills.where("name ILIKE ?", "%#{params[:skill_name]}%") if params[:skill_name].present?
+    @skills = @skills.joins(:experiences).where(experiences: {sport_id: params[:sport_id]}) if params[:sport_id].present?
+    @skills = @skills.joins(:experiences).where(experiences: {specialty: params[:specialty]}) if params[:specialty].present?
+    @skills = @skills.joins(:experiences).where("experiences.years >= ?", params[:exp_years]) if params[:exp_years].present?
+
   end
 
   def show

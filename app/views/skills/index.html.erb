@@ -4,13 +4,11 @@
   <br>
   <%= form_tag skills_path, method: :get do %>
     <%= select_tag "skill_name", options_for_select(Skill::NAMES, params[:skill_name]), class: "form-control", prompt: 'Compétences' %>
-
+    <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id), params[:sport_id]), class: "form-control", prompt: 'Sport' %>
+    <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty), params[:specialty]), class: "form-control", prompt: 'Spécialité' %>
+    <%= range_field_tag "exp_years", 0, min: 0, max: 5, class: "form-control", prompt: 'Expérience' %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-
-
-
-
 
     <br>
 
@@ -20,8 +18,14 @@
       <div class="card-product-infos">
         <h2><%= skill.user.first_name.capitalize %> <%= skill.user.last_name.capitalize %></h2>
         <h1><%= skill.name.capitalize %></h1>
+        <% skill.experiences.each do |experience| %>
+          <% if experience.specialty.nil? %>
+            <h2><%= experience.sport.name.capitalize %> : <%= experience.years %> années d'expérience</h2>
+          <% else %>
+            <h2><%= experience.sport.name.capitalize %>, <%= experience.specialty.capitalize %> : <%= experience.years %> années d'expérience</h2>
+          <% end %>
+        <% end %>
         <p><%= skill.location.capitalize %></p>
-        <p><%= skill.description.capitalize %></p>
       </div>
     </div> 
   <% end %>
