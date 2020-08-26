@@ -17,6 +17,8 @@ class Skill < ApplicationRecord
     sport: [ :name ]
     },
     using: {
-      tsearch: { prefix: true }
-    }
+      tsearch: { prefix: true, :dictionary => "french"}
+    },
+    ignoring: :accents
+
 end
