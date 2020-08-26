@@ -1,5 +1,7 @@
 <div class="container" id="form-design">
   <h2>Modifie ta compétence </h2>
   <br>
-  <%= render 'form' %>
+  <% if policy(@skill).update? %>
+    <%= render 'form' %>
+  <% end %>
 </div>
