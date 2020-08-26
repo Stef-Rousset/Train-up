@@ -38,9 +38,9 @@ puts "skills done"
 
 puts "creating sports"
 
-sports = %w[Aikido, Athlétisme, Aviron, Badminton, Boxe, Danse, Escalade, Equitation,
-   Judo, Kendo, Karaté, Kitesurf, Natation, Pilates, Plongée, Squash, Ski, Surf,
-Tennis de table, Voile, Yoga]
+sports = %w[Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation
+   Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf
+Tennis de table Voile Yoga]
 
 sports.each do |sport|
   sport = Sport.create!(name: sport)
