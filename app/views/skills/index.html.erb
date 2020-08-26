@@ -1,14 +1,18 @@
 <div class="container" id="form-design">
+  <br>
   <h2>Trouve ton coach!</h2>
-
+  <br>
   <%= form_tag skills_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a skill"
-    %>
+    <%= select_tag "skill_name", options_for_select(Skill::NAMES, params[:skill_name]), class: "form-control", prompt: 'Compétences' %>
+
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+
+
+
+
+
+    <br>
 
   <% @skills.each do |skill| %>
     <div class="card-product">
