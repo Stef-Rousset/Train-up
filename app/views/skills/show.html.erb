@@ -30,7 +30,7 @@
 			<div class="calandar">
 				<div class="container">
  					 <!-- <div class="form-wrapper" style="width: 400px; margin: 0 auto;"> -->
-				    	<%= simple_form_for @booking do |f| %>
+				    	<%= simple_form_for([@skill, @booking]) do |f| %>
 					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker"} %>
 					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker"} %>
 					      
