@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_134224) do
+ActiveRecord::Schema.define(version: 2020_08_27_104835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_134224) do
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["skill_id"], name: "index_experiences_on_skill_id"
     t.index ["sport_id"], name: "index_experiences_on_sport_id"
   end
