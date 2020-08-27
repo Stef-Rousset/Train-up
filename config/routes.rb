@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :experiences, only: [:index, :create, :edit, :update]
   end
 
+  resources :bookings do
+    resources :reviews, only: [:create, :edit, :update]
+  end
 end
