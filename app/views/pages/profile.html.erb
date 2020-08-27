@@ -5,7 +5,7 @@
     <div class="profile-container">
       <div class="zut">
         <h4>Ton identité :</h4>
-          <div class="identité">
+          <div class="identity">
               <p><span class="bold">Nom :</span> <%= current_user.last_name.capitalize %></p>
               <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
               <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
@@ -50,7 +50,7 @@
   <div class="profile-coach-container">
       <div class="profile-identity">
         <h4>Ton identité :</h4>
-          <div class="identity">
+          <div class="identity-coach">
             <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
             <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
@@ -72,7 +72,7 @@
       </div>
       <div class="profile-reservations">
         <h4>Tes réservations en cours :</h4>
-        <div class="reservations-en-cours">
+        <div class="reservations-en-cours-coach">
             <% current_user.received_bookings.live.each do |received_booking| %>
               <p><%= received_booking.user.first_name.capitalize %> <%= received_booking.user.last_name.capitalize %></p>
               <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date %></p>
