@@ -6,6 +6,7 @@
     <%= select_tag "skill_name", options_for_select(Skill.pluck(:name, :id), params[:skill_name]), class: "filters", prompt: 'Compétence' %>
     <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id), params[:sport_id]), class: "filters", prompt: 'Sport' %>
     <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty), params[:specialty]), class: "filters", prompt: 'Spécialité' %>
+    <%= text_field_tag "skill_location", '', size: 75, class: "filters"%>
     <label for="customRange2", class= "label-exp">Expérience</label>
     <%= range_field_tag "exp_years", 0, min: 0, max: 5, class: "custom-range filters", prompt: 'Expérience' %>
     <%= submit_tag "Rechercher", class: "btn btn-primary" %>
@@ -35,5 +36,4 @@
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
 </div>
