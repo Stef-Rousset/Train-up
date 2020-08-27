@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+  end
 
-def create
+  def create
   authorize @booking
   @skill = Skill.find(params[:skill_id])
   @booking = Booking.new(booking_params)

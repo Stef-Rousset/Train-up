@@ -77,6 +77,13 @@ experience_three.save!
 
 puts "experiences done"
 
+puts "creating bookings"
 
+booking_one = Booking.create!(user: user, skill: skill_first, date: Date.parse("12/09/2020"), start_hour: DateTime.parse("12/09/2020 10:00"), end_hour: DateTime.parse("12/09/2020 10:00"))
+booking_one.save!
+booking_two = Booking.create!(user: user, skill: skill_second, date: Date.parse("16/09/2020"), start_hour: DateTime.parse("16/09/2020 13:00"), end_hour: DateTime.parse("12/09/2020 14:00"))
+booking_two.save!
+booking_three = Booking.create!(user: user, skill: skill_third, date: Date.parse("20/08/2020"), start_hour: DateTime.parse("20/08/2020 17:00"), end_hour: DateTime.parse("20/08/2020 18:00"))
+booking_three.save!
 
-
+puts "booking done"
