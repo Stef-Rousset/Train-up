@@ -63,7 +63,7 @@
       <h4>Tes réservations en cours :</h4>
       <div class="reservations-en-cours">
           <% @bookings_live.each do |booking| %>
-            <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
+            <p><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></p>
             <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
             <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
             <p>Total : </p>
