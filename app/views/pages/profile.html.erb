@@ -65,6 +65,8 @@
           <% current_user.bookings.live.each do |booking| %>
             <p><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></p>
             <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
+
+  
             <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
             <p>Total : </p>
             <% if policy(booking).destroy? %>
