@@ -1,16 +1,22 @@
+
  <div class="d-flex flex-row">
  	<div class="left-run">
  		<%= image_tag "left-runners.svg", class: "run" %>
 	 </div>
 
 	<div class="container">
-		<div class="show-card d-flex flex-row align-items-center">
-			<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
-		<div class="details-show d-flex flex-column">
-			<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
-			<div class="skill"><%= @skill.name %></div>
-		</div>
-		<div class="price"><p> €/heure</p></div>
+		<div class="show-card-price d-flex justify-content-between align-items-center">
+			
+			<div class="show-card d-flex flex-row align-items-center">
+				<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
+			<div class="details-show d-flex flex-column">
+				<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
+				<div class="skill"><%= @skill.name %></div>
+			</div>
+		    </div>
+			<% @skill.experiences.each do |experience| %>
+				<div><span class="price"><%= experience.price %></span> €/heure</div>
+			<% end %>
 		</div>
 	
 		<div class="show d-flex flex-row justify-content-between">
@@ -28,16 +34,18 @@
 			</div>	
 
 			<div class="calandar">
-				<div class="container">
+				
  					 <!-- <div class="form-wrapper" style="width: 400px; margin: 0 auto;"> -->
-				    	<%= simple_form_for @booking do |f| %>
-					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker"} %>
-					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker"} %>
-					      
+ 					 <div class="booking-form">
+				    	<%= simple_form_for([@skill, @booking]) do |f| %>
+					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
+					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
 					      <%= f.button :submit, "Réserve", class: "btn-green" %>
 					   <% end %>
+ 					 </div>
+					    <p>Prix total : <span id="total-price"></span> € </p>
 				 	 <!-- </div> -->
-				</div>
+				
 			</div>
 		</div>
 

@@ -1,20 +1,20 @@
 <h2>Ton profil :</h2>
 
-<% if @profile.skills.empty? %>
+<% if current_user.skills.empty? %>
   <div class="profile-container">
       <h4>Ton identité :</h4>
       <div class="identity">
-        <p><span class="bold">Nom :</span> <%= @profile.last_name.capitalize %></p>
-        <p><span class="bold">Prénom : </span><%= @profile.first_name.capitalize %></p>
-        <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address %></p>
-        <p><i class="fas fa-at"></i> <%= @profile.email %></p>
+        <p><span class="bold">Nom :</span> <%= current_user.last_name.capitalize %></p>
+        <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+        <p><i class="fas fa-at"></i> <%= current_user.email %></p>
         <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
       </div>
       <h4>Tes réservations en cours :</h4>
       <div class="reservations-en-cours">
-          <% @bookings_live.each do |booking| %>
+          <% current_user.bookings.live.each do |booking| %>
             <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
-            <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
             <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
             <p>Total : </p>
             <% if policy(booking).destroy? %>
@@ -24,9 +24,9 @@
       </div>
       <h4>Tes réservations passées :</h4>
       <div class="reservations-past">
-          <% @bookings_past.each do |booking| %>
+          <% current_user.bookings.past.each do |booking| %>
             <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
-            <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
             <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
             <p>Total : </p>
 
@@ -40,15 +40,15 @@
     <div class="profile-identity">
       <h4>Ton identité :</h4>
         <div class="identity">
-          <p><span class="bold">Nom : </span><%= @profile.last_name.capitalize %></p>
-          <p><span class="bold">Prénom : </span><%= @profile.first_name.capitalize %></p>
-          <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address %></p>
-          <p><i class="fas fa-at"></i> <%= @profile.email %></p>
+          <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
+          <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
+          <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+          <p><i class="fas fa-at"></i> <%= current_user.email %></p>
             <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
         </div>
         <h4>Ta séance : </h4>
         <div class="seance">
-          <% @profile.skills.each do |skill|  %>
+          <% current_user.skills.each do |skill|  %>
             <p><span class="bold">Description : </span><%= skill.description %></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= skill.location %></p>
             <p>Tarif : </p>
@@ -62,9 +62,11 @@
     <div class="profile-reservations">
       <h4>Tes réservations en cours :</h4>
       <div class="reservations-en-cours">
-          <% @bookings_live.each do |booking| %>
-            <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
-            <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
+          <% current_user.bookings.live.each do |booking| %>
+            <p><%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
+
+  
             <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
             <p>Total : </p>
             <% if policy(booking).destroy? %>
@@ -87,9 +89,9 @@
     <div class="coach-as-user">
       <h4>Tes réservations en tant qu'utilisateur :</h4>
       <div class="reservations-coach-as-user">
-        <% @bookings_live.each do |booking| %>
+        <% current_user.bookings.live.each do |booking| %>
           <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
-          <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
+          <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
           <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
           <p>Total : </p>
             <% if policy(booking).destroy? %>
