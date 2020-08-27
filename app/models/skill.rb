@@ -1,5 +1,4 @@
 class Skill < ApplicationRecord
-  NAMES = ["Entraîneur", "Préparateur mental", "Préparateur physique" ]
 
   belongs_to :user
   has_many :experiences, dependent: :destroy
@@ -7,7 +6,7 @@ class Skill < ApplicationRecord
   has_many :sports, through: :experiences
   
 
-  validates :name, presence: true, inclusion: {in: Skill::NAMES}
+  validates :name, presence: true
   validates :location, presence: true
   validates :description, presence: true
 
@@ -22,6 +21,9 @@ class Skill < ApplicationRecord
   	associated_against: {
   		experiences: [:years],
   		sports: [:name]
-  	}
+    }
+  
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
 end

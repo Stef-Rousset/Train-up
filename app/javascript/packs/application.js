@@ -30,6 +30,8 @@ import "../plugins/flatpickr";
 
 // Internal imports, e.g:
 import { fadeText } from '../components/fade_text';
+import { initMapbox } from '../plugins/init_mapbox';
+
 import { loadDynamicBannerText } from '../components/banner';
 import { dynamicPriceCalculator } from '../plugins/flatpickr'
 
@@ -37,6 +39,10 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   fadeText()
+<<<<<<< HEAD
   dynamicPriceCalculator()
+=======
+  initMapbox();
+>>>>>>> master
   // loadDynamicBannerText();
 });
