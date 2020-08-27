@@ -4,8 +4,15 @@
 
   <%= simple_form_for ([@booking, @review]) do |f|%>
     <%= f.input :content, label: "Détaille ton expérience" %>
-    <%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience" %>
-    <i class="fas fa-star"></i>
-    <%= f.submit "Poste ton commentaire", class: "btn-green" %>
+
+    <div class="my-3">
+    <%= f.input :rating, as: :hidden, label: "Note ton expérience" %>
+
+        <% 5.times do |index| %>
+          <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
+        <% end %>
+      </div>
+    <%= f.submit "Valide", class: "btn-green" %>
   <% end %>
+
 
