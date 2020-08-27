@@ -13,9 +13,20 @@
   }
 }
 
+.algolia-places {
+  width: 200px;
+  align-items: center;
+}
+
+#skill_location.filters.ap-input {
+  vertical-align: middle !important;
+}
+
 .exp {
   width: 150px;
   margin: 0;
+  margin-bottom: 5px;
+  vertical-align: top;
 }
 
 .cards-map {
@@ -45,6 +56,6 @@
 }
 
 .label-exp {
-  margin-left: 25px;
+  margin-left: 0px;
   margin-bottom: 0;
 }

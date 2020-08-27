@@ -14,8 +14,8 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [2.333333, 48.866667], // Starting position [lng, lat]
-      zoom: 12, // Starting zoom level
+      center: [2.213749, 46.227638], // Starting position [lng, lat]
+      zoom: 12, // Starting zoom level!
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
