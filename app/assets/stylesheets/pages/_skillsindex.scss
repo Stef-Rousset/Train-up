@@ -1,6 +1,30 @@
-.filter-box {
-  display: flex;
-  justify-content: space-between;
+.cont {
+  // width: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.title-index {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  // text-shadow: 1px 1px 3px rgba(15,93,94,1);
+  & h1 {
+    font-size: 30px;
+  }
+}
+
+.exp {
+  width: 150px;
+  margin: 0;
+}
+
+.cards-map {
+  // gap: 10px;
+  margin-top: 20px;
+}
+
+#map {
+  position: sticky;
 }
 
 .filters {
@@ -14,7 +38,6 @@
   border: 1px solid #ced4da;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  
 }
 
 .custom-range {
@@ -22,8 +45,6 @@
 }
 
 .label-exp {
-  // display: flex;
-  align-items: flex-start;
   margin-left: 25px;
   margin-bottom: 0;
 }

@@ -10,6 +10,7 @@ class SkillsController < ApplicationController
     @skills = @skills.joins(:experiences).where(experiences: {sport_id: params[:sport_id]}) if params[:sport_id].present?
     @skills = @skills.joins(:experiences).where(experiences: {specialty: params[:specialty]}) if params[:specialty].present?
     @skills = @skills.joins(:experiences).where("experiences.years >= ?", params[:exp_years]) if params[:exp_years].present?
+    @skills = @skills.joins(:experiences).where("experiences.price >= ?", params[:exp_price]) if params[:exp_price].present?
     @skills = @skills.where("location ILIKE ?", "%#{params[:skill_location]}%") if params[:skill_location].present?
     
     # @center_lat = Geocoder.search(params[:skill_latitude])
@@ -19,7 +20,6 @@ class SkillsController < ApplicationController
     # @skills.map do |skill|
       # @skills.reject { |s| !@skills_by_adress.include?(s) }
     # end
-
 
     @markers = @skills.geocoded.map do |skill|
       {
