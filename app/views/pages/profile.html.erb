@@ -12,7 +12,7 @@
       </div>
       <h4>Tes réservations en cours :</h4>
       <div class="reservations-en-cours">
-        <% if @booking.status == "pending" %>
+        <% if @bookings.date >= Date.now %>
           <% @bookings.each do |booking| %>
             <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
             <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
@@ -26,7 +26,7 @@
       </div>
       <h4>Tes réservations passées :</h4>
       <div class="reservations-past">
-        <% if @booking.status != "pending" %>
+        <% if @booking.date < Date.now %>
           <% @bookings.each do |booking| %>
             <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
             <p><i class="far fa-calendar-alt"></i> <%= booking.date %></p>
