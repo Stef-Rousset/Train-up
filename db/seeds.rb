@@ -77,6 +77,18 @@ experience_three.save!
 
 puts "experiences done"
 
+puts "creating bookings"
+bookings = [booking_one, booking_two, booking_three]
 
+bookings.each do |booking|
+  booking = Booking.create!(name: booking)
+end
 
+booking_one = Booking.create!(user: user_one, skill: skill_fisrt, date: Date.parse("12/09/2020"), start_hour: 10 a.m., end_hour: 11 p.m.)
+booking_one.save!
+booking_two = Booking.create!(user: user_two, skill: skill_second, date: Date.parse("16/09/2020"), start_hour: 1 p.m., end_hour: 2 p.m.)
+booking_two.save!
+booking_three = Booking.create!(user: user_three, skill: skill_third, date: Date.parse("16/09/2020"), start_hour: 6 p.m., end_hour: 7 p.m.)
+booking_three.save!
 
+puts "booking done"
