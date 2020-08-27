@@ -1,5 +1,5 @@
-class ReviewController < ApplicationController
-def new
+class ReviewsController < ApplicationController
+  def new
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
@@ -28,4 +28,4 @@ def new
     params.require(:review).permit(:content, :rating)
   end
 end
-end
+
