@@ -1,5 +1,3 @@
-<!-- <div class=" show d-flex align-content-between flex-wrap">
- <-->
  <div class="d-flex flex-row">
  	<div class="left-run">
  		<%= image_tag "left-runners.svg", class: "run" %>
@@ -12,29 +10,50 @@
 			<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
 			<div class="skill"><%= @skill.name %></div>
 		</div>
+		<div class="price"><p> €/heure</p></div>
 		</div>
 	
 		<div class="show d-flex flex-row justify-content-between">
 			
 			<div class="competences">
-				<p>Spécialité:</p>
-				<p>Expérience:</p>
-				<p>Profil:</p>
-				<p>Localisation:</p>
+				<% @skill.experiences.each do |experience|%>
+					<% if experience.specialty %>
+						<p>Spécialité: <%= experience.specialty %></p>
+					<% end %>
+					<p>Expérience: <%= experience.years %> années </p>
+				<% end %>
+				<p>Profil: <%= @skill.description %></p>
+				<p>Localisation: <%= @skill.location %></p>
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 			</div>	
 
 			<div class="calandar">
-				<p>Réserver</p>
+				<div class="container">
+ 					 <!-- <div class="form-wrapper" style="width: 400px; margin: 0 auto;"> -->
+				    	<%= simple_form_for @booking do |f| %>
+					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker"} %>
+					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker"} %>
+					      
+					      <%= f.button :submit, "Réserve", class: "btn-green" %>
+					   <% end %>
+				 	 <!-- </div> -->
+				</div>
 			</div>
 		</div>
 
 		<div class="show d-flex flex-column justify-content-between">
 			<div class="video">
 				<h1>Video d'une séance</h1>
+				<%#= @skil.video.key %>
 			</div>
 			<div class="comment">
 				<h1>Commentaires</h1>
+				<% @skill.bookings.each do |booking| %>
+					<% booking.reviews.each do |review| %>
+						<%= review.content %>
+						<%= review.rating %>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>
