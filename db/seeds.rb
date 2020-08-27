@@ -26,7 +26,7 @@ user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jb
 puts "users done"
 
 puts "creating skills"
-skill_first = Skill.create!(name: "Entraîneur", location: "gymase Rosa Parks, 2 rue du Moulin des Lapins 75014 Paris", description: "J'enseigne aux enfants et aux adultes", user: user_one)
+skill_first = Skill.create!(name: "Entraîneur", location: "Centre sportif Rosa Parks, 2 rue du Moulin des Lapins 75014 Paris", description: "J'enseigne aux enfants et aux adultes", user: user_one)
 skill_first.save!
 skill_second = Skill.create!(name: "Préparateur physique", location: "99 Boulevard Kellermann, 75013 Paris", description: "Je m'adapte à votre niveau et à vos besoins", user: user_two)
 skill_second.save!
