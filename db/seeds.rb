@@ -26,7 +26,7 @@ user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jb
 puts "users done"
 
 puts "creating skills"
-skill_first = Skill.create!(name: "Entraîneur", location: "gymase Rosa Parks, 2 rue du Moulin des Lapins 75014 Paris", description: "J'enseigne aux enfants et aux adultes", user: user_one)
+skill_first = Skill.create!(name: "Entraîneur", location: "Centre sportif Rosa Parks, 2 rue du Moulin des Lapins 75014 Paris", description: "J'enseigne aux enfants et aux adultes", user: user_one)
 skill_first.save!
 skill_second = Skill.create!(name: "Préparateur physique", location: "99 Boulevard Kellermann, 75013 Paris", description: "Je m'adapte à votre niveau et à vos besoins", user: user_two)
 skill_second.save!
@@ -60,23 +60,30 @@ puts "sports done"
 
 
 puts "creating experiences"
-experience_one = Experience.create(years: 3, specialty: "Sabre")
+experience_one = Experience.create(years: 3, specialty: "Sabre", price: 40)
 experience_one.skill = skill_first
 experience_one.sport = sport_one
 experience_one.save!
 
-experience_two = Experience.create(years: 5)
+experience_two = Experience.create(years: 5, price: 50)
 experience_two.skill = skill_second
 experience_two.sport = sport_two
 experience_two.save!
 
-experience_three = Experience.create(years: 10)
+experience_three = Experience.create(years: 10, price: 45)
 experience_three.skill = skill_third
 experience_three.sport = sport_three
 experience_three.save!
 
 puts "experiences done"
 
+puts "creating bookings"
 
+booking_one = Booking.create!(user: user, skill: skill_first, start_date: DateTime.parse("12/09/2020 10:00"), end_date: DateTime.parse("12/09/2020 11:00"))
+booking_one.save!
+booking_two = Booking.create!(user: user, skill: skill_second, start_date: DateTime.parse("16/09/2020 13:00"), end_date: DateTime.parse("12/09/2020 14:00"))
+booking_two.save!
+booking_three = Booking.create!(user: user, skill: skill_third, start_date: DateTime.parse("20/08/2020 17:00"), end_date: DateTime.parse("20/08/2020 18:00"))
+booking_three.save!
 
-
+puts "booking done"

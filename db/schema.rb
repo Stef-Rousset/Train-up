@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_085354) do
+
+ActiveRecord::Schema.define(version: 2020_08_27_110117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
-  enable_extension "unaccent"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,13 +40,14 @@ ActiveRecord::Schema.define(version: 2020_08_27_085354) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
-    t.date "date"
+    t.datetime "start_date"
     t.integer "start_hour"
     t.integer "end_hour"
     t.bigint "skill_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "end_date"
     t.index ["skill_id"], name: "index_bookings_on_skill_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_085354) do
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["skill_id"], name: "index_experiences_on_skill_id"
     t.index ["sport_id"], name: "index_experiences_on_sport_id"
   end

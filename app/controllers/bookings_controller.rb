@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+  end
 
-def create
+  def create
   authorize @booking
   @skill = Skill.find(params[:skill_id])
   @booking = Booking.new(booking_params)
@@ -23,7 +25,7 @@ end
 private
 
 def booking_params
-  params.require(:booking).permit(:status, :start_hour, :end_hour, :skill_id, :user_id)
+  params.require(:booking).permit(:status, :start_date, :end_date, :skill_id, :user_id)
 end
 
 end

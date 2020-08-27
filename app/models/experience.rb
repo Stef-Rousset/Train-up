@@ -3,4 +3,5 @@ class Experience < ApplicationRecord
   belongs_to :skill
 
   validates :years, presence: true
+  validates :price, presence: true
 end

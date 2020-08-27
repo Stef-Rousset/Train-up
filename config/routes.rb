@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:destroy]
 
+  resources :bookings do
+    resources :reviews, only: [:new, :create, :edit, :update]
+  end
 end
