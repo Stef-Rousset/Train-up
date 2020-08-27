@@ -6,11 +6,7 @@ class ExperiencePolicy < ApplicationPolicy
   end
 
     def create?
-      true
-    end
-
-    def edit?
-      true
+      record.user == user
     end
 
     def update?
