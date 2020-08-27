@@ -27,11 +27,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { fadeText } from '../components/fade_text';
+import { initMapbox } from '../plugins/init_mapbox';
+
 import { loadDynamicBannerText } from '../components/banner';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   fadeText()
+  initMapbox();
   // loadDynamicBannerText();
 });

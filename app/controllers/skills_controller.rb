@@ -11,6 +11,13 @@ class SkillsController < ApplicationController
     @skills = @skills.joins(:experiences).where(experiences: {specialty: params[:specialty]}) if params[:specialty].present?
     @skills = @skills.joins(:experiences).where("experiences.years >= ?", params[:exp_years]) if params[:exp_years].present?
 
+    @markers = @skills.geocoded.map do |skill|
+      {
+        lat: skill.latitude,
+        lng: skill.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { skill: skill })
+      }
+    end
   end
 
   def show
