@@ -3,11 +3,16 @@
   font-weight: bold;
   font-size: 16px;
 }
-.identity, .seance {
+.identity, .seance, .video, .reviews {
   background-color: white;
   padding: 5px 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  width: 80%;
 }
 .profile-coach-container {
-  width: 500px;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 100px;
+
 }
