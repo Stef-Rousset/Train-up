@@ -1,18 +1,16 @@
-
-  <h2 class="mt-3 mb-3" style="color: #105D5E">Laisse ton commentaire !</h2>
-
-
-  <%= simple_form_for ([@booking, @review]) do |f|%>
-    <%= f.input :content, label: "Détaille ton expérience" %>
-
-    <div class="my-3">
-    <%= f.input :rating, as: :hidden, label: "Note ton expérience" %>
-
-        <% 5.times do |index| %>
-          <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
-        <% end %>
+<div class="review">
+    <h2>Laisse ton commentaire</h2>
+    <%= simple_form_for [@booking, @review] do |f| %>
+      <%= f.input :content, label: "Détaille ton expérience" %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+      <div class="my-3">
+        <%# 5.times do |index| %>
+        <!--
+          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
+        -->
+        <%# end %>
       </div>
-    <%= f.submit "Valide", class: "btn-green" %>
-  <% end %>
-
+      <%= f.submit "Valide", class: "btn-green" %>
+    <% end %>
+</div>
 

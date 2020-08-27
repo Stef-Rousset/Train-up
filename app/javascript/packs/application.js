@@ -33,12 +33,16 @@ import { fadeText } from '../components/fade_text';
 import { initMapbox } from '../plugins/init_mapbox';
 
 import { loadDynamicBannerText } from '../components/banner';
+import { initStarRating } from '../plugins/init_star_rating';
+
+
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  fadeText()
+  /* fadeText(); */
   initMapbox();
+  initStarRating();
   // loadDynamicBannerText();
 });
