@@ -5,9 +5,7 @@ class PagesController < ApplicationController
 	end
 
   def profile
-    @profile = current_user
-    @skills = Skill.where(user: current_user)
-    @bookings = Booking.where(user: current_user)
-    @experiences = Experience.where(user: current_user)
+    @reviews_last = Review.where(user: current_user).last(3)
   end
 end
+

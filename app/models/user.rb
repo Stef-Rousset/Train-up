@@ -4,8 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :bookings
+
   has_many :skills
+  has_many :bookings
+
+  # has_many :booked_courses, through: :skills, class_name: 'Booking'
   has_many :reviews
 
   validates :first_name, presence: true
