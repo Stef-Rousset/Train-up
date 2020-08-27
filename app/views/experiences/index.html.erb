@@ -1,12 +1,15 @@
-
 <h2>Choisis un sport et renseignes ton expérience :</h2>
-  <% if @experiences.nil? %>
+
+
+<div class="experience-container">
+<%= image_tag "runner.png", alt: "runner", class: "runner" %>
+  <%= image_tag "runnerbis.png", alt: "runner", class: "runnerbis" %>
+  <div class="experience-form">
+    <% if @experiences.nil? %>
     <h4> Tu n'as pas encore renseigné d'expérience...</h4>
   <% else %>
     <h4> As-tu une autre expérience à renseigner ?</h4>
   <% end %>
-<div class="experience-container">
-  <div class="experience-form">
     <%= simple_form_for ([@skill, @experience]) do |f| %>
     <%= f.input :sport, :label => "Sélectionne ton sport", :collection => %w[Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation
     Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf
