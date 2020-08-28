@@ -45,10 +45,10 @@ user_five = User.create!(first_name: "Elodie", last_name: "Truc", email: "etruc@
 file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
 user_five.photo.attach(io: file, filename: 'ElodieTruc.jpg', content_type: 'image/jpg')
 user_six = User.create!(first_name: "Oliva", last_name: "Ibanez", email: "Olivia.ibanez@gmail.com", password: "123hello", sex: "femme", address:"3 avenue de la Préfecture 35000 Rennes", birth_date: Date.parse("10/06/1980"))
-file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+file = URI.open('https://unsplash.com/photos/09xIq0nsFRM')
 user_six.photo.attach(io: file, filename: 'OlivaIbanez.jpg', content_type: 'image/jpg')
 user_seven = User.create!(first_name: "Cécile", last_name: "Klein", email: "klein.cécile@gmail.com", password: "123hello", sex: "femme", address:"41 Quai de Pierre-Scize, 69009 Lyon", birth_date: Date.parse("28/07/1990"))
-file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+file = URI.open('https://unsplash.com/photos/jMhnVcbtPSQ')
 user_seven.photo.attach(io: file, filename: 'CécileKlein.jpg', content_type: 'image/jpg')
 puts "users done"
 
