@@ -1,14 +1,15 @@
 // style for coach
-.reservations-en-cours-coach, .identity-coach, .seance, .video, .reviews, .reservations-coach-as-user {
+.reservations-en-cours-coach, .identity-coach, .seance, .video, .reviews-coach, .reservations-coach-as-user {
   background-color: white;
   padding: 5px 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   margin-bottom: 10px;
+  margin-left: 10px;
   z-index: 2;
-  width: 80%;
+  width: 30%;
 }
 .profile-coach-container {
-  width: 85%;
+  width: 1000px;
   display: flex;
   justify-content: space-around;
   margin: 50px 100px;
