@@ -23,7 +23,9 @@
               <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
               <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
               <div class="link">
-                <p>Total : </p>
+                <% booking.skill.experiences.each do |experience| %>
+                <p>Total : <%= duration * experience.price %> €</p>
+                <% end %>
                   <% if policy(booking).destroy? %>
                     <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
                   <% end %>
@@ -39,7 +41,9 @@
                 <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
                 <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
                 <div class="link">
-                  <p>Total : </p>
+                  <% booking.skill.experiences.each do|experience| %>
+                  <p>Total : <%= duration * experience.price %> €</p>
+                  <% end %>
                   <%= link_to "Laisse un commentaire", new_booking_review_path(booking), class: "btn-green" %>
                 </div>
               <% end %>
@@ -62,7 +66,9 @@
             <% current_user.skills.each do |skill|  %>
               <p><span class="bold">Description : </span><%= skill.description %></p>
               <p><i class="fas fa-map-marker-alt"></i> <%= skill.location %></p>
-              <p>Tarif : </p>
+              <% skill.experiences.each do |experience| %>
+                 <p>Tarif :<%= experience.price %>€</p>
+              <% end %>
             <% end %>
           </div>
           <h4>Ta vidéo : </h4>
@@ -77,7 +83,9 @@
               <p><%= received_booking.user.first_name.capitalize %> <%= received_booking.user.last_name.capitalize %></p>
               <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date %></p>
               <p><i class="far fa-clock"></i> <%= received_booking.start_date %> à :<%= received_booking.end_date %></p>
-              <p>Total : </p>
+              <% received_booking.skill.experiences.each do |experience| %>
+              <p>Total : <%= duration * experience.price %>  €</p>
+              <% end %>
               <% if policy(received_booking).destroy? %>
                 <%= link_to "Annuler", dashboard_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
               <% end %>
@@ -101,7 +109,9 @@
               <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
               <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
               <p><i class="far fa-clock"></i> <%= booking.start_date %> à :<%= booking.end_date %></p>
-              <p>Total : </p>
+              <% booking.skill.experiences.each do |experience| %>
+              <p>Total : <%= experience.price %> €</p>
+              <% end %>
                 <% if policy(booking).destroy? %>
                   <%= link_to "Annuler", dashboard_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
                 <% end %>

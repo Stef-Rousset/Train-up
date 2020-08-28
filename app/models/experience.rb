@@ -4,4 +4,8 @@ class Experience < ApplicationRecord
 
   validates :years, presence: true
   validates :price, presence: true
+
+  def duration
+    (end_date - start_date).to_i
+  end
 end
