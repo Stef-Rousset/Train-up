@@ -1,5 +1,3 @@
-
-
 const fadeText = () => {
 const textHome = document.getElementById('banner-typed-text');
 if (textHome) {
