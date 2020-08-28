@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -27,8 +28,12 @@ Sport.destroy_all
 puts "creating users"
 user = User.create!(first_name: "Julie", last_name: "Grison", email: "jgrisond@gmail.com", password: "coucou123", sex: "femme", address: "25 boulevard Voltaire 75011 Paris", birth_date: Date.parse("04/11/1990"))
 user_one = User.create!(first_name: "Charles", last_name: "Martin", email: "cmartin@gmail.com", password: "escrime", sex: "homme", address: "50 rue Saint Martin 75004 Paris", birth_date: Date.parse("12/07/1992"))
+file = URI.open('https://lepetitjournal.com/sites/default/files/2020-05/griffin-wooldridge-7Sz71zuuW4k-unsplash.jpg')
+user_three.photo.attach(io: file, filename: 'CharlesMartin.jpg', content_type: 'image/jpg')
 user_two = User.create!(first_name: "Catherine", last_name: "Durand", email: "cdurand@gmail.com", password: "123456", sex: "femme", address: "1 rue de Lille 75007 Paris", birth_date: Date.parse("10/01/1995"))
 user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jblondet@gmail.com", password: "123hello", sex: "homme", address:"35 rue Beauregard 75002 Paris", birth_date: Date.parse("25/05/1983"))
+file = URI.open('https://www.beonfleek.fr/wp-content/uploads/2019/08/dominic-conner-1068145-unsplash-215x300.jpg')
+user_three.photo.attach(io: file, filename: 'JulienBlondet.jpg', content_type: 'image/jpg')
 user_four = User.create!(first_name: "Jeanne", last_name: "Dupond", email: "jdupond@gmail.com", password: "123hello", sex: "femme", address:"69 bd Gorbella, 06100 Nice", birth_date: Date.parse("02/10/1988"))
 user_five = User.create!(first_name: "Elodie", last_name: "Truc", email: "etruc@gmail.com", password: "123hello", sex: "femme", address:"34 Rue des Bouchers, 59800 Lille", birth_date: Date.parse("12/09/1973"))
 user_six = User.create!(first_name: "Oliva", last_name: "Ibanez", email: "Olivia.ibanez@gmail.com", password: "123hello", sex: "femme", address:"3 avenue de la Préfecture 35000 Rennes", birth_date: Date.parse("10/06/1980"))
@@ -153,3 +158,5 @@ booking_three = Booking.create!(user: user, skill: skill_third, start_date: Date
 booking_three.save!
 
 puts "booking done"
+
+

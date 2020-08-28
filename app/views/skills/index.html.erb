@@ -11,7 +11,7 @@
         <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, params[:specialty] ), class: "filters", prompt: 'Spécialité' %>
         <%= text_field_tag "skill_location", '', size: 25, class: "filters", placeholder: "Adresse"%>
       </div>
- 
+
       <div class="exp flex-column">
         <label for="customRange2", class= "label-exp">Expérience</label>
         <%= range_field_tag "exp_years", 0, min: 0, max: 5, class: "custom-range"%>
@@ -28,7 +28,7 @@
           <label for="max" class="pull-right">100</label>
         </div>
       </div>
-  
+
     <div>
       <%= submit_tag "Rechercher", class: "btn btn-primary" %>
     </div>
@@ -40,7 +40,10 @@
   <% @skills.each do |skill| %>
     <div class="card-product">
       <%= link_to skill_path(skill) do %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% if skill.user.photo.attached? %>
+          <%= cl_image_tag skill.user.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />        <% end %>
       <% end %>
 
       <div class="card-product-infos">
@@ -59,7 +62,7 @@
           <p><i class="fas fa-map-marker-alt"></i>  <%= skill.location.capitalize %></p>
         <% end %>
       </div>
-    </div> 
+    </div>
   <% end %>
 </div>
 
