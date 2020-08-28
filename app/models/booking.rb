@@ -13,7 +13,7 @@ class Booking < ApplicationRecord
     (end_date - start_date).to_i
   end
 
-  # def total_price
-  #   duration * skill.experience.price
-  # end
+  def total_price
+    duration * skill.experiences.first.price
+  end
 end
