@@ -10,7 +10,7 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
 
   def duration
-    (end_date - start_date).to_i
+    ((end_date.strftime("%H:%M").to_i) - (start_date.strftime("%H:%M").to_i))
   end
 
   def total_price
