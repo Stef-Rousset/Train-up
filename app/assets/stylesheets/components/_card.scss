@@ -10,8 +10,8 @@
   border-radius: 6px;
   &:hover {
     box-shadow: 0 8px 12px 0 rgba(0,0,0,0.4);
-    height: 200px;
-    width: 600px;
+    // height: 200px;
+    width: 570px;
   }
 }
 
@@ -53,16 +53,17 @@
   height: 168px;
   width: 120px;
   object-fit: cover;
-  &:hover {
-    height: 200px;
-  }
+  // &:hover {
+    // height: 200px;
+  // }
 } 
 
 .card-product .card-product-infos {
   padding: 16px;
-  padding-bottom: 34px;
+  // padding-bottom: 34px;
 }
 
-.card-product-infos {
-  width: 430px;
-}
+// .card-product-infos {
+  // width: 430px;
+// }
+// 

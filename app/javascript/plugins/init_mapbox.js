@@ -13,7 +13,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/julieclz/ckeegqone0w2p19o5eudssqph',
       center: [2.213749, 46.227638], // Starting position [lng, lat]
       zoom: 12, // Starting zoom level!
     });
