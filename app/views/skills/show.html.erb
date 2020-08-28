@@ -28,12 +28,12 @@
 			<div class="competences d-flex flex-column justify-content-around">
 				<% @skill.experiences.each do |experience|%>
 					<% if experience.specialty %>
-						 <div class="comp d-flex flex-row"><div class="comp-titre">Spécialité</div> <div><%= experience.specialty %></div></div>
+						 <div class="comp d-flex flex-row"><div class="comp-titre">Spécialité</div> <div class="comp-text"><%= experience.specialty %></div></div>
 					<% end %>
-					<div class="comp d-flex"><div class="comp-titre">Expérience</div> <div><%= experience.years %> années </div></div>
+					<div class="comp d-flex"><div class="comp-titre">Expérience</div> <div class="compt-text"><%= experience.years %> années </div></div>
 				<% end %>
-				<div class="comp d-flex"><div class="comp-titre">Profil</div> <div><%= @skill.description %></div></div>
-				<div class="comp d-flex"><div class="comp-titre">Localisation</div><div><%= @skill.location %></div></div>
+				<div class="comp d-flex"><div class="comp-titre">Profil</div> <div class="comp-text"><%= @skill.description %></div></div>
+				<div class="comp d-flex"><div class="comp-titre location">Localisation</div><div class="comp-text"><%= @skill.location %></div></div>
 
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 			</div>	
@@ -41,11 +41,13 @@
 			<div class="calandar">
 				
 				<div class="booking-form">
-			    	<%= simple_form_for([@skill, @booking]) do |f| %>
-				      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
-				      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
-				    <p>Prix total : <span id="total-price"></span>€ </p>
-				      <%= f.button :submit, "Réserve", class: "btn-green" %>
+				    <% if current_user != @skill.user %>
+				    	<%= simple_form_for([@skill, @booking]) do |f| %>
+					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
+					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
+					    <p>Prix total : <span id="total-price"></span>€ </p>
+					      <%= f.button :submit, "Réserver", class: "btn-green" %>
+					   <% end %>`
 				   <% end %>
 			   </div>
 		 
@@ -56,14 +58,23 @@
 		<div class="show d-flex flex-column justify-content-between">
 			<div class="video">
 				<h1>Video d'une séance</h1>
-				<%#= @skil.video.key %>
+				</br>
+
+				<video controls width="250">
+				    <source src= "<%= asset_path('video.mp4'	) %>"
+				            type="video/mp4">
+				</video>
+
+
 			</div>
 			<div class="comment">
-				<h1>Commentaires</h1>
-				<% @skill.bookings.each do |booking| %>
-					<% booking.reviews.each do |review| %>
-						<%= review.content %>
-						<%= review.rating %>
+				<% if @skill.reviews.present? %>
+					<h1>Commentaires</h1>
+					<% @skill.bookings.each do |booking| %>
+						<% booking.reviews.each do |review| %>
+							<%= review.content %>
+							<%= review.rating %>
+						<% end %>
 					<% end %>
 				<% end %>
 			</div>
