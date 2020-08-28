@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     authorize @review
     if @review.save
-      redirect_to profile_path
+      redirect_to skill_path(@review.booking.skill)
     else
       render :new
     end
