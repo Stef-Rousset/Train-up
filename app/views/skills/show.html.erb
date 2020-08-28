@@ -28,12 +28,12 @@
 			<div class="competences d-flex flex-column justify-content-around">
 				<% @skill.experiences.each do |experience|%>
 					<% if experience.specialty %>
-						 <div class="comp d-flex flex-row"><div class="comp-titre">Spécialité</div> <div><%= experience.specialty %></div></div>
+						 <div class="comp d-flex flex-row"><div class="comp-titre">Spécialité</div> <div class="comp-text"><%= experience.specialty %></div></div>
 					<% end %>
-					<div class="comp d-flex"><div class="comp-titre">Expérience</div> <div><%= experience.years %> années </div></div>
+					<div class="comp d-flex"><div class="comp-titre">Expérience</div> <div class="compt-text"><%= experience.years %> années </div></div>
 				<% end %>
-				<div class="comp d-flex"><div class="comp-titre">Profil</div> <div><%= @skill.description %></div></div>
-				<div class="comp d-flex"><div class="comp-titre location">Localisation</div><div><%= @skill.location %></div></div>
+				<div class="comp d-flex"><div class="comp-titre">Profil</div> <div class="comp-text"><%= @skill.description %></div></div>
+				<div class="comp d-flex"><div class="comp-titre location">Localisation</div><div class="comp-text"><%= @skill.location %></div></div>
 
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 			</div>	
