@@ -4,6 +4,7 @@ class Skill < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :sports, through: :experiences
+  has_many :reviews, through: :bookings
   
 
   validates :name, presence: true
