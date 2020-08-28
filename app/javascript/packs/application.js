@@ -31,13 +31,24 @@ import "../plugins/flatpickr";
 
 // Internal imports, e.g:
 import { fadeText } from '../components/fade_text';
-import { loadDynamicBannerText } from '../components/banner';
+// import { loadDynamicBannerText } from '../components/banner';
 import { dynamicPriceCalculator } from '../plugins/flatpickr';
+import { initMapbox } from '../plugins/init_mapbox';
+import { initStarRating } from '../plugins/init_star_rating';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
-  fadeText()
-  dynamicPriceCalculator()
+
+  // initSelect2()
+  
+  initMapbox();
+  initStarRating();
+
+  fadeText();
+
+  dynamicPriceCalculator();
+
   // loadDynamicBannerText();
+
 });
