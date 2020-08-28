@@ -38,7 +38,7 @@ user_two.photo.attach(io: file, filename: 'OlivaIbanez.jpg', content_type: 'imag
 user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jblondet@gmail.com", password: "123hello", sex: "homme", address:"35 rue Beauregard 75002 Paris", birth_date: Date.parse("25/05/1983"))
 file = URI.open('https://www.beonfleek.fr/wp-content/uploads/2019/08/dominic-conner-1068145-unsplash-215x300.jpg')
 user_three.photo.attach(io: file, filename: 'JulienBlondet.jpg', content_type: 'image/jpg')
-user_four = User.create!(first_name: "Jeanne", last_name: "Dupond", email: "jdupond@gmail.com", password: "123hello", sex: "femme", address:"69 bd Gorbella, 06100 Nice", birth_date: Date.parse("02/10/1988"))
+user_four = User.create!(first_name: "Jeanne", last_name: "Dupond", email: "jdupond@gmail.com", password: "123hello", sex: "femme", address:"30 Allée Pierre de Coubertin, 69007 Lyon", birth_date: Date.parse("02/10/1988"))
 file = URI.open('https://i.pinimg.com/originals/da/d5/5e/dad55e43fafb0b0e7a8ce746bd36fb6e.jpg')
 user_four.photo.attach(io: file, filename: 'JeanneDupont.jpg', content_type: 'image/jpg')
 user_five = User.create!(first_name: "Elodie", last_name: "Truc", email: "etruc@gmail.com", password: "123hello", sex: "femme", address:"34 Rue des Bouchers, 59800 Lille", birth_date: Date.parse("12/09/1973"))
