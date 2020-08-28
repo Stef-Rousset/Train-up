@@ -2,6 +2,7 @@ import flatpickr from "flatpickr";
 
 flatpickr(".datepicker", {
 	enableTime: true
+  minDate: Date.now()
 });
 
 const startDate = document.querySelector(".start");
@@ -25,21 +26,6 @@ const dynamicPriceCalculator = () => {
 				});
 			});
 		}
-
-  // const display = document.querySelector(".display")
-
-      // if(startDate && endDate) {
-      //   [startDate, endDate].forEach(date => {
-      //     date.addEventListener("change", (event) => {
-      // //     display.classList.remove("d-none");
-      //      if (isNaN(dynamicPrice()) === true) {
-      //       totalPriceElement.innerText = 0;
-      //      } else {
-      //       totalPriceElement.innerText = dynamicPrice() * pricePerHour;
-      //      }
-      //     });
-      //   })
-      // };
   }
 };
   		
@@ -48,10 +34,5 @@ const dynamicPrice = () => {
     const nbrOfHours = hourDiffInMilliseconds / 86400000;	
 		return nbrOfHours;
 };
-
-
-
-  // dynamicPriceCalculator();
-
 
 export {dynamicPriceCalculator}
