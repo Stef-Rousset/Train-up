@@ -82,7 +82,7 @@
               <p><i class="far fa-clock"></i> <%= received_booking.start_date.strftime("%H:%M") %> à :<%= received_booking.end_date.strftime("%H:%M") %></p>
               <p>Total : <%= received_booking.total_price %> €</p>
               <% if policy(received_booking).destroy? %>
-                <%= link_to "Annuler", dashboard_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+                <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
               <% end %>
             <% end %>
         </div>
@@ -106,7 +106,7 @@
               <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
               <p>Total : <%= booking.total_price %> €</p>
                 <% if policy(booking).destroy? %>
-                  <%= link_to "Annuler", dashboard_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+                  <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
                 <% end %>
               <% end %>
         </div>
