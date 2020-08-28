@@ -38,6 +38,9 @@ class SkillsController < ApplicationController
     @user = current_user
     @skill = Skill.new
     @skill.user = current_user
+    
+    @experience = @skill.experiences.new
+    @sport = @skill.sports.new
     authorize @skill
   end
 
@@ -48,7 +51,8 @@ class SkillsController < ApplicationController
     authorize @skill
 
     if @skill.save
-      redirect_to skill_path(@skill)
+      redirect_to skill_experiences_path(@skill)
+      # redirect_to skill_path(@skill)
     else
       render :new
     end

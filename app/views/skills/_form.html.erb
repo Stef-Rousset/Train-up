@@ -3,9 +3,11 @@
     <%= f.input :name, :label => "Catégorie", :placeholder => "Préparateur physique" %>
     <%= f.input :location, :label => "Localisation", :placeholder => "16 villa Gaudelet 75011 Paris" %>
     <%= f.input :description, :label => "Description", :placeholder => "Détaille ton profil" %>
-
-
+	<%#= f.input :price, :label => "Prix / heure", :placeholder => "50" %>
+	<%#= f.input :name, :label => "Sport", :placeholder => "Escrime"%>
     <%= f.button :submit, "Soumettre", class: "btn-green" %>
 
   <% end %>
 </div>
+
+  <%#= simple_form_for ([@skill, @sports, @experience]) do |f| %>
