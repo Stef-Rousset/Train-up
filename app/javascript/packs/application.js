@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2()
   
   initMapbox();
-  initAutocomplete();
+  // initAutocomplete();
   initStarRating();
 
   fadeText();
