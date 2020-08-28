@@ -36,7 +36,7 @@ skill_second = Skill.create!(name: "Préparateur physique", location: "99 Boulev
 skill_second.save!
 skill_third = Skill.create!(name: "Préparateur mental", location: "15 Boulevard Voltaire, 75011 Paris", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales faucibus nibh, sodales placerat leo fermentum eget. Quisque ultricies diam quam, a maximus metus ultrices eu. Vestibulum auctor sit amet lacus eu ullamcorper.", user: user_three)
 skill_third.save!
-skill_fourth = Skill.create!(name: "Entraîneur", location: "2 rue du Moulin des Lapins, 75014 Paris, 75013 Paris", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales faucibus nibh, sodales placerat leo fermentum eget. Quisque ultricies diam quam, a maximus metus ultrices eu. Vestibulum auctor sit amet lacus eu ullamcorper.", user: user_one)
+skill_fourth = Skill.create!(name: "Entraîneur", location: "2 rue du Moulin des Lapins, 75014 Paris", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales faucibus nibh, sodales placerat leo fermentum eget. Quisque ultricies diam quam, a maximus metus ultrices eu. Vestibulum auctor sit amet lacus eu ullamcorper.", user: user_one)
 skill_fourth.save!
 skill_fifth = Skill.create!(name: "Préparateur physique", location: "2 Rue du Bosphore, 35200 Rennes", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales faucibus nibh, sodales placerat leo fermentum eget. Quisque ultricies diam quam, a maximus metus ultrices eu. Vestibulum auctor sit amet lacus eu ullamcorper.", user: user_six)
 skill_fifth.save!
