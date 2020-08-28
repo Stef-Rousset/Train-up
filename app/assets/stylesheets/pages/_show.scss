@@ -50,12 +50,11 @@
 }
 
 .price-euros {
-	font-size: 32px;
-	font-weight: bold;
+	font-size: 26px;
 }
 
 .price {
-	font-size: 32px;
+	font-weight: bolder;
 }
 
 .euros {
@@ -108,6 +107,14 @@ p #total-price {
 	margin-bottom: 20px;
 	h1 {
 		color: $green;
+	}
+}
+
+.sport {
+	font-size: 24px;
+	span {
+		font-weight: bolder;
+		font-size: 26px;
 	}
 }
 

@@ -8,14 +8,19 @@
 			
 			<div class="show-card d-flex flex-row align-items-center">
 				<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
-			<div class="details-show d-flex flex-column">
-				<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
-				<div class="skill"><%= @skill.name %></div>
-			</div>
-		    </div>
+				<div class="details-show d-flex flex-column">
+					<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
+					<div class="sport"><% @skill.experiences.each do |experience| %>
+						<span><%= experience.sport.name %></span> - <%= @skill.name %>
+					  <% end %>
+					</div>
+				</div>
+			 </div>
+					
 			<% @skill.experiences.each do |experience| %>
-				<div><span class="price"><%= experience.price %></span><span class="euros">€ / heure</span></div>
-			<% end %>
+				<div class="price-euros"><span class="price"><%= experience.price %></span> € / heure
+			<% end %></div>
+			
 		</div>
 	
 		<div class="show d-flex flex-row justify-content-between">
@@ -35,16 +40,15 @@
 
 			<div class="calandar">
 				
- 					 <!-- <div class="form-wrapper" style="width: 400px; margin: 0 auto;"> -->
- 					 <div class="booking-form">
-				    	<%= simple_form_for([@skill, @booking]) do |f| %>
-					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
-					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
-					    <p>Prix total : <span id="total-price"></span> € </p>
-					      <%= f.button :submit, "Réserve", class: "btn-green" %>
-					   <% end %>
- 					 </div>
-				 	 <!-- </div> -->
+				<div class="booking-form">
+			    	<%= simple_form_for([@skill, @booking]) do |f| %>
+				      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
+				      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
+				    <p>Prix total : <span id="total-price"></span>€ </p>
+				      <%= f.button :submit, "Réserve", class: "btn-green" %>
+				   <% end %>
+			   </div>
+		 
 				
 			</div>
 		</div>
