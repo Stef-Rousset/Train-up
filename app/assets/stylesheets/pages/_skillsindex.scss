@@ -4,10 +4,17 @@
   margin-right: 50px;
 }
 
+.price {
+  text-shadow: 1px 1px 1px rgba(15,93,94,0.4);
+  &:hover {
+    font-size: 20px;
+    // text-shadow: 1px 1px 1px rgba(15,93,94,0.8);
+  }
+}
+
 .title-index {
   margin-top: 30px;
-  margin-bottom: 30px;
-  // text-shadow: 1px 1px 3px rgba(15,93,94,1);
+  margin-bottom: 20px;
   & h1 {
     font-size: 30px;
   }
@@ -16,6 +23,10 @@
 .algolia-places {
   width: 200px;
   align-items: center;
+}
+
+.ap-input-icon svg {
+  fill: $green;
 }
 
 #skill_location.filters.ap-input {
@@ -35,7 +46,9 @@
 }
 
 #map {
+  position: -webkit-sticky;
   position: sticky;
+  top: 20px;
 }
 
 .filters {

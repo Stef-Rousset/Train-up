@@ -1,6 +1,6 @@
 <div class="cont">
   <div class="title-index">
-    <h1>Trouve ton coach!</h1>
+    <h1> <i class="fas fa-handshake"></i> TROUVE TON COACH ! <i class="fas fa-handshake"></i></h1>
   </div>
 
   <%= form_tag skills_path, method: :get do %>
@@ -39,34 +39,32 @@
   <div class="container-cards">
   <% @skills.each do |skill| %>
     <div class="card-product">
-    <%= link_to skill_path(skill) do %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= link_to skill_path(skill) do %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <% end %>
 
       <div class="card-product-infos">
-  <%= link_to skill_path(skill) do %>
-        <h2><%=  skill.user.first_name.capitalize %> <%= skill.user.last_name.capitalize %></h2>
-        <h1><%= skill.name.capitalize %></h1>
-        <% skill.experiences.each do |experience| %>
-          <% if experience.specialty.nil? %>
-            <h2><i class="far fa-arrow-alt-circle-right"></i><%= experience.sport.name.capitalize %> : <%= experience.years %> années d'expérience</h2>
-            <h2> <%= experience.price %>€ / h</h2>
-            
-          <% else %>
-            <h2><i class="far fa-arrow-alt-circle-right"></i> <%= experience.sport.name.capitalize %>, <%= experience.specialty.capitalize %> : <%= experience.years %> années d'expérience</h2>
-            <h2><%= experience.price %>€ / h</h2>
+        <%= link_to skill_path(skill) do %>
+          <h2><%= skill.user.first_name.capitalize %> <%= skill.user.last_name.capitalize %></h2>
+          <h1><%= skill.name.capitalize %></h1>
+          <% skill.experiences.each do |experience| %>
+            <% if experience.specialty.nil? %>
+              <h2><i class="far fa-arrow-alt-circle-right"></i> <%=experience.sport.name.capitalize %> : <%= experience.years %> années d'expérience</h2>
+              <h2 class = "price "><i class="fas fa-tags"></i> <%= experience.price %>€ / h</h2>
+            <% else %>
+              <h2><i class="far fa-arrow-alt-circle-right"></i> <%= experience.sport.name.capitalize %>, <%= experience.specialty.capitalize %> : <%= experience.years %> années d'expérience</h2>
+              <h2 class = "price"><i class="fas fa-tags"></i> <%= experience.price %>€ / h</h2>
+            <% end %>
           <% end %>
-        <% end %>
-        <p><i class="fas fa-map-marker-alt"></i>  <%= skill.location.capitalize %></p>
+          <p><i class="fas fa-map-marker-alt"></i>  <%= skill.location.capitalize %></p>
         <% end %>
       </div>
     </div> 
   <% end %>
-
 </div>
 
 <div id="map"
-   style="width: 800px; height: 600px"
+   style="width: 800px; height: 700px"
    data-markers="<%= @markers.to_json %>"
    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
