@@ -1,7 +1,7 @@
 .navbar-trainup {
   justify-content: space-between;
   background: #0F5D5E;
-  height: 50px;
+  height: 65px;
 }
 
 .navbar-trainup .navbar-collapse {
@@ -22,4 +22,17 @@
 
 .navbar {
   position: relative;
+}
+
+.nav-item {
+  align-items: center;
+}
+
+.nav-item.dropdown.show {
+  align-items: center;
+  margin-top: 0;
+}
+
+.dropdown-menu.dropdown-menu-right.show {
+  margin-top: 0;
 }
