@@ -20,7 +20,7 @@
           <% current_user.bookings.live.each do |booking| %>
             <div class="reservations-en-cours">
               <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date("%H:%M") %></p>
+              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%H:%M") %></p>
               <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
               <div class="link">
                 <p>Total : <%= booking.total_price %> €</p>
@@ -36,7 +36,7 @@
           <div class="reservations-past">
               <% current_user.bookings.past.each do |booking| %>
                 <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date("%e-%m-%y") %></p>
+                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%e-%m-%y") %></p>
                 <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
                 <div class="link">
                   <p>Total : <%= booking.total_price %> €</p>
@@ -60,12 +60,12 @@
           <h4>Ta séance : </h4>
           <div class="seance">
             <% current_user.skills.each do |skill|  %>
-              <p><span class="bold">Description : </span><%= skill.description %></p>
-              <p><i class="fas fa-map-marker-alt"></i> <%= skill.location %></p>
+              <p><span class="bold">Description : </span><%= skill.description%></p>
+              <p><i class="fas fa-map-marker-alt"></i> <%= skill.location%></p>
               <% skill.experiences.each do |experience| %>
                  <p>Tarif : <%= experience.price %>€</p>
               <% end %>
-            <% end %>
+              <% end %>
           </div>
           <h4>Ta vidéo : </h4>
           <div class="video">
@@ -101,7 +101,7 @@
         <div class="reservations-coach-as-user">
             <% current_user.bookings.live.each do |booking| %>
               <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
-              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftimestrftime("%m/%d/%Y") %></p>
+              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%m/%d/%Y") %></p>
               <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
               <p>Total : <%= booking.total_price %> €</p>
                 <% if policy(booking).destroy? %>
