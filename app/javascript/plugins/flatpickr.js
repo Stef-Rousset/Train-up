@@ -25,33 +25,13 @@ const dynamicPriceCalculator = () => {
 				});
 			});
 		}
-
-  // const display = document.querySelector(".display")
-
-      // if(startDate && endDate) {
-      //   [startDate, endDate].forEach(date => {
-      //     date.addEventListener("change", (event) => {
-      // //     display.classList.remove("d-none");
-      //      if (isNaN(dynamicPrice()) === true) {
-      //       totalPriceElement.innerText = 0;
-      //      } else {
-      //       totalPriceElement.innerText = dynamicPrice() * pricePerHour;
-      //      }
-      //     });
-      //   })
-      // };
   }
 };
   		
 const dynamicPrice = () => {
     const hourDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
-    const nbrOfHours = hourDiffInMilliseconds / 86400000;	
+    const nbrOfHours = Math.round(hourDiffInMilliseconds/3660000)
 		return nbrOfHours;
 };
-
-
-
-  // dynamicPriceCalculator();
-
 
 export {dynamicPriceCalculator}
