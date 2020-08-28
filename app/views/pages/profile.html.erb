@@ -82,6 +82,10 @@
           </div>
           <h4>Ta vidéo : </h4>
           <div class="video">
+            <video controls width="250">
+            <source src= "<%= asset_path('video.mp4') %>"
+                    type="video/mp4">
+            </video>
             <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
           </div>
       </div>
