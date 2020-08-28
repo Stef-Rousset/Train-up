@@ -5,11 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "Delete skills"
-Skill.destroy_all
+puts "Delete Reviews"
+Review.destroy_all
 
 puts "Delete experiences"
 Experience.destroy_all
+
+puts "Delete Bookings"
+Booking.destroy_all
+
+puts "Delete skills"
+Skill.destroy_all
 
 puts "Delete Users"
 User.destroy_all
