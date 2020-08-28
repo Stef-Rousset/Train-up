@@ -11,15 +11,15 @@
     <h4> As-tu une autre expérience à renseigner ?</h4>
   <% end %>
     <%= simple_form_for ([@skill, @experience]) do |f| %>
-    <%= f.input :sport, :label => "Sélectionne ton sport", :collection => %w[Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation
-    Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf
-    Tennis de table Voile Yoga]  %>
+    <%= f.association :sport, :label => "Sélectionne ton sport" %>
     <%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
+    <%= f.input :price, label: 'Price' %>
     <%= f.input :specialty, :label => "Renseignes une spécialité", :placeholder => "Épée"%>
     <%= f.submit "Valider l'expérience", class: "btn-green btn-exp" %>
     <% end %>
   </div>
   <div class="experience-list">
+    <% if @experiences.present? %>
       <% @experiences.each do |experience|  %>
         <div class="experience">
           <p><span>Sport : </span><%= experience.sport.name %></p>
@@ -27,8 +27,10 @@
          <p><span>Spécialité : </span><%= experience.specialty %></p>
         </div>
       <% end %>
-      <%= link_to "J'ai terminé", profile_path, class: "btn-green mt" %>
+      <% end %>
+      <%= link_to "J'ai terminé", root_path, class: "btn-green mt" %>
   </div>
 </div>
 
 
+<!-- [Aikido Athlétisme Aviron Badminton Boxe Danse Escalade Equitation Judo Kendo Karaté Kitesurf Natation Pilates Plongée Squash Ski Surf Tennis de table Voile Yoga]  -->
