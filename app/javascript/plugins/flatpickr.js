@@ -4,13 +4,14 @@ import flatpickr from "flatpickr";
 
 flatpickr(".datepicker", {
 	enableTime: true,
-  minDate: "today",
+  // minDate: "today",
   // dateFormat: "d-m-Y H:i",
 });
 
 const startDate = document.querySelector(".start");
 const endDate = document.querySelector(".end");
 const pricePerHour = document.querySelector(".price");
+console.log(pricePerHour)
 const totalPriceElement = document.getElementById("total-price");
 
 // let startCalandar = flatpickr(startDate);
@@ -25,11 +26,13 @@ const dynamicPriceCalculator = () => {
 		if(startDate && endDate) {
 			[startDate, endDate].forEach(date => {
 				date.addEventListener("change", (event) => {
+          console.log(dynamicPrice());
 		       if (isNaN(dynamicPrice()) === true) {
 		 				 totalPriceElement.innerText = 0;
 		 				} else {
   						totalPriceElement.innerText = dynamicPrice() * pricePerHour.innerText;
-		 				}
+              console.log(totalPriceElement)
+		 				};
 				});
 			});
 		}

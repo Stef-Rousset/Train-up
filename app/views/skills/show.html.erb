@@ -15,14 +15,11 @@
 					  <% end %>
 					</div>
 				</div>
-				
-			    </div>
-
-				
+			 </div>
 					
-						<% @skill.experiences.each do |experience| %>
-							<div class="price"><p><%= experience.price %>€ / heure</p>
-						<% end %></div>
+			<% @skill.experiences.each do |experience| %>
+				<div class="price-euros"><span class="price"><%= experience.price %></span> € / heure
+			<% end %></div>
 			
 		</div>
 	
@@ -47,7 +44,7 @@
 			    	<%= simple_form_for([@skill, @booking]) do |f| %>
 				      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
 				      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
-				    <p>Prix total : <span id="total-price"></span> € </p>
+				    <p>Prix total : <span id="total-price"></span>€ </p>
 				      <%= f.button :submit, "Réserve", class: "btn-green" %>
 				   <% end %>
 			   </div>
