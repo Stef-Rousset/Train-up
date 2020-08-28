@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   has_many :skills
-  has_many :bookings
+  has_many :bookings # as client
+  has_many :received_bookings, through: :skills, source: :bookings # as coach
 
   # has_many :booked_courses, through: :skills, class_name: 'Booking'
   has_many :reviews
@@ -18,5 +18,4 @@ class User < ApplicationRecord
   validates :sex, presence: true
   validates :birth_date, presence: true
   validates :encrypted_password, presence: true
-
 end

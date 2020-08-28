@@ -6,7 +6,7 @@ flatpickr(".datepicker", {
 
 const startDate = document.querySelector(".start");
 const endDate = document.querySelector(".end");
-const pricePerHour = document.querySelector(".price").innerText;
+const pricePerHour = document.querySelector(".price");
 const totalPriceElement = document.getElementById("total-price");
 
 const dynamicPriceCalculator = () => {
@@ -20,7 +20,7 @@ const dynamicPriceCalculator = () => {
 		       if (isNaN(dynamicPrice()) === true) {
 		 				 totalPriceElement.innerText = 0;
 		 				} else {
-  						totalPriceElement.innerText = dynamicPrice() * pricePerHour;
+  						totalPriceElement.innerText = dynamicPrice() * pricePerHour.innerText;
 		 				}
 				});
 			});
