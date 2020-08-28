@@ -27,17 +27,29 @@ Sport.destroy_all
 
 puts "creating users"
 user = User.create!(first_name: "Julie", last_name: "Grison", email: "jgrisond@gmail.com", password: "coucou123", sex: "femme", address: "25 boulevard Voltaire 75011 Paris", birth_date: Date.parse("04/11/1990"))
+file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+user_six.photo.attach(io: file, filename: 'JulieGrison.jpg', content_type: 'image/jpg')
 user_one = User.create!(first_name: "Charles", last_name: "Martin", email: "cmartin@gmail.com", password: "escrime", sex: "homme", address: "50 rue Saint Martin 75004 Paris", birth_date: Date.parse("12/07/1992"))
 file = URI.open('https://lepetitjournal.com/sites/default/files/2020-05/griffin-wooldridge-7Sz71zuuW4k-unsplash.jpg')
 user_three.photo.attach(io: file, filename: 'CharlesMartin.jpg', content_type: 'image/jpg')
 user_two = User.create!(first_name: "Catherine", last_name: "Durand", email: "cdurand@gmail.com", password: "123456", sex: "femme", address: "1 rue de Lille 75007 Paris", birth_date: Date.parse("10/01/1995"))
+file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+user_six.photo.attach(io: file, filename: 'OlivaIbanez.jpg', content_type: 'image/jpg')
 user_three = User.create!(first_name: "Julien", last_name: "Blondet", email: "jblondet@gmail.com", password: "123hello", sex: "homme", address:"35 rue Beauregard 75002 Paris", birth_date: Date.parse("25/05/1983"))
 file = URI.open('https://www.beonfleek.fr/wp-content/uploads/2019/08/dominic-conner-1068145-unsplash-215x300.jpg')
 user_three.photo.attach(io: file, filename: 'JulienBlondet.jpg', content_type: 'image/jpg')
 user_four = User.create!(first_name: "Jeanne", last_name: "Dupond", email: "jdupond@gmail.com", password: "123hello", sex: "femme", address:"69 bd Gorbella, 06100 Nice", birth_date: Date.parse("02/10/1988"))
+file = URI.open('https://i.pinimg.com/originals/da/d5/5e/dad55e43fafb0b0e7a8ce746bd36fb6e.jpg')
+user_four.photo.attach(io: file, filename: 'JeanneDupont.jpg', content_type: 'image/jpg')
 user_five = User.create!(first_name: "Elodie", last_name: "Truc", email: "etruc@gmail.com", password: "123hello", sex: "femme", address:"34 Rue des Bouchers, 59800 Lille", birth_date: Date.parse("12/09/1973"))
+file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+user_five.photo.attach(io: file, filename: 'ElodieTruc.jpg', content_type: 'image/jpg')
 user_six = User.create!(first_name: "Oliva", last_name: "Ibanez", email: "Olivia.ibanez@gmail.com", password: "123hello", sex: "femme", address:"3 avenue de la Préfecture 35000 Rennes", birth_date: Date.parse("10/06/1980"))
+file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+user_six.photo.attach(io: file, filename: 'OlivaIbanez.jpg', content_type: 'image/jpg')
 user_seven = User.create!(first_name: "Cécile", last_name: "Klein", email: "klein.cécile@gmail.com", password: "123hello", sex: "femme", address:"41 Quai de Pierre-Scize, 69009 Lyon", birth_date: Date.parse("28/07/1990"))
+file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
+user_six.photo.attach(io: file, filename: 'CécileKlein.jpg', content_type: 'image/jpg')
 puts "users done"
 
 puts "creating skills"
