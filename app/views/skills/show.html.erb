@@ -59,32 +59,41 @@
 			<div class="video">
 				<h1>Video d'une séance</h1>
 				</br>
-
-				<video controls width="250">
+				<div class="video-container d-flex justify-content-center align-items-center">
+				<video class="video-tape" controls width="250">
 				    <source src= "<%= asset_path('video.mp4'	) %>"
 				            type="video/mp4">
 				</video>
-
+				</div>
 
 			</div>
+		</div>
+
 			<div class="comment">
 				<% if @skill.reviews.present? %>
 					<h1>Commentaires</h1>
-					<% @skill.bookings.each do |booking| %>
-						<% booking.reviews.each do |review| %>
-							<%= review.content %>
-							<%= review.rating %>
-						<% end %>
+					<% @skill.reviews.each do |review| %>
+      					<div class="name-rating d-flex flex-row justify-content-between">
+	      					<div class="review-name"><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></div>
+							<div class="rating"><%= review.rating.times do %>
+	              				<i class="fas fa-star"></i>
+	              			<% end %></div>
+	              		</div>
+				     		<div class="content"><%= review.content %></div>
+			           
+
 					<% end %>
 				<% end %>
 			</div>
+
 		</div>
-	</div>
 
 	<div class="right-run">
  		<%= image_tag "right-runners.svg", class: "run" %>
 	</div>
 </div>
+
+
 
 
 
