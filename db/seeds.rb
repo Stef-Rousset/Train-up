@@ -188,7 +188,17 @@ booking_two = Booking.create!(user: user, skill: skill_second, start_date: DateT
 booking_two.save!
 booking_three = Booking.create!(user: user, skill: skill_third, start_date: DateTime.parse("20/08/2020 17:00"), end_date: DateTime.parse("20/08/2020 18:00"))
 booking_three.save!
+booking_four = Booking.create!(user: user, skill: skill_third, start_date: DateTime.parse("10/07/2020 15:00"), end_date: DateTime.parse("10/07/2020 16:00"))
+booking_four.save!
 
 puts "booking done"
+
+puts "creating review"
+
+
+
+
+
+
 
 
