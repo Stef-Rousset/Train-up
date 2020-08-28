@@ -1,4 +1,3 @@
-
  <div class="d-flex flex-row">
  	<div class="left-run">
  		<%= image_tag "left-runners.svg", class: "run" %>
@@ -9,42 +8,47 @@
 			
 			<div class="show-card d-flex flex-row align-items-center">
 				<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
-			<div class="details-show d-flex flex-column">
-				<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
-				<div class="skill"><%= @skill.name %></div>
-			</div>
-		    </div>
+				<div class="details-show d-flex flex-column">
+					<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
+					<div class="sport"><% @skill.experiences.each do |experience| %>
+						<span><%= experience.sport.name %></span> - <%= @skill.name %>
+					  <% end %>
+					</div>
+				</div>
+			 </div>
+					
 			<% @skill.experiences.each do |experience| %>
-				<div><span class="price"><%= experience.price %></span> €/heure</div>
-			<% end %>
+				<div class="price-euros"><span class="price"><%= experience.price %></span> € / heure
+			<% end %></div>
+			
 		</div>
 	
 		<div class="show d-flex flex-row justify-content-between">
 			
-			<div class="competences">
+			<div class="competences d-flex flex-column justify-content-around">
 				<% @skill.experiences.each do |experience|%>
 					<% if experience.specialty %>
-						<p>Spécialité: <%= experience.specialty %></p>
+						 <div class="comp d-flex flex-row"><div class="comp-titre">Spécialité</div> <div><%= experience.specialty %></div></div>
 					<% end %>
-					<p>Expérience: <%= experience.years %> années </p>
+					<div class="comp d-flex"><div class="comp-titre">Expérience</div> <div><%= experience.years %> années </div></div>
 				<% end %>
-				<p>Profil: <%= @skill.description %></p>
-				<p>Localisation: <%= @skill.location %></p>
+				<div class="comp d-flex"><div class="comp-titre">Profil</div> <div><%= @skill.description %></div></div>
+				<div class="comp d-flex"><div class="comp-titre">Localisation</div><div><%= @skill.location %></div></div>
+
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 			</div>	
 
 			<div class="calandar">
 				
- 					 <!-- <div class="form-wrapper" style="width: 400px; margin: 0 auto;"> -->
- 					 <div class="booking-form">
-				    	<%= simple_form_for([@skill, @booking]) do |f| %>
-					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
-					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
-					      <%= f.button :submit, "Réserve", class: "btn-green" %>
-					   <% end %>
- 					 </div>
-					    <p>Prix total : <span id="total-price"></span> € </p>
-				 	 <!-- </div> -->
+				<div class="booking-form">
+			    	<%= simple_form_for([@skill, @booking]) do |f| %>
+				      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
+				      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
+				    <p>Prix total : <span id="total-price"></span>€ </p>
+				      <%= f.button :submit, "Réserve", class: "btn-green" %>
+				   <% end %>
+			   </div>
+		 
 				
 			</div>
 		</div>

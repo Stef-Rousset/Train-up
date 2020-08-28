@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     authorize @booking
+
     if @booking.save
       redirect_to profile_path
     else
@@ -16,17 +17,16 @@ class BookingsController < ApplicationController
     end
   end
 
-def destroy
-  authorize @booking
-  @booking = Booking.find(params[:id])
-  @booking.destroy
-  redirect_to profile_path
-end
+  def destroy
+    authorize @booking
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to profile_path
+  end
 
-private
+  private
 
-def booking_params
-  params.require(:booking).permit(:status, :start_date, :end_date, :skill_id, :user_id)
-end
-
+  def booking_params
+    params.require(:booking).permit(:status, :start_date, :end_date, :skill_id, :user_id)
+  end
 end

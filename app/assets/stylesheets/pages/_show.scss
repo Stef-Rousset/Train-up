@@ -1,4 +1,3 @@
-
 #skills-show {
 	background-color: white;
 }
@@ -15,7 +14,10 @@
 	height: 70%;
 	margin-top: 40px 0 40px 0;
 	right: 0
+}
 
+.titre-profil {
+	font-weight: bold;
 }
 
 .show-avatar {
@@ -30,7 +32,7 @@
 }
 
 .show-card {
-	width: 0%;
+	width: 60%;
 	height: 100px;
 	// background-color: $light-gray;
 	margin-left: 0;
@@ -39,13 +41,28 @@
 .name {
 	font-size: 18px;
 	color: $green;
-	
 }
 
 .skill {
 	font-size: 24px;
 	color: $green;
 	font-weight: bold;
+}
+
+.price-euros {
+	font-size: 26px;
+}
+
+.price {
+	font-weight: bolder;
+}
+
+.euros {
+	font-size: 26px;
+}
+
+p #total-price {
+	text-align: right;
 }
 
 .competences {
@@ -56,6 +73,13 @@
 	border-radius: 5px;
 	box-shadow: 0px 5px 5px $light-gray;
 	position: relative;
+	.comp {
+		gap: 25px;
+	}
+	.comp-titre {
+		width: 80px;
+		font-weight: bold;
+	}
 }
 
 .btn-delete {
@@ -83,6 +107,14 @@
 	margin-bottom: 20px;
 	h1 {
 		color: $green;
+	}
+}
+
+.sport {
+	font-size: 24px;
+	span {
+		font-weight: bolder;
+		font-size: 26px;
 	}
 }
 

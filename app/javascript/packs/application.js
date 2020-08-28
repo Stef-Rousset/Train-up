@@ -26,23 +26,32 @@ require("channels")
 // External imports
 import "bootstrap";
 import "../plugins/flatpickr";
+// import "../plugins/init_autocomplete";
+
 
 
 // Internal imports, e.g:
 import { fadeText } from '../components/fade_text';
+// import { loadDynamicBannerText } from '../components/banner';
+import { dynamicPriceCalculator } from '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initStarRating } from '../plugins/init_star_rating';
 
-import { loadDynamicBannerText } from '../components/banner';
-import { dynamicPriceCalculator } from '../plugins/flatpickr'
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
-  fadeText()
-<<<<<<< HEAD
-  dynamicPriceCalculator()
-=======
+
+  // initSelect2()
+  
   initMapbox();
->>>>>>> master
+  initAutocomplete();
+  initStarRating();
+
+  fadeText();
+
+  dynamicPriceCalculator();
+
   // loadDynamicBannerText();
+
 });

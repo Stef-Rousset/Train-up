@@ -30,3 +30,20 @@
   width: 450px;
   margin: auto
 }
+// form edit user profile
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+}
+.form-actions > p > .btn-green {
+   margin-bottom: 10px;
+}
+.form-actions > .btn-green:hover {
+  color: black;
+}
+.form-actions > p {
+  margin-top: 10px;
+    a {
+      padding: 15px 15px;
+    }
+}

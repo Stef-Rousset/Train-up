@@ -1,2 +1,6 @@
 <h2><%= link_to skill.name, skill_path(skill)%></h2>
 <p><%= link_to skill.location, skill_path(skill)%></p>
+<% skill.experiences.each do |experience| %>
+  <h2><%= link_to experience.sport.name.capitalize, skill_path(skill) %>
+  <h2 class = "price"><i class="fas fa-tags"></i> <%= link_to experience.price, skill_path(skill) %>€/h</h2
+<% end %>

@@ -1,6 +1,54 @@
-.filter-box {
-  display: flex;
-  justify-content: space-between;
+.cont {
+  // width: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.price {
+  text-shadow: 1px 1px 1px rgba(15,93,94,0.4);
+  &:hover {
+    font-size: 20px;
+    // text-shadow: 1px 1px 1px rgba(15,93,94,0.8);
+  }
+}
+
+.title-index {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  & h1 {
+    font-size: 30px;
+  }
+}
+
+.algolia-places {
+  width: 200px;
+  align-items: center;
+}
+
+.ap-input-icon svg {
+  fill: $green;
+}
+
+#skill_location.filters.ap-input {
+  vertical-align: middle !important;
+}
+
+.exp {
+  width: 150px;
+  margin: 0;
+  margin-bottom: 5px;
+  vertical-align: top;
+}
+
+.cards-map {
+  // gap: 10px;
+  margin-top: 20px;
+}
+
+#map {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
 .filters {
@@ -14,7 +62,6 @@
   border: 1px solid #ced4da;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  
 }
 
 .custom-range {
@@ -22,8 +69,6 @@
 }
 
 .label-exp {
-  // display: flex;
-  align-items: flex-start;
-  margin-left: 25px;
+  margin-left: 0px;
   margin-bottom: 0;
 }
