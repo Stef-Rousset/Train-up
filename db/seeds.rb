@@ -87,3 +87,11 @@ booking_three = Booking.create!(user: user, skill: skill_third, start_date: Date
 booking_three.save!
 
 puts "booking done"
+
+puts "creating reviews"
+
+review_one = Review.create!(user: user, booking_id: booking_one, content: content, rating: rating )
+review_one.save!
+review_two = Review.create!(user: user, booking_id: booking_two, content: content, rating: rating )
+review_two.save!
+review_three = Review.create!(user: user, booking_id: booking_three, content: content, rating: rating )
