@@ -116,7 +116,6 @@ puts "creating experiences"
 experience_one = Experience.create(years: 3, specialty: "Sabre", price: 40)
 experience_one.skill = skill_first
 experience_one.sport = sport_one
-experience_one.sport = sport_thirteen
 experience_one.save!
 
 experience_two = Experience.create(years: 5, specialty: "Epée", price: 45)
@@ -124,26 +123,47 @@ experience_two.skill = skill_second
 experience_two.sport = sport_one
 experience_two.save!
 
-experience_three = Experience.create(years: 10, price: 30)
+experience_three = Experience.create(years: 10, specialty: "Sophrologie", price: 30)
 experience_three.skill = skill_third
 experience_three.sport = sport_six
-experience_three.sport = sport_seven
-experience_three.sport = sport_eight
-experience_three.sport = sport_nine
-experience_three.sport = sport_ten
 experience_three.save!
 
-experience_two = Experience.create(years: 10, specialty: "Fleuret", price: 50)
-experience_two.skill = skill_thirteen
-experience_two.sport = sport_one
-experience_two.sport = sport_twelve
-experience_two.save!
-
-experience_four = Experience.create(years: 10, specialty: "Sophrologie", price: 50)
-experience_four.skill = skill_second
+experience_four = Experience.create(years: 15, price: 50)
+experience_four.skill = skill_fourth
 experience_four.sport = sport_two
-experience_four.sport = sport_eleven
 experience_four.save!
+
+experience_five = Experience.create(years: 10, specialty: "Crossfit", price: 30)
+experience_five.skill = skill_fifth
+experience_five.sport = sport_three
+experience_five.save!
+
+experience_six = Experience.create(years: 3, specialty: "Fleuret", price: 50)
+experience_six.skill = skill_six
+experience_six.sport = sport_one
+experience_six.save!
+
+experience_seven = Experience.create(years: 10, price: 60)
+experience_seven.skill = skill_seven
+experience_seven.sport = sport_one
+experience_seven.save!
+
+
+experience_eigth = Experience.create(years: 5, specialty: "Lancers", price: 50)
+experience_eigth.skill = skill_eight
+experience_eigth.sport = sport_eight
+experience_eigth.save!
+
+experience_nine = Experience.create(years: 10, specialty: "Sports de combat", price: 45)
+experience_nine.skill = skill_nine
+experience_nine.sport = sport_three
+experience_nine.save!
+
+experience_ten = Experience.create(years: 10, price: 80)
+experience_ten.skill = skill_ten
+experience_ten.sport = sport_ten
+experience_ten.save!
+
 
 
 puts "experiences done"
