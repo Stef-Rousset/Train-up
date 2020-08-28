@@ -4,8 +4,10 @@
   padding: 5px 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   margin-bottom: 10px;
-  margin-left: 10px;
+  margin-left: 0px;
   z-index: 2;
+}
+.profile-identity, .profile-reservations, .coach-as-user {
   width: 30%;
 }
 .profile-coach-container {
@@ -22,6 +24,10 @@
 }
 .bold {
   color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+h4 {
   font-weight: bold;
   font-size: 16px;
 }
