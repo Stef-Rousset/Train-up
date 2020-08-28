@@ -3,7 +3,6 @@ import flatpickr from "flatpickr";
 
 
 flatpickr(".datepicker", {
-<<<<<<< HEAD
 	enableTime: true
   // minDate: Date.now()
   // minDate: "today",
