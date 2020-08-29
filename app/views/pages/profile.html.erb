@@ -1,147 +1,100 @@
-<% if current_user.skills.empty? %>
-  <h2>Ton profil :</h2>
-    <%= image_tag "runner.png", alt: "runner", class: "runner" %>
-    <%= image_tag "runnerbis.png", alt: "runner", class: "runnerbis" %>
-    <div class="profile-container">
-      <div class="zut">
-        <h4>Ton identité :</h4>
-          <div class="identity">
-              <p><span class="bold">Nom :</span> <%= current_user.last_name.capitalize %></p>
-              <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
-              <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
-              <div class="link">
-                <p><i class="fas fa-at"></i> <%= current_user.email %></p>
-                <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
-              </div>
-          </div>
-      </div>
-      <div class="zut">
-          <h4>Tes réservations en cours :</h4>
-            <% if current_user.bookings.live.any? %>
-              <% current_user.bookings.live.each do |booking| %>
-                <div class="reservations-en-cours">
-                  <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%H:%M") %></p>
-                  <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
-                  <div class="link">
-                    <p>Total : <%= booking.total_price %> €</p>
-                    <% if policy(booking).destroy? %>
-                      <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            <% else %>
-              <div class="reservations-en-cours">
-                <p>Tu n'as aucune réservation en cours...</p>
-              </div>
-            <% end %>
-        </div>
-        <div class="zut">
-            <h4>Tes réservations passées :</h4>
-              <% if current_user.bookings.past.any? %>
-                <div class="reservations-past">
-                  <% current_user.bookings.past.each do |booking| %>
-                    <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%e-%m-%y") %></p>
-                    <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
-                    <div class="link">
-                      <p>Total : <%= booking.total_price %> €</p>
-                      <%= link_to "Laisse un commentaire", new_booking_review_path(booking), class: "btn-green" %>
-                    </div>
-                  <% end %>
-                </div>
-              <% else %>
-                <div class="reservations-past">
-                  <p>Tu n'as aucune réservation passée...</p>
-                </div>
-              <% end %>
-        </div>
-    </div>
-<% else %>
-<h2>Ton profil :</h2>
+<h2>Ton profil </h2>
   <div class="profile-coach-container">
-      <div class="profile-identity">
-        <h4>Ton identité :</h4>
-          <div class="identity-coach">
-            <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
-            <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
-            <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
-            <p><i class="fas fa-at"></i> <%= current_user.email %></p>
-            <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
-          </div>
-          <h4>Ta séance : </h4>
-          <div class="seance">
-            <% current_user.skills.each do |skill|  %>
-              <p><span class="bold">Description : </span><%= skill.description%></p>
-              <p><i class="fas fa-map-marker-alt"></i> <%= skill.location%></p>
-              <% skill.experiences.each do |experience| %>
-                 <p>Tarif : <%= experience.price %>€</p>
-              <% end %>
-            <% end %>
-          </div>
-          <h4>Ta vidéo : </h4>
-          <div class="video">
-            <video controls width="250">
-            <source src= "<%= asset_path('video.mp4') %>"
-                    type="video/mp4">
-            </video>
-            <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
-          </div>
-      </div>
-      <div class="profile-reservations">
-        <h4>Tes réservations en cours :</h4>
-          <% if current_user.received_bookings.live.any? %>
-            <div class="reservations-en-cours-coach">
-                <% current_user.received_bookings.live.each do |received_booking| %>
-                  <p><%= received_booking.user.first_name.capitalize %> <%= received_booking.user.last_name.capitalize %></p>
-                  <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date.strftime("%m/%d/%Y")%></p>
-                  <p><i class="far fa-clock"></i> <%= received_booking.start_date.strftime("%H:%M") %> à :<%= received_booking.end_date.strftime("%H:%M") %></p>
-                  <p>Total : <%= received_booking.total_price %> €</p>
-                  <% if policy(received_booking).destroy? %>
-                    <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+    <div class="card" style="width: 20rem;">
+       <%= cl_image_tag ("59rt6xun5ljfpa5k52slv79dj68h"), id: "cmartin" %>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <h5 class="card-title">Ton identité</h5>
+            <li class="list-group-item">
+              <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
+             <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+             <p><i class="fas fa-at"></i> <%= current_user.email %></p>
+             </li>
+             <br>
+             <h5 class="card-title">Ta séance :</h5>
+              <li class="list-group-item">
+                <% current_user.skills.each do |skill|  %>
+                  <p><span class="bold">Description : </span><%= skill.description%></p>
+                  <p><i class="fas fa-map-marker-alt"></i> <%= skill.location%></p>
+                  <% skill.experiences.each do |experience| %>
+                     <p><i class="fas fa-euro-sign"></i> <%= experience.price %></p>
                   <% end %>
                 <% end %>
-            </div>
-          <% else %>
-            <div class="reservations-en-cours-coach">
-              <p>Tu n'as pas de réservation actuellement...</p>
-            </div>
-          <% end %>
-        <h4>Les commentaires clients :</h4>
-          <% if current_user.reviews.any? %>
-            <div class="reviews-coach">
-              <% current_user.reviews.last(3).each do |review| %>
-                <p><%= review.first_name.capitalize %> <%= review.last_name.first %></p>
-                <p><%= review.content %></p>
-                <p><%= review.rating %></p>
-              <% end %>
-            </div>
-          <% else %>
-              <div class="reviews-coach">
-                <p>Tes clients n'ont pas encore laissé de commentaire...</p>
-              </div>
-          <% end %>
+              </li>
+        </ul>
+      <div class="card-body">
+        <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
       </div>
+      </div>
+    </div>
+    <div class="profile-reservations">
+      <div class="coach-dashboard">
+        <h3> ✑ Coté pro</h3>
+        <div class="resas">
+          <h4>Tes réservations en cours :</h4>
+          <div class="list-resas">
+            <% if current_user.received_bookings.live.any? %>
+                <div class="reservations-en-cours-coach">
+                    <% current_user.received_bookings.live.each do |received_booking| %>
+                      <p><span class="bold">Ton client :</span> <%= received_booking.user.first_name.capitalize %> <%= received_booking.user.last_name.capitalize %></p>
+                      <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date.strftime("%m/%d/%Y")%></p>
+                      <p><i class="far fa-clock"></i> <%= received_booking.start_date.strftime("%H:%M") %> à :<%= received_booking.end_date.strftime("%H:%M") %></p>
+                      <hr>
+                      <p>Total : <%= received_booking.total_price %> €</p>
+                      <% if policy(received_booking).destroy? %>
+                        <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+                      <% end %>
+                    <% end %>
+                </div>
+              <% else %>
+                <div class="reservations-en-cours-coach">
+                  <p>Tu n'as pas de réservation actuellement...</p>
+                </div>
+              <% end %>
+          </div>
+          <h4>Les commentaires clients :</h4>
+          <div class="reviews">
+            <% if current_user.reviews.any? %>
+                <% current_user.reviews.last(3).each do |review| %>
+                  <p><%= review.first_name.capitalize %> <%= review.last_name.first %></p>
+                  <p><%= review.content %></p>
+                  <p><%= review.rating %></p>
+                <% end %>
+            <% else %>
+                <div class="reviews-coach">
+                  <p>Tes clients n'ont pas encore laissé de commentaires...</p>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <br>
       <div class="coach-as-user">
+        <h3> ✑ Coté client</h3>
         <h4>Tes réservations en tant que client :</h4>
         <% if current_user.bookings.live.any? %>
-          <div class="reservations-coach-as-user">
+          <div class="list-resas">
+            <div class="reservations-coach-as-user">
               <% current_user.bookings.live.each do |booking| %>
-                <p><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
+                <p><span class="bold">Ton coach :</span> <%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
                 <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%m/%d/%Y") %></p>
                 <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
+                <hr>
                 <p>Total : <%= booking.total_price %> €</p>
                   <% if policy(booking).destroy? %>
                     <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
                   <% end %>
                 <% end %>
-          </div>
-        <% else %>
-          <div class="reservations-coach-as-user">
-            <p>Tu n'as pas de réservations en cours...</p>
-          </div>
+              </div>
+            </div>
+          <% else %>
+            <div class="reservations-coach-as-user">
+              <p>Tu n'as pas de réservations en cours...</p>
+            </div>
         <% end %>
       </div>
     </div>
-<% end %>
+</div>
+
+
+

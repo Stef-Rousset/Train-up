@@ -1,0 +1,75 @@
+// style for coach
+.reservations-en-cours-coach, .identity-coach, .seance, .video, .reviews-coach, .reservations-coach-as-user {
+  background-color: white;
+  padding: 5px 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  margin-left: 0px;
+  z-index: 2;
+}
+.profile-identity, .profile-reservations, .coach-as-user {
+  width: 30%;
+}
+.profile-coach-container {
+  width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 100px;
+}
+// commun
+.link {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bold {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+h4 {
+  font-weight: bold;
+  font-size: 16px;
+}
+// style for profile user
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20%;
+}
+.navbar {
+  position: relative;
+}
+.runner {
+  z-index: 1;
+  height: 70%;
+  width: 25%;
+  position: absolute;
+  left: -50px;
+  top: 45%;
+  opacity: 0.5;
+}
+.runnerbis {
+  z-index: 1;
+  height: 70%;
+  width: 25%;
+  position: absolute;
+  right: 0px;
+  top: 45%;
+  opacity: 0.5;
+}
+.reservations-en-cours, .reservations-past, .identity {
+  background-color: white;
+  padding: 5px 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  z-index: 2;
+  width: 70%;
+}
+.zut {
+  width: 80%;
+  z-index: 2;
+}
+
+
