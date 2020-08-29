@@ -2,20 +2,31 @@
 <!-- profil client -->
 <% if current_user.skills.empty? %>
   <div class="profile-container">
-      <div class="zut">
-        <h4>Ton identité :</h4>
-          <div class="identity">
-              <p><span class="bold">Nom :</span> <%= current_user.last_name.capitalize %></p>
-              <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
-              <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
-              <div class="link">
-                <p><i class="fas fa-at"></i> <%= current_user.email %></p>
-                <%= link_to "Modifier", edit_user_registration_path, class: "btn-green" %>
-              </div>
+    <div class="card client" style="width: 22rem;">
+        <%= cl_image_tag @current_user.photo.key, id: "user_photo" %>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <h5 class="card-title">Ton identité</h5>
+                <li class="list-group-item">
+                  <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
+                  <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
+                  <p><i class="fas fa-birthday-cake"></i> <%= current_user.birth_date %></p>
+                  <p><i class="fas fa-venus-mars"></i> <%= current_user.sex %></p>
+                </li>
+                <li class="list-group-item">
+                  <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+                  <p><i class="fas fa-at"></i> <%= current_user.email %></p>
+                  <br>
+                  <%= link_to "Modifier", edit_user_registration_path, class: "btn-green client", id: "user-modif" %>
+                </li>
+            </ul>
           </div>
-      </div>
-      <div class="zut">
-          <h4>Tes réservations en cours :</h4>
+    </div>
+    <div class="client-resas">
+      <div class="zut-one">
+        <h3><i class="far fa-clipboard"></i> Tableau de bord</h3>
+          <h4>Tes réservations en cours </h4>
+          <div class="list-resas">
             <% if current_user.bookings.live.any? %>
               <% current_user.bookings.live.each do |booking| %>
                 <div class="reservations-en-cours">
@@ -23,7 +34,7 @@
                   <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%H:%M") %></p>
                   <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
                   <hr>
-                  <div class="link">
+                  <div class="link-client">
                     <p>Total : <%= booking.total_price %> €</p>
                     <% if policy(booking).destroy? %>
                       <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
@@ -33,42 +44,45 @@
               <% end %>
             <% else %>
               <div class="reservations-en-cours">
-                <p>Tu n'as aucune réservation en cours...</p>
+                 <p>Tu n'as aucune réservation en cours...</p>
               </div>
             <% end %>
-        </div>
-        <div class="zut">
-            <h4>Tes réservations passées :</h4>
-              <% if current_user.bookings.past.any? %>
-                <div class="reservations-past">
-                  <% current_user.bookings.past.each do |booking| %>
-                    <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                    <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%e-%m-%y") %></p>
-                    <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
-                    <hr>
-                    <div class="link">
-                      <p>Total : <%= booking.total_price %> €</p>
-                      <%= link_to "Laisse un commentaire", new_booking_review_path(booking), class: "btn-green" %>
-                    </div>
-                  <% end %>
-                </div>
-              <% else %>
-                <div class="reservations-past">
-                  <p>Tu n'as aucune réservation passée...</p>
-                </div>
+          </div>
+      </div>
+      <div class="zut">
+        <h4>Tes réservations passées </h4>
+        <div class="list-resas">
+          <% if current_user.bookings.past.any? %>
+            <div class="reservations-past">
+              <% current_user.bookings.past.each do |booking| %>
+                <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
+                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%e-%m-%y") %></p>
+                <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
+                <hr>
+                <p>Total : <%= booking.total_price %> €</p>
+                <br>
+                <%= link_to "Laisse un commentaire", new_booking_review_path(booking), class: "btn-green" %>
               <% end %>
+            </div>
+          <% else %>
+            <div class="reservations-past">
+              <p>Tu n'as aucune réservation passée...</p>
+            </div>
+          <% end %>
         </div>
-  </div>
+      </div>
+    </div>
 <!-- profil coach -->
 <% else %>
   <div class="profile-coach-container">
-    <div class="card" style="width: 20rem;">
-       <%= cl_image_tag ("59rt6xun5ljfpa5k52slv79dj68h"), id: "cmartin" %>
+    <div class="card coach" style="width: 22rem;">
+       <%= cl_image_tag @current_user.photo.key, id: "user_photo" %>
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <h5 class="card-title">Ton identité</h5>
             <li class="list-group-item">
               <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
+              <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
              <p><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
              <p><i class="fas fa-at"></i> <%= current_user.email %></p>
              </li>
