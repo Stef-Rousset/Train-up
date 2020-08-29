@@ -1,3 +1,7 @@
+<% content_for :meta_title, "TrainUp: réserve ton coach" %>
+<% content_for :meta_description, "En un clic, réserve ton cours particulier avec le coach de ton choix" %>
+<% content_for :meta_image, cl_image_path("banner.png") %>
+
  <div class="d-flex flex-row">
  	<div class="left-run">
  		<%= image_tag "left-runners.svg", class: "run" %>
@@ -5,7 +9,7 @@
 
 	<div class="container">
 		<div class="show-card-price d-flex justify-content-between align-items-center">
-			
+
 			<div class="show-card d-flex flex-row align-items-center">
 				<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
 				<div class="details-show d-flex flex-column">
@@ -16,15 +20,15 @@
 					</div>
 				</div>
 			 </div>
-					
+
 			<% @skill.experiences.each do |experience| %>
 				<div class="price-euros"><span class="price"><%= experience.price %></span> € / heure
 			<% end %></div>
-			
+
 		</div>
-	
+
 		<div class="show d-flex flex-row justify-content-between">
-			
+
 			<div class="competences d-flex flex-column justify-content-around">
 				<% @skill.experiences.each do |experience|%>
 					<% if experience.specialty %>
@@ -36,10 +40,10 @@
 				<div class="comp d-flex"><div class="comp-titre location">Localisation</div><div class="comp-text"><%= @skill.location %></div></div>
 
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
-			</div>	
+			</div>
 
 			<div class="calandar">
-				
+
 				<div class="booking-form">
 				    <% if current_user != @skill.user %>
 				    	<%= simple_form_for([@skill, @booking]) do |f| %>
@@ -50,8 +54,8 @@
 					   <% end %>`
 				   <% end %>
 			   </div>
-		 
-				
+
+
 			</div>
 		</div>
 
@@ -80,7 +84,7 @@
 	              			<% end %></div>
 	              		</div>
 				     		<div class="content"><%= review.content %></div>
-			           
+
 
 					<% end %>
 				<% end %>
@@ -99,4 +103,4 @@
 
 
 
- 
+
