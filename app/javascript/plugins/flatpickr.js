@@ -1,59 +1,53 @@
 import flatpickr from "flatpickr";
 
-
-
 flatpickr(".datepicker", {
-	enableTime: true
-  // minDate: Date.now()
-  // minDate: "today",
-  // dateFormat: "d-m-Y H:i",
+  // minDate: Date.now(),
+  minDate: "today",
+  dateFormat: "d-m-Y",
+  inline: true,
 
 });
 
-const startDate = document.querySelector(".start");
-const endDate = document.querySelector(".end");
+flatpickr(".hourpicker", {
+	enableTime: true,
+	noCalendar: true,
+	time_24hr: true,
+  	dateFormat: "H:i",
+});
+
+const date = document.querySelector(".date");
+const startHour = document.querySelector(".start");
+const endHour = document.querySelector(".end");	
 const pricePerHour = document.querySelector(".price");
-console.log(pricePerHour)
 const totalPriceElement = document.getElementById("total-price");
-
-// let startCalandar = flatpickr(startDate);
-// let endCalandar = flatpickr(endDate);
-
-// changeCalandar()
 
 const dynamicPriceCalculator = () => {
 	const bookingForm = document.querySelector('.booking-form');
 	if (bookingForm) {
 		let nbrOfHours = 0;
-		if(startDate && endDate) {
-			[startDate, endDate].forEach(date => {
-				date.addEventListener("change", (event) => {
-          console.log(dynamicPrice());
-		       if (isNaN(dynamicPrice()) === true) {
+		if(date && startHour && endHour) {
+			[startHour, endHour].forEach(hour => {
+				hour.addEventListener("change", (event) => {
+		        if (isNaN(dynamicPrice()) === true) {
 		 				 totalPriceElement.innerText = 0;
 		 				} else {
-  						totalPriceElement.innerText = dynamicPrice() * pricePerHour.innerText;
-              console.log(totalPriceElement)
+  						totalPriceElement.innerText = Math.floor(dynamicPrice() * (Number(pricePerHour.innerText)/60));
 		 				};
 				});
 			});
 		}
-  }
+  	}
 };
   		
 const dynamicPrice = () => {
-    const hourDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
-    const nbrOfHours = Math.round(hourDiffInMilliseconds/3660000)
-		return nbrOfHours;
-};
+    const dateReverse = date.value.split("-").reverse().join("-");
+    const startDate = new Date(dateReverse + "T" + startHour.value + ":00.000Z");
+    const endDate = new Date(dateReverse + "T" + endHour.value + ":00.000Z");
+    const nbrOfMn = (endDate - startDate) / 1000 / 60;
+    console.log(nbrOfMn);
 
-// const fp = flatpicker(document.querySelector(.datepicker))
-// const changeCalandar = () => {
-//   startDate.addEventListener("change", (event) => {
-//     startCalandar.close()
-//     });
-// };
-
+		return nbrOfMn;
+	};
 
 export {dynamicPriceCalculator}
 
