@@ -81,6 +81,16 @@ user_twelve.photo.attach(io: file, filename: 'AntoineMargean.jpg', content_type:
 user_thirteen = User.create!(first_name: "Amandine", last_name: "Primeur", email: "a.primeur@hotmail.fr", password: "prep456", sex: "femme", address:"52 rue de Lourmel, 75015 Paris", birth_date: Date.parse("15/07/1987"))
 file = URI.open('https://images.unsplash.com/photo-1526080652727-5b77f74eacd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80.jpg')
 user_thirteen.photo.attach(io: file, filename: 'AmandinePrimeur.jpg', content_type: 'image/jpg')
+
+user_fourteen = User.create!(first_name: "Pierre", last_name: "Janvier", email: "pierre.janvier@hotmail.fr", password: "tennis123", sex: "homme", address:"18 rue de Sèvres, 75007 Paris", birth_date: Date.parse("05/05/1995"))
+file = URI.open('https://images.unsplash.com/photo-1590086782792-42dd2350140d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80.jpg')
+user_fourteen.photo.attach(io: file, filename: 'PierreJanvier.jpg', content_type: 'image/jpg')
+
+user_fifteen = User.create!(first_name: "Nawfel", last_name: "Haddad", email: "n.Haddad@gmail.com", password: "123prep", sex: "homme", address:"85 avenue Emile Zola, 75015 Paris", birth_date: Date.parse("06/11/1996"))
+file = URI.open('https://images.unsplash.com/photo-1578924608828-79a71150f711?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2708&q=80.jpg')
+user_fifteen.photo.attach(io: file, filename: 'NawfelHaddad.jpg', content_type: 'image/jpg')
+
+
 puts "users done"
 
 puts "creating skills"
@@ -110,7 +120,10 @@ skill_twelve = Skill.create!(name: "Préparateur physique", location: "244 rue d
 skill_twelve.save!
 skill_thirteen = Skill.create!(name: "Préparateur mental", location: "52 rue de Lourmel, 75015 Paris", description: "Spécialiste de la Sophrologie, j'interviens particulièrement auprès des pratiquants de sports de combat pour leur forger un mental d'acier.", user: user_thirteen)
 skill_thirteen.save!
-
+skill_fourteen = Skill.create!(name: "Entraîneur", location: "9 Rue des Frères Flavien, 75020 Paris", description: "Ex joueur professionnel classé 258ème à l'ATP, je vous coach en compétition et vous fais bénéficier de toute mon expérience.", user: user_fourteen)
+skill_fourteen.save!
+skill_fifteen = Skill.create!(name: "Préparateur physique", location: "33 rue de l'Église, 75015 Paris", description: "En fonction de votre sport et de votre niveau, je construis pour vous une séance complètement personnalisée", user: user_fifteen)
+skill_fifteen.save!
 puts "skills done"
 
 
@@ -199,25 +212,37 @@ experience_nine.skill = skill_nine
 experience_nine.sport = sport_nine
 experience_nine.save!
 
-experience_ten = Experience.create(years: 11, specialty: "Épée", price: 80)
+experience_ten = Experience.create(years: 11, specialty: "Épée", price: 40)
 experience_ten.skill = skill_ten
 experience_ten.sport = sport_ten
 experience_ten.save!
 
-experience_eleven = Experience.create(years: 12, specialty: "Hatha yoga", price: 80)
+experience_eleven = Experience.create(years: 12, specialty: "Hatha yoga", price: 55)
 experience_eleven.skill = skill_eleven
 experience_eleven.sport = sport_eleven
 experience_eleven.save!
 
-experience_twelve = Experience.create(years: 12, specialty: " Épée", price: 80)
+experience_twelve = Experience.create(years: 12, specialty: " Épée", price: 70)
 experience_twelve.skill = skill_twelve
 experience_twelve.sport = sport_twelve
 experience_twelve.save!
 
-experience_thirteen = Experience.create(years: 12, specialty: "Sophrologie", price: 80)
+experience_thirteen = Experience.create(years: 12, specialty: "Sophrologie", price: 50)
 experience_thirteen.skill = skill_thirteen
 experience_thirteen.sport = sport_thirteen
 experience_thirteen.save!
+
+experience_fourteen = Experience.create(years: 8, specialty: "Tennis en compétition", price: 60)
+experience_fourteen.skill = skill_fourteen
+experience_fourteen.sport = sport_two
+experience_fourteen.save!
+
+experience_fifteen = Experience.create(years: 13, specialty: "Crossfit", price: 55)
+experience_fifteen.skill = skill_fifteen
+experience_fifteen.sport = sport_three
+experience_fifteen.save!
+
+
 puts "experiences done"
 
 puts "creating bookings"
@@ -238,6 +263,12 @@ booking_seven = Booking.create!(user: user, skill: skill_twelve, start_date: Dat
 booking_seven.save!
 booking_eigth = Booking.create!(user: user, skill: skill_twelve, start_date: DateTime.parse("15/09/2020 13:00"), end_date: DateTime.parse("15/09/2020 14:00"))
 booking_eigth.save!
+booking_nine = Booking.create!(user: user, skill: skill_fourteen, start_date: DateTime.parse("25/08/2020 10:00"), end_date: DateTime.parse("25/08/2020 12:00"))
+booking_nine.save!
+booking_ten = Booking.create!(user: user, skill: skill_fifteen, start_date: DateTime.parse("13/09/2020 09:00"), end_date: DateTime.parse("13/09/2020 11:00"))
+booking_ten.save!
+booking_eleven = Booking.create!(user: user, skill: skill_fifteen, start_date: DateTime.parse("29/08/2020 16:00"), end_date: DateTime.parse("29/08/2020 17:00"))
+booking_eleven.save!
 puts "booking done"
 
 
