@@ -22,7 +22,7 @@
                 label: "Sexe (F/H)",
                 placeholder: "F",
                 input_html: { autocomplete: "Sexe" }%>
-    <%= f.input :birth_date,
+    <%= f.input :birth_date, order: [:day, :month, :year],
                 required: true,
                 autofocus: true,
                 label: "Date de naissance",
