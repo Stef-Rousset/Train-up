@@ -2,18 +2,27 @@
 	background-color: white;
 }
 
+.title-resa {
+	text-align: left;
+	margin-bottom: 20px;
+}
+.btn-resa {
+	text-align: center;
+	margin-top: 20px;
+}
+
 .left-run img {
 	position: absolute;
-	height: 70%;
+	height: 100%;
 	margin: 40px 0 40px 0;
-	left: 0
+	left: 0;
 }
 
 .right-run img {
 	position: absolute;
-	height: 70%;
+	height: 80%;
 	margin-top: 40px 0 40px 0;
-	right: 0
+	right: 0;
 }
 
 .titre-profil {
@@ -22,20 +31,28 @@
 
 .show-avatar {
 	border-radius: 50%;
-	width: 90px;
+	// width: 90px;
+	// height: 90px;
 	margin-top: 10px;
 	margin-right: 10px;
+	border: 2px solid $green;
+	box-shadow: 0px 0px 5px $green;
+	position: relative;
 }
 
 .show {
-	margin-top: 70px;
+	// margin-top: 70px;
 }
 
 .show-card {
+	margin-top: 50px;
 	width: 60%;
 	height: 100px;
 	// background-color: $light-gray;
 	margin-left: 0;
+}
+.show-card-price {
+	margin-bottom: 50px;
 }
 
 .name {
@@ -49,12 +66,23 @@
 	font-weight: bold;
 }
 
-.price-euros {
-	font-size: 26px;
+.spe {
+	font-size: 24px;
+	color: $green;
+	font-weight: bold;
 }
 
-.price {
+.price-euros {
+	margin-right: 50px;
+	font-size: 26px;
+	i {
+		font-size: 20px;
+	}
+}
+
+.price-e {
 	font-weight: bolder;
+	
 }
 
 .euros {
@@ -70,19 +98,29 @@ p #total-price {
 	width: 60%;	
 	// background-color: $light-gray;
 	padding: 20px;
+	padding-top: 0;
 	border-radius: 5px;
 	box-shadow: 0px 5px 5px $light-gray;
 	position: relative;
 	.comp {
-		gap: 25px;
+		// gap: 25px;
 	}
-	.comp-titre {
-		width: 20%;
-		font-weight: bold;
-	}
+	// .comp-titre {
+		// width: 20%;
+		// font-weight: bold;
+	// }
+
+.title-des {
+	text-align: left;
+}
 	.comp-text {
 		width: 80%;
+		text-align: justify;
 	}
+}
+
+.comp-titre.location {
+	text-align: center;
 }
 
 .location {
@@ -97,13 +135,32 @@ p #total-price {
 }
 
 .calandar {
-	width: 30%
+	width: 30%;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 0px 5px 5px $light-gray;
+}
+
+.dyn-price {
+	margin-bottom: 14px;
+	h2 {
+		text-align: left;
+	}
+}
+
+.content {
+	font-weight: bold;
+}
+
+.video-comment {
+	margin-top: 30px;
 }
 
 .comment {
-	width: 80%;
+	width: 50%;
+	height: 20%;
 	box-shadow: 0px 5px 5px $light-gray;;
-	margin-bottom: 20px;
+	border-radius: 5px;
 	padding: 20px;
 	h1 {
 		color: $green;
@@ -112,14 +169,32 @@ p #total-price {
 	}
 }
 
+.rating {
+	margin-bottom: 10px;
+	border-bottom: 1px dotted $green;
+}
+
+.name-rating {
+	padding-bottom: 5px;
+}
+
+.com-each {
+	border-top: 1px solid $green;
+	padding-top: 20px;
+}
+
 .video {
-	width: 80%;
+	width: 400px;
 	box-shadow: 0px 5px 5px $light-gray;
+	border-radius: 5px;
 	margin-bottom: 20px;
+	padding: 20px;
 	h1 {
 		color: $green;
 		margin-top: 10px;
-		padding-left: 20px;
+		margin-left: 20px;
+		border-bottom: 1px solid $green;
+		padding-bottom: 20px;
 	}
 }
 

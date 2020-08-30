@@ -12,10 +12,10 @@ flatpickr(".datepicker", {
 
 const startDate = document.querySelector(".start");
 const endDate = document.querySelector(".end");
-const pricePerHour = document.querySelector(".price");
+const pricePerHour = document.querySelector(".price-e");
 console.log(pricePerHour)
 const totalPriceElement = document.getElementById("total-price");
-
+console.log(totalPriceElement)
 // let startCalandar = flatpickr(startDate);
 // let endCalandar = flatpickr(endDate);
 

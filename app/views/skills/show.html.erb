@@ -7,46 +7,53 @@
 		<div class="show-card-price d-flex justify-content-between align-items-center">
 			
 			<div class="show-card d-flex flex-row align-items-center">
-				<div><%= image_tag "julie.jpg", class:"show-avatar" %></div>
+				<% if @skill.user.photo.attached? %>
+					<div><%= cl_image_tag @skill.user.photo.key, height: 90, width: 90, crop: :fill, class:"show-avatar" %></div>
+				<% end %>
 				<div class="details-show d-flex flex-column">
-					<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
-					<div class="sport"><% @skill.experiences.each do |experience| %>
-						<span><%= experience.sport.name %></span> - <%= @skill.name %>
-					  <% end %>
+					<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %>
+					</div>
+					<div class="sport">
+						<% @skill.experiences.each do |experience| %>
+							<span><%= experience.sport.name %></span> - <%= @skill.name %>
+							<% if experience.specialty %>
+								<div class="spe"><%= experience.specialty %></span></div><span>
+							<% end %>
+						<% end %>
 					</div>
 				</div>
 			 </div>
 					
 			<% @skill.experiences.each do |experience| %>
-				<div class="price-euros"><span class="price"><%= experience.price %></span> € / heure
-			<% end %></div>
+				<div class="price-euros"><i class="fas fa-tags"></i> <span class="price-e"><%= experience.price %></span> € / h </div>
+			<% end %>
 			
 		</div>
 	
 		<div class="show d-flex flex-row justify-content-between">
 			
 			<div class="competences d-flex flex-column justify-content-around">
+				<h1 class = "title-des">Description</h1>
 				<% @skill.experiences.each do |experience|%>
-					<% if experience.specialty %>
-						 <div class="comp d-flex flex-row"><div class="comp-titre">Spécialité</div> <div class="comp-text"><%= experience.specialty %></div></div>
-					<% end %>
-					<div class="comp d-flex"><div class="comp-titre">Expérience</div> <div class="compt-text"><%= experience.years %> années </div></div>
+					<div class="comp d-flex"><div class="comp-titre"></div><div class="compt-text"><i class="far fa-arrow-alt-circle-right"></i> <%= experience.years %> années d'expérience </div></div>
 				<% end %>
-				<div class="comp d-flex"><div class="comp-titre">Profil</div> <div class="comp-text"><%= @skill.description %></div></div>
-				<div class="comp d-flex"><div class="comp-titre location">Localisation</div><div class="comp-text"><%= @skill.location %></div></div>
-
+				<div class="comp d-flex"><div class="comp-titre"></div> <div class="comp-text"><%= @skill.description %></div></div>
+				<div class="comp d-flex"><div class="comp-titre location"></div><div class="comp-text"><i class="fas fa-map-marker-alt"></i> <%= @skill.location %></div></div>
+					<% if current_user == @skill.user %>
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
+					<% end %>
 			</div>	
 
-			<div class="calandar">
+			<div class="calandar  d-flex justify-content-around align-center">
 				
 				<div class="booking-form">
 				    <% if current_user != @skill.user %>
+							<h1 class = "title-resa"><span><i class="far fa-calendar-alt"></i></span> Réserve ta séance</h1>
 				    	<%= simple_form_for([@skill, @booking]) do |f| %>
-					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
-					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
-					    <p>Prix total : <span id="total-price"></span>€ </p>
-					      <%= f.button :submit, "Réserver", class: "btn-green" %>
+					      <%= f.input :start_date, as: :string, required: false, label: "Début", input_html: {class: "datepicker start"} %>
+					      <%= f.input :end_date, as: :string, required: false, label: "Fin", input_html: {class: "datepicker end"} %>
+					    	<div class="dyn-price"><h2>Prix total : <span id="total-price"></span>€ </h2></div>
+					      <div class="btn-resa"><%= f.button :submit, "Réserver", class: "btn-green" %></div>
 					   <% end %>`
 				   <% end %>
 			   </div>
@@ -55,38 +62,54 @@
 			</div>
 		</div>
 
-		<div class="show d-flex flex-column justify-content-between">
+		<div class="video-comment d-flex justify-content-between align-items-center">
+		<div class="show d-flex flex-row justify-content-between">
 			<div class="video">
 				<h1>Video d'une séance</h1>
-				</br>
+				<br>
 				<div class="video-container d-flex justify-content-center align-items-center">
-				<video class="video-tape" controls width="250">
-				    <source src= "<%= asset_path('video.mp4'	) %>"
+					<video class="video-tape" controls width="250">
+				  	<source src= "<%= asset_path('video.mp4') %>"
 				            type="video/mp4">
-				</video>
+					</video>
 				</div>
-
 			</div>
 		</div>
 
 			<div class="comment">
 				<% if @skill.reviews.present? %>
-					<h1>Commentaires</h1>
+					<div class="base-rating d-flex flex-row justify-content-between align-items-center">
+						<div><h1>Commentaires</h1>
+						</div>
+						<div class="stars d-flex flex-row justify-content-between align-items-center">
+							<% 5.times do %>
+								<i class="far fa-star"></i>
+							<% end %>
+						</div>
+					</div>
+						
+					
+					<div class="com-each">
 					<% @skill.reviews.each do |review| %>
+						<div class="rating">
       					<div class="name-rating d-flex flex-row justify-content-between">
-	      					<div class="review-name"><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></div>
-							<div class="rating"><%= review.rating.times do %>
-	              				<i class="fas fa-star"></i>
-	              			<% end %></div>
-	              		</div>
-				     		<div class="content"><%= review.content %></div>
-			           
-
-					<% end %>
+	      					<div class="review-name"><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
+									</div>
+									<div class="rating-stars">
+										<% review.rating.times do %>
+	              			<i class="fas fa-star"></i>
+	              		<% end %>
+									</div>
+	              </div>
+				     		<div class="content"><p><%= review.content %></p>
+								</div>
+								</div>
+						<% end %>
+						</div>
 				<% end %>
 			</div>
-
 		</div>
+	</div>
 
 	<div class="right-run">
  		<%= image_tag "right-runners.svg", class: "run" %>

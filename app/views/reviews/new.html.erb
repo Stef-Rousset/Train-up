@@ -1,8 +1,8 @@
 <div class="review">
-    <h2>Laisse ton commentaire</h2>
+    <h2>Laisse un commentaire</h2>
     <%= simple_form_for [@booking, @review] do |f| %>
-      <%= f.input :content, label: "Détaille ton expérience" %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+      <%= f.input :content, label: "Commentaire:" %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience:", required: true %>
       <div class="my-3">
         <%# 5.times do |index| %>
         <!--
@@ -10,7 +10,7 @@
         -->
         <%# end %>
       </div>
-      <%= f.submit "Valide", class: "btn-green" %>
+      <%= f.submit "Valider", class: "btn-green" %>
     <% end %>
 </div>
 
