@@ -41,7 +41,7 @@
                   <div class="link-client">
                     <p>Total : <%= booking.total_price %> €</p>
                     <% if policy(booking).destroy? %>
-                      <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+                      <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, profile_path, method: :delete, data: {confirm: "Es-tu sûr d'annuler cette réservation ?"}, class: "btn-green" %>
                     <% end %>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
                     <hr>
                     <p>Total : <%= received_booking.total_price %> €</p>
                       <% if policy(received_booking).destroy? %>
-                        <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+                        <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, profile_path, method: :delete, data: {confirm: "Es-tu sûr d'annuler cette réservation ?"}, class: "btn-green" %>
                       <% end %>
                   </div>
                 <% end %>
@@ -163,7 +163,7 @@
                   <hr>
                   <p>Total : <%= booking.total_price %> €</p>
                     <% if policy(booking).destroy? %>
-                      <%= link_to "Annuler", profile_path, method: :delete, data: {confirm: "Are you sure ?"}, class: "btn-green" %>
+                      <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, profile_path, method: :delete, data: {confirm: "Es-tu sûr d'annuler cette réservation ?"}, class: "btn-green" %>
                     <% end %>
                 </div>
               <% end %>
