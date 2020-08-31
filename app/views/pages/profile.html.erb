@@ -40,7 +40,7 @@
                   <hr>
                   <div class="link-client">
                     <p>Total : <%= booking.total_price %> €</p>
-                    <%= booking.status %>
+                    <p><%= booking.status %></p>
                     <% if policy(booking).destroy? %>
                       <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, booking_path(booking), method: :delete, data: {confirm: "Es-tu sûr d'annuler cette réservation ?"}, class: "btn-green" %>
                     <% end %>
