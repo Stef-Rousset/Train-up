@@ -1,0 +1,27 @@
+<div class="page-chat", style='background-image: url(<%= asset_path "run.jpg" %>)'>
+<div class="chatroom d-flex flex-column align-items-center justify-content-center">
+  <div class="title-chat">
+    <h1><i class="fas fa-comments"></i> TrainUp chat <i class="fas fa-comments"></i></h1>
+  </div>
+  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-container" id="message-<%= message.id %>">
+        <i class="author">
+          <span><%= message.user.first_name %></span>
+          <small><%= message.created_at.strftime("%e-%m-%y à %H:%M") %></small>
+        </i>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <%=  simple_form_for [ @chatroom, @message ], html: {class: "form-chat"} do |f| %>
+    <div class="input-chat d-flex justify-content-center">
+      <%= f.input :content, label: false, placeholder: "Message"%>
+    </div>
+    <div class="btn-chat d-flex justify-content-center">
+      <%= f.button :submit, "Envoyer", class: "btn-green" %>
+    </div>
+  <% end %>
+</div>
+</div>

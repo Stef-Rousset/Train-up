@@ -12,14 +12,6 @@ class SkillsController < ApplicationController
     @skills = @skills.joins(:experiences).where("experiences.years >= ?", params[:exp_years]) if params[:exp_years].present?
     @skills = @skills.joins(:experiences).where("experiences.price >= ?", params[:exp_price]) if params[:exp_price].present?
     @skills = @skills.where("location ILIKE ?", "%#{params[:skill_location]}%") if params[:skill_location].present?
-    
-    # @center_lat = Geocoder.search(params[:skill_latitude])
-    # @center_lon = Geocoder.search(params[:skill_longitude])
-    # @skills_by_adress = Skill.near([@center_lat, @center_lon], 100)
-    
-    # @skills.map do |skill|
-      # @skills.reject { |s| !@skills_by_adress.include?(s) }
-    # end
 
     @markers = @skills.geocoded.map do |skill|
       {
@@ -32,13 +24,14 @@ class SkillsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @chatroom = Chatroom.joins(:participants).where(participants: {user_id: @skill.user, chatroom: current_user.chatrooms}).first 
+    @chatroom = Chatroom.new if @chatroom.nil?
   end
 
   def new
     @user = current_user
     @skill = Skill.new
     @skill.user = current_user
-    
     @experience = @skill.experiences.new
     @sport = @skill.sports.new
     authorize @skill
@@ -56,7 +49,6 @@ class SkillsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit

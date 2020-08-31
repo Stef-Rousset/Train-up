@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_110117) do
+ActiveRecord::Schema.define(version: 2020_08_31_084650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 2020_08_27_110117) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.integer "years"
     t.string "specialty"
@@ -62,6 +68,25 @@ ActiveRecord::Schema.define(version: 2020_08_27_110117) do
     t.integer "price"
     t.index ["skill_id"], name: "index_experiences_on_skill_id"
     t.index ["sport_id"], name: "index_experiences_on_sport_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_participants_on_chatroom_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -124,6 +149,10 @@ ActiveRecord::Schema.define(version: 2020_08_27_110117) do
   add_foreign_key "bookings", "users"
   add_foreign_key "experiences", "skills"
   add_foreign_key "experiences", "sports"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "participants", "chatrooms"
+  add_foreign_key "participants", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
   add_foreign_key "skills", "users"

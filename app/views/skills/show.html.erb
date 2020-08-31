@@ -49,6 +49,15 @@
 					      <%= f.button :submit, "Réserver", class: "btn-green" %>
 					   <% end %>`
 				   <% end %>
+
+					<% if @chatroom.new_record? %>
+						<%= simple_form_for(@chatroom) do |f| %>
+							<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
+							<%= f.button :submit, "Chat", class: "btn-green" %>
+						<% end %>
+					<% else %>
+						<div><%= link_to "Chat", chatroom_path(@chatroom), class: "btn-green" %></div>
+					<% end %>
 			   </div>
 		 
 				
