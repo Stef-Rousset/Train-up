@@ -112,7 +112,7 @@
           <% if current_user.reviews.any? %>
             <div class="reviews-coach">
               <% current_user.reviews.last(3).each do |review| %>
-                <p><%= review.first_name.capitalize %> <%= review.last_name.first %></p>
+                <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.first %></p>
                 <p><%= review.content %></p>
                 <p><%= review.rating %></p>
               <% end %>
