@@ -95,11 +95,47 @@
 					     </div>
 					     <div class="price-resa d-flex flex-column align-items-center">
 						   <p>Prix total : <span id="total-price"></span>€ </p>
-						   <%= f.button :submit, "Réserver", class: "btn-green"%>
-						   <% end %>	
 						</div>
 				   </div>
 				</div>
+
+
+
+
+
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+				  valider
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+				        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+
+						<%= f.button :submit, "Réserver", class: "btn-green"%>
+						<% end %>	
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+
+
+
+
 			<% else %>
 				<% if current_user === @skill.user %>
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
@@ -132,3 +168,11 @@
 		<% end %>
 	</div>			
 </div>
+
+
+<!-- <script>
+	
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})	
+</script> -->
