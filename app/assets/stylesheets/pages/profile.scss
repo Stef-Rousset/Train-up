@@ -8,7 +8,7 @@ h2 {
 }
 .zut-one {
   margin-bottom: 10px;
-  background-color: #A3D2CA;
+  background-color: $light-gray;
   border-radius: 3px;
   padding: 10px;
 }
@@ -34,7 +34,7 @@ h2 {
   width: 250px;
   background-color: white;
     a {
-  margin-left: 25px;
+  margin-left: 20px;
   padding: 10px 10px;
     }
 }
@@ -73,7 +73,7 @@ h2 {
   font-size: 22px;
 }
 .coach-dashboard, .coach-as-user, .zut {
-  background-color: #A3D2CA;
+  background-color: $light-gray;
   border-radius: 3px;
   padding: 10px;
 }
@@ -85,7 +85,6 @@ h2 {
 }
 .list-resas, .reviews {
   display: flex;
-  margin-right: 5px;
 }
 .link {
   display: flex;
@@ -97,6 +96,7 @@ h2 {
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 3px;
   padding: 5px;
+  padding-left: 15px;
   width: 250px;
   background-color: white;
 }
@@ -105,4 +105,7 @@ h2 {
 }
 .coach-as-user-resas {
 margin-left: 8px;
+}
+.reservations-past {
+  padding-left: 15px;
 }
