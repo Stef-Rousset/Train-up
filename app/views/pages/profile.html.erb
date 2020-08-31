@@ -35,8 +35,8 @@
               <% current_user.bookings.live.each do |booking| %>
                 <div class="reservations-en-cours">
                   <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%H:%M") %></p>
-                  <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
+                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date%></p>
+                  <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
                   <hr>
                   <div class="link-client">
                     <p>Total : <%= booking.total_price %> €</p>
@@ -60,8 +60,8 @@
             <div class="reservations-past">
               <% current_user.bookings.past.each do |booking| %>
                 <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%e-%m-%y") %></p>
-                <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
+                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
+                <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
                 <hr>
                 <p>Total : <%= booking.total_price %> €</p>
                 <br>
@@ -116,8 +116,8 @@
                 <% current_user.received_bookings.live.each do |received_booking| %>
                   <div class="reservations-en-cours-coach">
                     <p><span class="bold">Ton client :</span> <%= received_booking.user.first_name.capitalize %> <%= received_booking.user.last_name.capitalize %></p>
-                    <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date.strftime("%m/%d/%Y")%></p>
-                    <p><i class="far fa-clock"></i> <%= received_booking.start_date.strftime("%H:%M") %> à :<%= received_booking.end_date.strftime("%H:%M") %></p>
+                    <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date%></p>
+                    <p><i class="far fa-clock"></i> <%= received_booking.start_hour %> à :<%= received_booking.end_hour %></p>
                     <hr>
                     <p>Total : <%= received_booking.total_price %> €</p>
                       <% if policy(received_booking).destroy? %>
@@ -150,28 +150,30 @@
       <br>
       <div class="coach-as-user">
         <h3><i class="far fa-clipboard"></i> Tableau de bord client</h3>
-        <h4>Tes réservations en cours</h4>
-        <% if current_user.bookings.live.any? %>
-          <div class="list-resas">
-            <% current_user.bookings.live.each do |booking| %>
-              <div class="reservations-coach-as-user">
-                <p><span class="bold">Ton coach :</span> <%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
-                <p><span class="bold"><%= booking.skill.name %></span></p>
-                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.strftime("%m/%d/%Y") %></p>
-                <p><i class="far fa-clock"></i> <%= booking.start_date.strftime("%H:%M") %> à :<%= booking.end_date.strftime("%H:%M") %></p>
-                <hr>
-                <p>Total : <%= booking.total_price %> €</p>
-                  <% if policy(booking).destroy? %>
-                    <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, profile_path, method: :delete, data: {confirm: "Es-tu sûr d'annuler cette réservation ?"}, class: "btn-green" %>
-                   <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="reservations-coach-as-user">
-            <p>Tu n'as pas de réservations en cours...</p>
-          </div>
-        <% end %>
+        <div class="coach-as-user-resas">
+          <h4>Tes réservations en cours</h4>
+          <% if current_user.bookings.live.any? %>
+            <div class="list-resas">
+              <% current_user.bookings.live.each do |booking| %>
+                <div class="reservations-coach-as-user">
+                  <p><span class="bold">Ton coach :</span> <%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
+                  <p><span class="bold"><%= booking.skill.name %></span></p>
+                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
+                  <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
+                  <hr>
+                  <p>Total : <%= booking.total_price %> €</p>
+                    <% if policy(booking).destroy? %>
+                      <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, profile_path, method: :delete, data: {confirm: "Es-tu sûr d'annuler cette réservation ?"}, class: "btn-green" %>
+                     <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="reservations-coach-as-user">
+              <p>Tu n'as pas de réservations en cours...</p>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
