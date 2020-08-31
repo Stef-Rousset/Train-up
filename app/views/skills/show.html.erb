@@ -99,22 +99,28 @@
 
 		<% if @skill.reviews.present? %>
 			<div class="comment">
-					<h1>Commentaires</h1>
-					<% @skill.reviews.each do |review| %>
-	  					<div class="name-rating d-flex flex-row justify-content-between">
-	      					<div class="review-name"><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></div>
-							<div class="rating"><%= review.rating.times do %>
-	              				<i class="fas fa-star"></i>
-	              			<% end %></div>
+				<h1>Commentaires</h1>
+				<% @skill.reviews.each do |review| %>
+					<div class="review d-flex flex-column">
+  						<div class="name-rating d-flex flex-row justify-content-between">
+		      				<%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
+							
+							<div class="rating d-flex flex-row">
+								<% count = 0 %>
+								<% review.rating.times do %>
+	              					<i class="fas fa-star star"></i>
+	              					<% count += 1 %>
+	              				<% end %>
+	              				<% (5-count).times do %>
+	              					<i class="far fa-star"></i>
+	              				<% end %>
+	              		    </div>
 	              		</div>
-				     		<div class="content"><%= review.content %></div>
-
-
-					<% end %>
+					 	<div class="content"><%= review.content %></div>
+					</div>
+				<% end %>
 			</div>
 		<% end %>
-
-
 	</div>			
 </div>
 

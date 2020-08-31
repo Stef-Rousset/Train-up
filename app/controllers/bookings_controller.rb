@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.skill = @skill
     @booking.user = current_user
+    @booking.status = "en attente"
 
     authorize @booking
 
