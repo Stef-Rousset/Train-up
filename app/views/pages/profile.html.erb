@@ -35,8 +35,8 @@
               <% current_user.bookings.live.each do |booking| %>
                 <div class="reservations-en-cours">
                   <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date%></p>
-                  <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
+                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y")%></p>
+                  <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
                   <hr>
                   <div class="link-client">
                     <p>Total : <%= booking.total_price %> €</p>
@@ -60,8 +60,8 @@
             <div class="reservations-past">
               <% current_user.bookings.past.each do |booking| %>
                 <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
-                <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
+                <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y") %></p>
+                <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
                 <hr>
                 <p>Total : <%= booking.total_price %> €</p>
                 <br>
@@ -116,8 +116,8 @@
                 <% current_user.received_bookings.live.each do |received_booking| %>
                   <div class="reservations-en-cours-coach">
                     <p><span class="bold">Ton client :</span> <%= received_booking.user.first_name.capitalize %> <%= received_booking.user.last_name.capitalize %></p>
-                    <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date%></p>
-                    <p><i class="far fa-clock"></i> <%= received_booking.start_hour %> à :<%= received_booking.end_hour %></p>
+                    <p><i class="far fa-calendar-alt"></i> <%= received_booking.start_date.to_date.strftime("%e %m %Y")%></p>
+                    <p><i class="far fa-clock"></i> <%= received_booking.start_hour %>h à <%= received_booking.end_hour %>h</p>
                     <hr>
                     <p>Total : <%= received_booking.total_price %> €</p>
                       <% if policy(received_booking).destroy? %>
@@ -158,8 +158,8 @@
                 <div class="reservations-coach-as-user">
                   <p><span class="bold">Ton coach :</span> <%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></p>
                   <p><span class="bold"><%= booking.skill.name %></span></p>
-                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date %></p>
-                  <p><i class="far fa-clock"></i> <%= booking.start_hour %> à :<%= booking.end_hour %></p>
+                  <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y") %></p>
+                  <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
                   <hr>
                   <p>Total : <%= booking.total_price %> €</p>
                     <% if policy(booking).destroy? %>
