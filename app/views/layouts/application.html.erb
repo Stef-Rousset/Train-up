@@ -27,8 +27,6 @@
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="notice"><%= notice %></div>
-    <div class="alert"><%= alert %></div>
     <div class="<%= "container custom-container" unless (controller.controller_name == "pages" && controller.action_name == "home") || (controller.controller_name == "pages" && controller.action_name == "profile") || (controller.controller_name == "skills" && controller.action_name == "index") || (controller.controller_name == "skills" && controller.action_name == "show") %>">
       <%= yield %>
     </div>
