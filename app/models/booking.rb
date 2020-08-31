@@ -4,13 +4,14 @@ class Booking < ApplicationRecord
   has_many :reviews
 
   scope :live, -> { where("start_date >= ?", DateTime.now) }
-  scope :past, -> { where("end_date < ?", DateTime.now) }
+  scope :past, -> { where("start_date < ?", DateTime.now) }
 
   validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_hour, presence: true
+  validates :end_hour, presence: true
 
   def duration
-    ((end_date.strftime("%H:%M").to_i) - (start_date.strftime("%H:%M").to_i))
+    (end_hour.to_i) - (start_hour.to_i)
   end
 
   def total_price

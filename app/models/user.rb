@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :participants
   has_many :chatrooms, through: :participants
   has_one_attached :photo
-  has_one_attached :vidéo
+
 
   validates :first_name, presence: true
   validates :last_name, presence: true

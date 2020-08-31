@@ -17,23 +17,45 @@
 .category {
 	visibility: hidden
 }
-
 .fade-in {
 	opacity: 1;
 	transition: opacity 1s ease;
 }
-
 .fade-out {
 	opacity: 0;
 	transition: opacity 1s ease;
 }
-
-
 .search {
 	margin-bottom: 30px;
 }
-
 .barre {
 	width: 600px;
 	margin-right: 10px;
 }
+.avantages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  margin:auto;
+  margin-top: 150px;
+}
+.logo-text {
+  border-radius: 10px;
+  width: 200px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.avantages-text, .avatantages-text2 {
+  width: 350px;
+  text-align: justify;
+  p {
+    font-size: 20px;
+  }
+}
+span {
+  font-weight: bold;
+  color: $green;
+}
+

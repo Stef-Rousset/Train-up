@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
 
   def index
     @skills = policy_scope(Skill)
-    
+
     @skills = Skill.global_search(params[:query]) if params[:query].present?
     @skills = @skills.where("name ILIKE ?", "%#{params[:skill_name]}%") if params[:skill_name].present?
     @skills = @skills.joins(:experiences).where(experiences: {sport_name: params[:sport_id]}) if params[:sport_id].present?
@@ -76,6 +76,6 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:name, :location, :description)
+    params.require(:skill).permit(:name, :location, :description, :video)
   end
 end

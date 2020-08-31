@@ -1,142 +1,204 @@
-#skills-show {
-	background-color: white;
+.container-show {
+	width: 1200px;
+	margin: 0 auto;
 }
 
-.left-run img {
-	position: absolute;
-	height: 70%;
-	margin: 40px 0 40px 0;
-	left: 0
+.profil-price-container {
+	background-color: $light-gray;
+	padding: 0 100px 0 100px;
 }
 
-.right-run img {
-	position: absolute;
-	height: 70%;
-	margin-top: 40px 0 40px 0;
-	right: 0
-}
-
-.titre-profil {
-	font-weight: bold;
-}
-
-.show-avatar {
-	border-radius: 50%;
-	width: 90px;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-
-.show {
-	margin-top: 70px;
+.profile-price {
+	padding: 10px;
+	.logo-price {
+		font-size: 21px;
+	}
 }
 
 .show-card {
-	width: 60%;
-	height: 100px;
-	// background-color: $light-gray;
-	margin-left: 0;
-}
-
-.name {
-	font-size: 18px;
-	color: $green;
-}
-
-.skill {
-	font-size: 24px;
-	color: $green;
-	font-weight: bold;
+	width: 43%;
+	.show-avatar {
+		border-radius: 50%;
+		height: 120px;
+		width: 120px;
+		object-fit: cover;
+		border: 0.01rem solid $green;
+	}
+	.details-show {
+		.name {
+			font-size: 22px;
+			color: $green;
+		}
+		.sport {
+			font-size: 24px;
+			span {
+				font-weight: bolder;
+				font-size: 26px;
+			}
+		}
+	}
 }
 
 .price-euros {
+	margin-top: 30px;
 	font-size: 26px;
-}
-
-.price {
-	font-weight: bolder;
-}
-
-.euros {
-	font-size: 26px;
-}
-
-p #total-price {
-	text-align: right;
-}
-
-.competences {
-	height: 350px;
-	width: 60%;	
-	// background-color: $light-gray;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0px 5px 5px $light-gray;
-	position: relative;
-	.comp {
-		gap: 25px;
+	.price {
+		font-weight: bolder;
 	}
-	.comp-titre {
-		width: 20%;
-		font-weight: bold;
-	}
-	.comp-text {
-		width: 80%;
-	}
+}	
+
+.comp-text {
+	width: 80%;
+	color: black;
 }
 
-.location {
+.profile-video-calandar {
+	margin-top: 20px;
 	margin-bottom: 20px;
+	.competences-video {
+		border-radius: 10px;
+		width: 55%;
+		height: 700px;
+		background-color: #fff;
+    	border-radius: 4px;
+    	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+		.competences {
+			height: 60%;
+			width: 100%;	
+			padding: 30px;
+			position: relative;
+			.hands{
+				padding-top: 3px;
+			}
+			.comp {
+				gap: 25px;
+				.comp-titre {
+					width: 20%;
+					font-weight: bold;
+				}
+				// .comp-text {
+				// 	width: 80%;
+				// 	color: black;
+				// }
+				.location {
+					margin-bottom: 20px;
+				}
+			}
+			.btn-delete {
+				position: absolute;
+				right: 20px;
+				bottom: 20px;
+				margin-top: 15px
+			}
+		}
+		.video-show {
+			height: 57%;
+			width: 100%;
+			margin-top: 10px;
+			padding: 30px;
+			border-top: 
+			h1 {
+				color: $green;
+				margin-top: 10px;
+			}
+			.video-container {
+				margin-bottom: 15px;
+				.video-tape {
+					width: 73%;
+				}
+			}
+		}
+		.ligne {
+			width: 70%;
+			border-top: 0.01rem solid $green;
+			margin-top: 20px;
+		
+		}
+	}
+
+	.flatpickr-calendar {
+		margin-left: 25px;
+	}
+
+	.calandar {
+  		position: sticky;
+  		top: 0;
+		width: 35%;
+		padding: 30px;
+		height: 600px;
+		background-color: #fff;
+    	border-radius: 4px;
+    	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+		.booking-form {
+			p {
+				font-size: 22px;
+				color: $green;
+				// text-align:center;
+				#total-price {
+					font-weight: bolder;
+				}
+			}
+			.input-date label {
+				margin-top: 10px;
+			}
+			.hour {
+				width: 100%;
+				padding-left: 30px;
+				.hourpicker {
+					width: 76%;
+					margin: 0;
+					padding: 0;
+					height: 25px;
+				}
+			}
+			.date {
+				height: 0px;
+				visibility: hidden;
+			}
+			.label {
+				margin: 0;
+			}
+		}
+	}
 }
 
-.btn-delete {
-	position: absolute;
-	right: 20px;
-	bottom: 20px;
-	margin-top: 15px
+.hour span {
+	padding-right: 20px;
 }
 
-.calandar {
-	width: 30%
-}
 
 .comment {
-	width: 80%;
-	box-shadow: 0px 5px 5px $light-gray;;
+	width: 55%;
 	margin-bottom: 20px;
-	padding: 20px;
+	padding: 30px;
+	border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+	margin-top: 10px;
 	h1 {
 		color: $green;
 		margin-top: 10px;
 		padding-bottom: 15px;
 	}
-}
-
-.video {
-	width: 80%;
-	box-shadow: 0px 5px 5px $light-gray;
-	margin-bottom: 20px;
-	h1 {
-		color: $green;
-		margin-top: 10px;
-		padding-left: 20px;
+	.content {
+		font-weight: bold;
+		color: black;
+		text-align: justify;
+		padding-bottom: 20px;
+	}
+	.name-rating {
+		// padding: 20px;
+		border-top: 1px dotted $green;
+		padding-top: 20px;
 	}
 }
 
-.video-container {
-	margin-bottom: 15px;
+.comment h1 {
+	margin-bottom: 35px;
 }
 
-.sport {
-	font-size: 24px;
-	span {
-		font-weight: bolder;
-		font-size: 26px;
-	}
+.review i {
+	font-size: 16px;
 }
-
-
-
 
 
 
