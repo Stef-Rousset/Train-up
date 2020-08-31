@@ -51,6 +51,8 @@ document.addEventListener('turbolinks:load', () => {
   fadeText();
 
   dynamicPriceCalculator();
+ 
+  dynamicModal();
 
   // loadDynamicBannerText();
 
