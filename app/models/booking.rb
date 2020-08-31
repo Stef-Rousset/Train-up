@@ -7,7 +7,8 @@ class Booking < ApplicationRecord
   scope :past, -> { where("end_date < ?", DateTime.now) }
 
   validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_hour, presence: true
+  validates :end_hour, presence: true
 
   def duration
     ((end_date.strftime("%H:%M").to_i) - (start_date.strftime("%H:%M").to_i))

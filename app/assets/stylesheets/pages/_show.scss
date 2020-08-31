@@ -11,20 +11,24 @@
 
 .profile-price {
 	padding: 10px;
+	.logo-price {
+		font-size: 21px;
+	}
 }
 
 .show-card {
-	width: 47%;
+	width: 43%;
 	.show-avatar {
 		border-radius: 50%;
-		height: 150px;
-		width: 150px;
+		height: 120px;
+		width: 120px;
 		object-fit: cover;
+		border: 0.01rem solid $green;
 	}
 	.details-show {
-		margin-top: 40px;
+		// margin-top: 20px;
 		.name {
-			font-size: 18px;
+			font-size: 22px;
 			color: $green;
 		}
 		.sport {
@@ -37,8 +41,6 @@
 	}
 }
 
-
-
 .price-euros {
 	margin-top: 30px;
 	font-size: 26px;
@@ -46,7 +48,6 @@
 		font-weight: bolder;
 	}
 }	
-
 
 .comp-text {
 	width: 80%;
@@ -58,8 +59,9 @@
 	margin-bottom: 20px;
 	.competences-video {
 		// border: 0.001rem solid $green;
+		padding: 25px;
 		border-radius: 10px;
-		width: 60%;
+		width: 55%;
 		height: 600px;
 		background-color: #fff;
     	border-radius: 4px;
@@ -69,6 +71,9 @@
 			width: 100%;	
 			padding: 20px;
 			position: relative;
+			.hands{
+				padding-top: 3px;
+			}
 			.comp {
 				gap: 25px;
 				.comp-titre {
@@ -111,9 +116,14 @@
 		
 		}
 	}
+
+	.flatpickr-calendar {
+		margin-left: 25px;
+	}
+
 	.calandar {
-		width: 30%;
-		padding: 20px;
+		width: 35%;
+		padding: 30px;
 		height: 600px;
 		background-color: #fff;
     	border-radius: 4px;
@@ -122,6 +132,7 @@
 			p {
 				font-size: 22px;
 				color: $green;
+				// text-align:center;
 				#total-price {
 					font-weight: bolder;
 				}
@@ -131,8 +142,9 @@
 			}
 			.hour {
 				width: 100%;
+				padding-left: 30px;
 				.hourpicker {
-					width: 80%;
+					width: 76%;
 					margin: 0;
 					padding: 0;
 					height: 25px;
@@ -148,6 +160,12 @@
 		}
 	}
 }
+
+
+	
+	.hour span {
+		padding-right: 20px;
+	}
 
 
 .comment {
