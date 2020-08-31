@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   # has_many :booked_courses, through: :skills, class_name: 'Booking'
   has_many :reviews
+  has_many :participants
+  has_many :chatrooms, through: :participants
   has_one_attached :photo
 
 
