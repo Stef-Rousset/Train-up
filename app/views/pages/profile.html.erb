@@ -128,16 +128,15 @@
                 <div class="reservations-en-cours-coach">
                   <p>Tu n'as pas de réservation actuellement...</p>
                 </div>
-              <% end %>
-          </div>
-          <h4>Les commentaires de tes clients</h4>
-          <div class="reviews">
-            <% if current_user.reviews.any? %>
-              <div class="reviews-coach">
-                <% current_user.reviews.last(3).each do |review| %>
-                  <p><%= review.first_name.capitalize %> <%= review.last_name.first %></p>
-                  <p><%= review.content %></p>
-                  <p><%= review.rating %></p>
+             <% end %>
+           </div>
+        <h4>Les commentaires clients :</h4>
+          <% if current_user.reviews.any? %>
+            <div class="reviews-coach">
+              <% current_user.reviews.last(3).each do |review| %>
+                <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.first %></p>
+                <p><%= review.content %></p>
+                <p><%= review.rating %></p>
                 <% end %>
               </div>
             <% else %>
@@ -146,8 +145,8 @@
               </div>
             <% end %>
           </div>
-        </div>
       </div>
+    </div>
       <br>
       <div class="coach-as-user">
         <h3><i class="far fa-clipboard"></i> Tableau de bord client</h3>

@@ -1,5 +1,5 @@
 meta_product_name: "TrainUp"
-meta_title: "TrainUp - Trouve un coach et améliore tes performances !"
-meta_description: "Des professionels spécialistes de ton sport pour développer tes compétences techniques, physiques et mentales"
-meta_image: "banner.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_title: "TrainUp - Trouves ton coach !"
+meta_description: "Trouves ton coach, ton préparateur physique et ton préparateur mental sur TrainUp!"
+meta_image: "trainup_logo.png" # should exist in `app/assets/images/`
+
