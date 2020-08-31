@@ -247,27 +247,27 @@ puts "experiences done"
 
 puts "creating bookings"
 
-booking_one = Booking.create!(user: user, skill: skill_first, start_date: DateTime.parse("12/09/2020 10:00"), end_date: DateTime.parse("12/09/2020 11:00"))
+booking_one = Booking.create!(user: user, skill: skill_first, start_date: "12-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_one.save!
-booking_two = Booking.create!(user: user, skill: skill_second, start_date: DateTime.parse("16/09/2020 13:00"), end_date: DateTime.parse("12/09/2020 14:00"))
+booking_two = Booking.create!(user: user, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00")
 booking_two.save!
-booking_three = Booking.create!(user: user, skill: skill_third, start_date: DateTime.parse("20/08/2020 17:00"), end_date: DateTime.parse("20/08/2020 18:00"))
+booking_three = Booking.create!(user: user, skill: skill_third, start_date: "20-08-2020", start_hour: "17:00", end_hour: "18:00")
 booking_three.save!
-booking_four = Booking.create!(user: user, skill: skill_ten, start_date: DateTime.parse("27/09/2020 10:00"), end_date: DateTime.parse("27/09/2020 11:00"))
+booking_four = Booking.create!(user: user, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_four.save!
-booking_five = Booking.create!(user: user, skill: skill_ten, start_date: DateTime.parse("16/08/2020 14:00"), end_date: DateTime.parse("16/08/2020 15:00"))
+booking_five = Booking.create!(user: user, skill: skill_ten, start_date: "16-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_five.save!
-booking_six = Booking.create!(user: user, skill: skill_fourth, start_date: DateTime.parse("25/09/2020 10:00"), end_date: DateTime.parse("25/09/2020 11:00"))
+booking_six = Booking.create!(user: user, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_six.save!
-booking_seven = Booking.create!(user: user, skill: skill_twelve, start_date: DateTime.parse("25/06/2020 12:00"), end_date: DateTime.parse("25/06/2020 13:00"))
+booking_seven = Booking.create!(user: user, skill: skill_twelve, start_date: "25-06-2020", start_hour: "10:00", end_hour: "11:00")
 booking_seven.save!
-booking_eigth = Booking.create!(user: user, skill: skill_twelve, start_date: DateTime.parse("15/09/2020 13:00"), end_date: DateTime.parse("15/09/2020 14:00"))
+booking_eigth = Booking.create!(user: user, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eigth.save!
-booking_nine = Booking.create!(user: user, skill: skill_fourteen, start_date: DateTime.parse("25/08/2020 10:00"), end_date: DateTime.parse("25/08/2020 12:00"))
+booking_nine = Booking.create!(user: user, skill: skill_fourteen, start_date: "25-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_nine.save!
-booking_ten = Booking.create!(user: user, skill: skill_fifteen, start_date: DateTime.parse("13/09/2020 09:00"), end_date: DateTime.parse("13/09/2020 11:00"))
+booking_ten = Booking.create!(user: user, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_ten.save!
-booking_eleven = Booking.create!(user: user, skill: skill_fifteen, start_date: DateTime.parse("29/08/2020 16:00"), end_date: DateTime.parse("29/08/2020 17:00"))
+booking_eleven = Booking.create!(user: user, skill: skill_fifteen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eleven.save!
 puts "booking done"
 
