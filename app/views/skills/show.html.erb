@@ -112,11 +112,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
-
 			<% else %>
 				<% if current_user === @skill.user %>
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
