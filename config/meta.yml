@@ -1,0 +1,5 @@
+meta_product_name: "TrainUp"
+meta_title: "TrainUp - Trouves ton coach !"
+meta_description: "Trouves ton coach, ton préparateur physique et ton préparateur mental sur TrainUp!"
+meta_image: "trainup_logo.png" # should exist in `app/assets/images/`
+
