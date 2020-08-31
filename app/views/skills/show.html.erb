@@ -2,7 +2,7 @@
 <!-- <div class="left-run"> -->
  		<%#= image_tag "left-runners.svg", class: "run" %>
 <!-- </div> -->
-	
+
 		<div class="profil-price-container">
 			<div class="container-show">
 				<div class="profile-price d-flex flex-row justify-content-between">
@@ -20,7 +20,7 @@
 							</div>
 						</div>
 					 </div>
-							
+
 					<!-- div class="price-logo d-flex flex-column"> -->
 						<!-- <div class="align-self-end"><%#= image_tag "logo-escrime.svg"%></div> -->
 						<div class="price-euros align-self-start"><% @skill.experiences.each do |experience| %>
@@ -28,7 +28,7 @@
 						<% end %>
 						<!-- </div> -->
 					</div>
-				</div>		
+				</div>
 			</div>
 		</div>
 
@@ -37,7 +37,7 @@
 
 		<div class="profile-video-calandar d-flex flex-row justify-content-between">
 			<div class="competences-video d-flex flex-column">
-				
+
 				<div class="competences d-flex flex-column justify-content-around">
 					<% if current_user != @skill.user %>
 						<h1>Son profil</h1>
@@ -51,7 +51,7 @@
 						<div class="comp d-flex flex-row"><i class="fas fa-handshake hands"></i> <div class="comp-text"><%= @skill.description %></div></div>
 						<div class="comp d-flex flex-row align-items-center"><i class="fas fa-map-marker-alt"></i> <div class="comp-text"><%= @skill.location %></div></div>
 				</div>
-				<div class="ligne align-self-center"></div>	
+				<div class="ligne align-self-center"></div>
 				<div class="video-show">
 					<h1>Video d'une séance</h1>
 					</br>
@@ -81,7 +81,7 @@
 					     <div class="price-resa d-flex flex-column align-items-center">
 						   <p>Prix total : <span id="total-price"></span>€ </p>
 						   <%= f.button :submit, "Réserver", class: "btn-green"%>
-						   <% end %>	
+						   <% end %>
 						</div>
 				   </div>
 				</div>
@@ -89,7 +89,7 @@
 				<% if current_user === @skill.user %>
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 				<% end %>
-	   		<% end %>
+	   	<% end %>
 		</div>
 
 		<% if @skill.reviews.present? %>
@@ -110,7 +110,7 @@
 		<% end %>
 
 
-	</div>			
+	</div>
 </div>
 
 <!-- 	<div class="right-run"> -->
