@@ -14,7 +14,7 @@
                 <li class="list-group-item">
                   <p><span class="bold">Nom : </span><%= current_user.last_name.capitalize %></p>
                   <p><span class="bold">Prénom : </span><%= current_user.first_name.capitalize %></p>
-                  <p><i class="fas fa-birthday-cake"></i> <%= current_user.birth_date %></p>
+                  <p><i class="fas fa-birthday-cake"></i> <%= current_user.birth_date.strftime("%e %m %Y") %></p>
                   <p><i class="fas fa-venus-mars"></i> <%= current_user.sex %></p>
                 </li>
                 <li class="list-group-item">
