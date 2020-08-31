@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <%= favicon_link_tag(source = "favicon.ico") %>
-    <title>Train Up - Trouve ton coach!</title>
+    <title><%= meta_title %></title>
+     <%= favicon_link_tag "favicon.ico" %>
     <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
@@ -12,7 +12,7 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
-   
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
