@@ -85,7 +85,7 @@ h2 {
 }
 .list-resas, .reviews {
   display: flex;
-  margin: 5px 5px;
+  margin-right: 5px;
 }
 .link {
   display: flex;
@@ -102,4 +102,7 @@ h2 {
 }
 .reservations-coach-as-user {
   padding-bottom: 10px;
+}
+.coach-as-user-resas {
+margin-left: 8px;
 }
