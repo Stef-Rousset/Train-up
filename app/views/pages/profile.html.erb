@@ -137,7 +137,11 @@
               <% current_user.reviews.last(3).each do |review| %>
                 <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.first %></p>
                 <p><%= review.content %></p>
-                <p><%= review.rating %></p>
+                <div class="rating">
+                  <%= review.rating.times do %>
+                        <i class="fas fa-star"></i>
+                  <% end %>
+                </div>
                 <% end %>
               </div>
             <% else %>
