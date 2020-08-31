@@ -4,7 +4,6 @@
 }
 
 .profil-price-container {
-	// margin: 20px 0 20px 0;
 	background-color: $light-gray;
 	padding: 0 100px 0 100px;
 }
@@ -26,7 +25,6 @@
 		border: 0.01rem solid $green;
 	}
 	.details-show {
-		// margin-top: 20px;
 		.name {
 			font-size: 22px;
 			color: $green;
@@ -58,18 +56,16 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	.competences-video {
-		// border: 0.001rem solid $green;
-		// padding: 25px;
 		border-radius: 10px;
 		width: 55%;
-		height: 600px;
+		height: 700px;
 		background-color: #fff;
     	border-radius: 4px;
     	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
 		.competences {
 			height: 60%;
 			width: 100%;	
-			padding: 20px;
+			padding: 30px;
 			position: relative;
 			.hands{
 				padding-top: 3px;
@@ -96,10 +92,10 @@
 			}
 		}
 		.video-show {
-			height: 40%;
+			height: 57%;
 			width: 100%;
 			margin-top: 10px;
-			padding: 20px;
+			padding: 30px;
 			border-top: 
 			h1 {
 				color: $green;
@@ -107,6 +103,9 @@
 			}
 			.video-container {
 				margin-bottom: 15px;
+				.video-tape {
+					width: 73%;
+				}
 			}
 		}
 		.ligne {
@@ -122,6 +121,8 @@
 	}
 
 	.calandar {
+  		position: sticky;
+  		top: 0;
 		width: 35%;
 		padding: 30px;
 		height: 600px;
@@ -161,41 +162,43 @@
 	}
 }
 
-
-	
-	.hour span {
-		padding-right: 20px;
-	}
+.hour span {
+	padding-right: 20px;
+}
 
 
 .comment {
-	width: 100%;
+	width: 55%;
 	margin-bottom: 20px;
-	padding: 20px;
-	border: 0.001rem solid $gray;
-	border-radius: 10px;
-	margin-top: 10px;s
+	padding: 30px;
+	border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+	margin-top: 10px;
 	h1 {
 		color: $green;
 		margin-top: 10px;
 		padding-bottom: 15px;
 	}
+	.content {
+		font-weight: bold;
+		color: black;
+		text-align: justify;
+		padding-bottom: 20px;
+	}
+	.name-rating {
+		// padding: 20px;
+		border-top: 1px dotted $green;
+		padding-top: 20px;
+	}
 }
 
+.comment h1 {
+	margin-bottom: 35px;
+}
 
-// .left-run img {
-// 	position: absolute;
-// 	height: 70%;
-// 	margin: 40px 0 40px 0;
-// 	left: 0
-// }
-
-// .right-run img {
-// 	position: absolute;
-// 	height: 70%;
-// 	margin-top: 40px 0 40px 0;
-// 	right: 0
-// }
+.review i {
+	font-size: 16px;
+}
 
 
 

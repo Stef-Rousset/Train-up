@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
 
   def index
     @skills = policy_scope(Skill)
-    
+
     @skills = Skill.global_search(params[:query]) if params[:query].present?
     @skills = @skills.where("name ILIKE ?", "%#{params[:skill_name]}%") if params[:skill_name].present?
     @skills = @skills.joins(:experiences).where(experiences: {sport_name: params[:sport_id]}) if params[:sport_id].present?
@@ -12,11 +12,11 @@ class SkillsController < ApplicationController
     @skills = @skills.joins(:experiences).where("experiences.years >= ?", params[:exp_years]) if params[:exp_years].present?
     @skills = @skills.joins(:experiences).where("experiences.price >= ?", params[:exp_price]) if params[:exp_price].present?
     @skills = @skills.where("location ILIKE ?", "%#{params[:skill_location]}%") if params[:skill_location].present?
-    
+
     # @center_lat = Geocoder.search(params[:skill_latitude])
     # @center_lon = Geocoder.search(params[:skill_longitude])
     # @skills_by_adress = Skill.near([@center_lat, @center_lon], 100)
-    
+
     # @skills.map do |skill|
       # @skills.reject { |s| !@skills_by_adress.include?(s) }
     # end
@@ -38,7 +38,7 @@ class SkillsController < ApplicationController
     @user = current_user
     @skill = Skill.new
     @skill.user = current_user
-    
+
     @experience = @skill.experiences.new
     @sport = @skill.sports.new
     authorize @skill
@@ -84,6 +84,6 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:name, :location, :description)
+    params.require(:skill).permit(:name, :location, :description, :video)
   end
 end

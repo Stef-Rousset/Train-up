@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.skill = @skill
     @booking.user = current_user
+    @booking.status = "en attente"
 
     authorize @booking
 
@@ -18,8 +19,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    authorize @booking
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to profile_path
   end
