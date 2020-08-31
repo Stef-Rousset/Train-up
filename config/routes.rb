@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :skills do
     resources :experiences, only: [:index, :create, :edit, :update]
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create] do
+      get "update_status", to: 'bookings#update_status'
+    end
   end
 
   resources :bookings, only: [:index, :destroy] do

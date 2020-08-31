@@ -18,6 +18,22 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+  end
+
+  def update_status
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
+    @booking.status = "accepté"
+    @booking.save!
+    redirect_to profile_path
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
