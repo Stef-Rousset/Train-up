@@ -80,7 +80,7 @@ class SkillsController < ApplicationController
 
   def set_skill
     @skill = Skill.find(params[:id])
-    authorize @skill
+    authorize @skillƒ
   end
 
   def skill_params
