@@ -19,8 +19,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    authorize @booking
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to profile_path
   end

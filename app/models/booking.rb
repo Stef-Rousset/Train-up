@@ -11,7 +11,7 @@ class Booking < ApplicationRecord
   validates :end_hour, presence: true
 
   def duration
-    duration = end_hour.to_i - start_hour.to_i
+    (end_hour.to_i) - (start_hour.to_i)
   end
 
   def total_price

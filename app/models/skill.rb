@@ -6,7 +6,7 @@ class Skill < ApplicationRecord
   has_many :sports, through: :experiences
   has_many :reviews, through: :bookings
 
-  has_one_attached :vidéo
+  has_one_attached :video
 
 
   validates :name, presence: true

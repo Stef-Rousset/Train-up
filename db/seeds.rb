@@ -26,9 +26,25 @@ Sport.destroy_all
 
 
 puts "creating users"
-user = User.create!(first_name: "Eugénie", last_name: "Grison", email: "egrisond@gmail.com", password: "coucou123", sex: "femme", address: "5bis Place Jean Macé, 69007 Lyon", birth_date: Date.parse("04/11/1990"))
+user_clone = User.create!(first_name: "Eugénie", last_name: "Grison", email: "egrisond@gmail.com", password: "coucou123", sex: "femme", address: "5bis Place Jean Macé, 69007 Lyon", birth_date: Date.parse("04/11/1990"))
 file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
-user.photo.attach(io: file, filename: 'JulieGrison.jpg', content_type: 'image/jpg')
+user_clone.photo.attach(io: file, filename: 'JulieGrison.jpg', content_type: 'image/jpg')
+
+user_cltwo = User.create!(first_name: "Caroline", last_name: "Chamois", email: "caro-chamois@gmail.com", password: "fine123", sex: "femme", address: "10 rue d'Aix, 75010", birth_date: Date.parse("06/11/1981"))
+file = URI.open('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80.jpg')
+user_cltwo.photo.attach(io: file, filename: 'CarolineChamois.jpg', content_type: 'image/jpg')
+
+user_clthree = User.create!(first_name: "Christian", last_name: "Boucherd", email: "cboucherd@gmail.com", password: "fine456", sex: "homme", address: "25 rue de Bretagne, 75003 Paris", birth_date: Date.parse("06/10/1991"))
+file = URI.open('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80.jpg')
+user_clthree.photo.attach(io: file, filename: 'ChristianBoucherd.jpg', content_type: 'image/jpg')
+
+user_clfour = User.create!(first_name: "Quentin", last_name: "Ninon", email: "cninon@gmail.com", password: "fine789", sex: "homme", address: "1 rue de Rivoli, 75004 Paris", birth_date: Date.parse("06/12/1993"))
+file = URI.open('https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80.jpg')
+user_clfour.photo.attach(io: file, filename: 'QuentinNinon.jpg', content_type: 'image/jpg')
+
+user_clfive = User.create!(first_name: "Myriam", last_name: "Canchard", email: "mcanchard@gmail.com", password: "789fine", sex: "femme", address: "76 rue de Tolbiac, 75013 Paris", birth_date: Date.parse("27/04/1994"))
+file = URI.open('https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=956&q=80.jpg')
+user_clfive.photo.attach(io: file, filename: 'MyriamCanchard.jpg', content_type: 'image/jpg')
 
 user_one = User.create!(first_name: "Charles", last_name: "Martin", email: "cmartin@gmail.com", password: "escrime", sex: "homme", address: "50 rue Saint Martin 75004 Paris", birth_date: Date.parse("12/07/1992"))
 file = URI.open('https://lepetitjournal.com/sites/default/files/2020-05/griffin-wooldridge-7Sz71zuuW4k-unsplash.jpg')
@@ -247,27 +263,27 @@ puts "experiences done"
 
 puts "creating bookings"
 
-booking_one = Booking.create!(user: user, skill: skill_first, start_date: "12-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_one = Booking.create!(user: user_clone, skill: skill_first, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_one.save!
-booking_two = Booking.create!(user: user, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00")
+booking_two = Booking.create!(user: user_clone, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00")
 booking_two.save!
-booking_three = Booking.create!(user: user, skill: skill_third, start_date: "20-08-2020", start_hour: "17:00", end_hour: "18:00")
+booking_three = Booking.create!(user: user_cltwo, skill: skill_third, start_date: "20-08-2020", start_hour: "17:00", end_hour: "18:00")
 booking_three.save!
-booking_four = Booking.create!(user: user, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_four = Booking.create!(user: user_cltwo, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_four.save!
-booking_five = Booking.create!(user: user, skill: skill_ten, start_date: "16-08-2020", start_hour: "10:00", end_hour: "11:00")
+booking_five = Booking.create!(user: user_clthree, skill: skill_ten, start_date: "16-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_five.save!
-booking_six = Booking.create!(user: user, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_six = Booking.create!(user: user_clthree, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_six.save!
-booking_seven = Booking.create!(user: user, skill: skill_twelve, start_date: "25-06-2020", start_hour: "10:00", end_hour: "11:00")
+booking_seven = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "25-06-2020", start_hour: "10:00", end_hour: "11:00")
 booking_seven.save!
-booking_eigth = Booking.create!(user: user, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_eigth = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eigth.save!
-booking_nine = Booking.create!(user: user, skill: skill_fourteen, start_date: "25-08-2020", start_hour: "10:00", end_hour: "11:00")
+booking_nine = Booking.create!(user: user_clfive, skill: skill_fourteen, start_date: "25-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_nine.save!
-booking_ten = Booking.create!(user: user, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_ten = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00")
 booking_ten.save!
-booking_eleven = Booking.create!(user: user, skill: skill_fifteen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
+booking_eleven = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eleven.save!
 puts "booking done"
 
