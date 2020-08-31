@@ -10,7 +10,7 @@ class MessagePolicy < ApplicationPolicy
   # end
 
   def create?
-    record.participants.include?(user)
+    true
   end
 
   # def update?
