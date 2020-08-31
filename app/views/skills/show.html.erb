@@ -1,27 +1,3 @@
-<div class="profil-price-container">
-	<div class="container-show">
-		<div class="profile-price d-flex flex-row justify-content-between">
-			<div class="show-card d-flex flex-row justify-content-between align-items-center">
-				<div><%= cl_image_tag @skill.user.photo.key, class:"show-avatar"%></div>
-				<div class="details-show d-flex flex-column">
-					<div class="name"><%= @skill.user.first_name %> <%= @skill.user.last_name %></div>
-					<div class="sport"><% @skill.experiences.each do |experience| %>
-						<span><%= @skill.name %> - <%= experience.sport.name %></span>
-						<% if experience.specialty %>
-							 <div class="sport"><%= experience.specialty %></div>
-						<% end %>
-					  <% end %>
-					</div>
-				</div>
-			 </div>
-			<div class="price-euros align-self-start"><% @skill.experiences.each do |experience| %>
-				<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
-				<% end %>
-			</div>
-		</div>		
-	</div>
-</div>
-
 <div class="container-show">
 	<div class="show d-flex flex-column">
 
@@ -50,10 +26,10 @@
 							  <%= cl_video_tag @skill.video.key, :width => 300, source_types: :mp4, controls: true %>
 							</div>
 						<% else %>
-						<video class="video-tape" controls width="250">
-					    	<source src= "<%= asset_path('video.mp4') %>"
-					            type="video/mp4">
-						</video>
+							<video class="video-tape" controls width="250">
+						    	<source src= "<%= asset_path('video.mp4') %>"
+						            type="video/mp4">
+							</video>
 						<% end %>
 					</div>
 				</div>
@@ -105,9 +81,7 @@
 	</div>			
 </div>
 
-<!-- 	<div class="right-run"> -->
- 		<%#= image_tag "right-runners.svg", class: "run" %>
-	<!-- </div>  -->
+
 
 
 
