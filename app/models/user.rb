@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # has_many :booked_courses, through: :skills, class_name: 'Booking'
   has_many :reviews
   has_one_attached :photo
-  has_one_attached :vidéo
+
 
   validates :first_name, presence: true
   validates :last_name, presence: true
