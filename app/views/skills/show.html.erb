@@ -108,12 +108,12 @@
 					      	<p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
+					        <button type="button" class="btn-annuler" data-dismiss="modal">Annuler</button>
 					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
 				
-							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
-							<% end %>	
 					      </div>
+						<% end %>	
 					    </div>
 					  </div>
 					</div>
