@@ -24,6 +24,7 @@ class SkillsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
     @chatroom = Chatroom.joins(:participants).where(participants: {user_id: @skill.user, chatroom: current_user.chatrooms}).first 
     @chatroom = Chatroom.new if @chatroom.nil?
   end
