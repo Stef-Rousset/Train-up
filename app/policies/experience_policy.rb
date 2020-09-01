@@ -5,11 +5,13 @@ class ExperiencePolicy < ApplicationPolicy
     end
   end
 
-    def create?
-      true
-    end
-
-    def update?
-      record.user == user
+  def create?
+    true
+  end
+  def edit?
+    update?
+  end
+  def update?
+    record.skill.user == user
   end
 end

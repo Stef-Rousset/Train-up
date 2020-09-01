@@ -1,0 +1,9 @@
+<h4>Modifie ton expérience</h4>
+
+<%= simple_form_for (@experience) do |f| %>
+  <%= f.association :sport, :label => "Ton sport" %>
+  <%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
+  <%= f.input :price, label: 'Price' %>
+  <%= f.input :specialty, :label => "Ta spécialité"%>
+  <%= f.submit "Valider l'expérience", class: "btn-green btn-exp" %>
+<% end %>

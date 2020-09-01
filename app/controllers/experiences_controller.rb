@@ -20,15 +20,16 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
-    @experience = Experience.find(params[:skill_id])
+    @experience = Experience.find(params[:id])
+    authorize @experience
   end
 
   def update
+    @experience = Experience.find(params[:id])
     authorize @experience
-    @experience = Experience.find(params[:skill_id])
     @experience.update(experience_params)
     if @experience.save
-      redirect_to skill_experiences_path
+      redirect_to profile_path
     else
       render :index
     end
