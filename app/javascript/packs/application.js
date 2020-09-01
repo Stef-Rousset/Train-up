@@ -26,7 +26,6 @@ require("channels")
 // External imports
 import "bootstrap";
 import "../plugins/flatpickr";
-// import "../plugins/init_autocomplete";
 
 
 
@@ -37,22 +36,20 @@ import { dynamicPriceCalculator } from '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
 import { dynamicModal } from '../plugins/flatpickr';
-import { initAutocomplete } from '../plugins/init_autocomplete'
+// import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
 
   // initSelect2()
-  
   initMapbox();
   // initAutocomplete();
   initStarRating();
-
   fadeText();
-
   dynamicPriceCalculator();
- 
-  dynamicModal();
+  // dynamicModal();
+  initChatroomCable();
 
   // loadDynamicBannerText();
 
