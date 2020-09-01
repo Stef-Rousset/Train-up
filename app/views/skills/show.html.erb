@@ -1,4 +1,4 @@
-<!-- profil-ent^te -->
+<!-- profil -->
 
 <div class="profil-price-container">
 	<div class="container-show">
@@ -25,14 +25,14 @@
 	</div>
 </div>
 
-
 <!-- bloc profile video calandrier -->
 
 <div class="container-show">
 	<div class="show d-flex flex-column">
+
 		<div class="profile-video-calandar d-flex flex-row justify-content-between">
 			<div class="competences-video d-flex flex-column">
-<!-- bloc profile -->
+<!-- bloc compétences -->
 				<div class="competences d-flex flex-column justify-content-around">
 					<% if current_user != @skill.user %>
 						<h1>Son profil</h1>
@@ -64,23 +64,20 @@
 			</div>
 <!-- bloc calandrier -->
 			<% if current_user != @skill.user %>
-				<div class="calandar-modal">
-					<div class="calandar">
-						<h1>Réservation</h1>
-						<div class="booking-form d-flex justify-content-around align-center">
-					    	<%= simple_form_for([@skill, @booking]) do |f| %>
-							     <div class="input-date"><%= f.input :start_date, as: :string, required: false, label: "Sélectionner une date", placeholder: "Sélectionner une date", input_html: {class: "datepicker date"} %>
-							     </div>
-							     <div class="hour d-flex justify-content-between align-items-center">
-							      	<div class="d-flex hour-de"><span>De</span>
-								     	<%= f.input :start_hour, as: :string, required: false, label: false, placeholder: "17:00", input_html: {class: "hourpicker start"} %>
-								     </div>
-								     <div class="d-flex hour-a justify-content-between">
-								     	<span>A</span>
-								     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "19:00", input_html: {class: "hourpicker end"} %>
-								     </div>
-							     </div>
-						 </div>
+			<div class="calandar-modal d-flex flex-column">
+				<div class="calandar">
+					<h1>Réservation</h1>
+					<div class="booking-form d-flex justify-content-around align-center">
+				    	<%= simple_form_for([@skill, @booking]) do |f| %>
+					     <div class="input-date"><%= f.input :start_date, as: :string, required: false, label: "Sélectionner une date", placeholder: "Sélectionner une date", input_html: {class: "datepicker date"} %></div>
+					     <div class="hour d-flex justify-content-between align-items-center">
+					      	<div class="d-flex hour-de"><span>De</span>
+						     	<%= f.input :start_hour, as: :string, required: false, label: false, placeholder: "17:00", input_html: {class: "hourpicker start"} %>
+						     </div>
+						     <div class="d-flex hour-a justify-content-between">
+						     	<span>A</span>
+						     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "19:00", input_html: {class: "hourpicker end"} %></div>
+					     </div>
 					     <div class="price-resa d-flex flex-column align-items-center">
 						   <p>Prix total : <span id="total-price"></span>€ </p>
 						</div>
@@ -101,50 +98,46 @@
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <h5 class="modal-title" id="staticBackdropLabel">Veuillez valider la réservation</h5>
+					        <h5 class="modal-title" id="staticBackdropLabel">Détail de la réservation</h5>
 <!-- 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
 					        </button> -->
 					      </div>
 					      <div class="modal-body">
-					      	<p><span class="modal-title">Séance de coaching pour le :</span></p>
+					      	<p><span class="modal-title">Séance de coaching réservée pour le :</span></p>
 					      	<p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
 					      </div>
 					      <div class="modal-footer">
-							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
-							<% end %>	
-					        <button type="button" class="btn-annuler" data-dismiss="modal">Annuler</button>
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
 					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
 				
+							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
+							<% end %>	
 					      </div>
 					    </div>
 					  </div>
 					</div>
 				</div>
 				
+
 <!-- bouton chat -->
 					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
 						<% if @chatroom.new_record? %>
 							<%= simple_form_for(@chatroom) do |f| %>
 								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
-
-								<%= f.button :submit, "Chat avec le coach", class: "btn-chat" %>
+								<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
 							<% end %>
 						<% else %>
-							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last.id}"), class: "btn-chat" %></div>
-						<% end %>`
+							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom), class: "chat-btn" %></div>
+						<% end %>
 					</div>
 			</div>
 			<% else %>
-				<% if current_user == @skill.user %>
-					<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %>
-					
-					</div>
+				<% if current_user === @skill.user %>
+				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
 				<% end %>
-				</div>
-			<% end %>
-		<!-- </div> -->
-	
+	   		<% end %>
+		</div>
 
 <!-- bloc commentaires -->
 		<% if @skill.reviews.present? %>
@@ -175,8 +168,8 @@
 		<% if @reviewable_booking%>
 			<div id="comment" class='mb-5'>
 				    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
-							<%= f.input :content, label: "Laisser un commentaire" %>
-							<%= f.input :rating, collection: (1..5).to_a, label: "Donner une note", required: true %>
+							<%= f.input :content, label: "Laisse ton commentaire" %>
+							<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
 				<!--  <div class="my-3"> -->
 			        <%# 5.times do |index| %>
 			        <!--
