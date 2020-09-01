@@ -116,16 +116,18 @@
 					<% end %>
 				</div>
 <!-- bouton chat -->
-				<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
-					<% if @chatroom.new_record? %>
-						<%= simple_form_for(@chatroom) do |f| %>
-							<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
-							<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
-						<% end %>
-					<% else %>
-						<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom), class: "chat-btn" %></div>
-					<% end %>
-				</div>
+					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
+						<% if @chatroom.new_record? %>
+							<%= simple_form_for(@chatroom) do |f| %>
+								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
+
+								<%= f.button :submit, "Chat avec le coach", class: "btn-chat" %>
+							<% end %>
+						<% else %>
+							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last.id}"), class: "btn-chat" %></div>
+						<% end %>`
+					</div>
+			</div>
 			<% else %>
 				<% if current_user == @skill.user %>
 					<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %>
