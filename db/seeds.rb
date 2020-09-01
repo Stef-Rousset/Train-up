@@ -139,6 +139,7 @@ skill_twelve.save!
 skill_thirteen = Skill.create!(name: "Préparateur mental", location: "52 rue de Lourmel, 75015 Paris", description: "Spécialiste de la Sophrologie, j'interviens particulièrement auprès des pratiquants de sports de combat pour leur forger un mental d'acier.", user: user_thirteen)
 skill_thirteen.save!
 skill_fourteen = Skill.create!(name: "Entraîneur", location: "9 Rue des Frères Flavien, 75020 Paris", description: "Ex joueur professionnel classé 258ème à l'ATP, je vous conseille en compétition et vous fais bénéficier de toute mon expérience.", user: user_fourteen)
+puts "twelve"
 skill_fourteen.save!
 skill_fifteen = Skill.create!(name: "Préparateur physique", location: "33 rue de l'Église, 75015 Paris", description: "En fonction de votre sport et de votre niveau, je construis pour vous une séance complètement personnalisée.", user: user_fifteen)
 file = URI.open ('https://res.cloudinary.com/du5qhnalh/video/upload/v1598967409/pjanvier_qewxwd.mp4')

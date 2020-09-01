@@ -121,11 +121,16 @@
 	height: 700px;
 	border-radius: 4px;
 	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+	position: sticky;
+	top: 0;
+	.chatroom_user_id {
+	    margin: 0;
+	}
 }
 
 .calandar {
 	padding: 30px;
-	height: 520px;
+	height: max-content;
 	background-color: #fff;
 	.booking-form {
 		p {
@@ -141,12 +146,13 @@
 		}
 		.hour {
 			width: 100%;
-			padding-left: 30px;
+			padding: 15px 0 15px 30px;
 			.hourpicker {
-				width: 76%;
+				width: 75%;
 				margin: 0;
 				padding: 0;
 				height: 25px;
+				text-align: center;
 			}
 		}
 		.date {
@@ -163,9 +169,6 @@
 	padding-right: 20px;
 }
 
-.bloc-btn-chat {
-	height: 15%;
-}
 
 .chat-btn {
 	border: 1px solid $green;
