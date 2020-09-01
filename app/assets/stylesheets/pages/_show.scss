@@ -45,7 +45,7 @@
 	.price {
 		font-weight: bolder;
 	}
-}	
+}
 
 .comp-text {
 	width: 80%;
@@ -64,7 +64,7 @@
     	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
 		.competences {
 			height: 60%;
-			width: 100%;	
+			width: 100%;
 			padding: 30px;
 			position: relative;
 			.hands{
@@ -92,7 +92,7 @@
 			width: 100%;
 			margin-top: 10px;
 			padding: 30px;
-			border-top: 
+			border-top:
 			h1 {
 				color: $green;
 				margin-top: 10px;
@@ -121,8 +121,8 @@
 	height: 700px;
 	border-radius: 4px;
 	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
-
 }
+
 .calandar {
 	padding: 30px;
 	height: 520px;
@@ -159,22 +159,68 @@
 	}
 }
 
-
 .hour span {
 	padding-right: 20px;
 }
 
 .bloc-btn-chat {
-	margin-top: 20px;
-	height: 20%;
+	height: 15%;
+}
+
+.chat-btn {
+	border: 1px solid $green;
+	color: $green;
+	padding: 8px;
+	border-radius: 5px;
+	width: 170px;
+	text-align: center;
 }
 
 
-.btn-chat {
-	height: 8%;
+.modal-header {
+	background-color: $green;
+	opacity: 0.8;
+	color: $light-gray;
 }
 
+.modal-footer {
+	background-color: $green;
+	opacity: 0.8;
+	color: $light-gray;
+}
+.modal-body p {
+	color: $green;
+	text-align: center;
+}
 
+#modal-date{
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+#modal-start-hour{
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+#modal-end-hour {
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+.btn-annuler {
+	padding: 5px;
+	border: 1px solid white;
+	background-color: $green;
+	border-radius: 5px;
+	color: white;
+}
+
+.btn-confirm {
+	background-color: $light-gray;
+	border-radius: 5px;
+	color: $green;
+}
 
 .comment {
 	width: 55%;
@@ -208,7 +254,10 @@
 .review i {
 	font-size: 16px;
 }
-
+.video-tape {
+  width: 73%;
+  margin-left: 70px;
+}
 
 
 

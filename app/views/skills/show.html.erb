@@ -21,7 +21,7 @@
 				<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
 			<% end %>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
 
@@ -46,12 +46,12 @@
 						<div class="comp d-flex flex-row"><i class="fas fa-handshake hands"></i> <div class="comp-text"><%= @skill.description %></div></div>
 						<div class="comp d-flex flex-row align-items-center"><i class="fas fa-map-marker-alt"></i> <div class="comp-text"><%= @skill.location %></div></div>
 				</div>
-				<div class="ligne align-self-center"></div>	
+				<div class="ligne align-self-center"></div>
 				<div class="video-show">
 					<h1>Video d'une séance</h1>
 					</br>
 					<% if @skill.video.attached? %>
-						<% cl_video_tag @skill.video.key, class:"video-tape", source_types: :mp4, controls: true %>
+						<%= cl_video_tag @skill.video.key, class:"video-tape", source_types: :mp4, controls: true %>
 					<% else %>
 						<div class="video-container d-flex justify-content-center align-items-center">
 							<video class="video-tape" controls width="250">
@@ -89,8 +89,8 @@
 					<div class="btn-book"><button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button></div>
-					
-					
+
+
 
 
 <!-- Modal -->
@@ -104,26 +104,31 @@
 					        </button> -->
 					      </div>
 					      <div class="modal-body">
-					      	<p>Le <span id="modal-date"></span></p>
-					      	<p>De <span id="modal-start-hour"></span><span id="modal-end-hour"></span>A </p>
+					      	<p><span class="modal-title">Séance de coaching réservée pour le :</span></p>
+					      	<p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
+					        <button type="button" class="btn-annuler" data-dismiss="modal">Annuler</button>
 					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-				
-							<%= f.button :submit, "Confirmer", class: "btn-green"%>
+
+							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
 							<% end %>	
+
 					      </div>
+						<% end %>	
 					    </div>
 					  </div>
 					</div>
 				</div>
+
 
 <!-- bouton chat -->
 					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
 						<% if @chatroom.new_record? %>
 							<%= simple_form_for(@chatroom) do |f| %>
 								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
+
 								<%= f.button :submit, "Chat avec le coach", class: "btn-chat" %>
 							<% end %>
 						<% else %>
@@ -160,15 +165,33 @@
 					 	<div class="content"><%= review.content %></div>
 					</div>
 				<% end %>
+<!-- ancre ajout commentaire -->
+
 			</div>
 		<% end %>
-	</div>			
+		<% if @reviewable_booking%>
+			<div id="comment" class='mb-5'>
+				    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
+							<%= f.input :content, label: "Laisse ton commentaire" %>
+							<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+				<!--  <div class="my-3"> -->
+			        <%# 5.times do |index| %>
+			        <!--
+			          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
+			        -->
+			        <%# end %>
+			     <!--  </div> -->
+			      <%= f.submit "Valider", class: "btn-green" %>
+			    <% end %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 
 <!-- <script>
-	
+
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
-})	
+})
 </script>
