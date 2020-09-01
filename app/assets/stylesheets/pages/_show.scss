@@ -117,7 +117,7 @@
 
 
 .calandar-modal {
-	width: 30%;
+	width: 35%;
 	height: 700px;
 	border-radius: 4px;
 	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
@@ -125,7 +125,7 @@
 }
 .calandar {
 	padding: 30px;
-	height: 600px;
+	height: 520px;
 	background-color: #fff;
 	.booking-form {
 		p {
@@ -163,6 +163,17 @@
 .hour span {
 	padding-right: 20px;
 }
+
+.bloc-btn-chat {
+	margin-top: 20px;
+	height: 20%;
+}
+
+
+.btn-chat {
+	height: 8%;
+}
+
 
 
 .comment {

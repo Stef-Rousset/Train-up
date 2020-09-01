@@ -36,7 +36,7 @@ import { fadeText } from '../components/fade_text';
 import { dynamicPriceCalculator } from '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
-
+import { dynamicModal } from '../plugins/flatpickr';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 
 document.addEventListener('turbolinks:load', () => {
@@ -52,7 +52,7 @@ document.addEventListener('turbolinks:load', () => {
 
   dynamicPriceCalculator();
  
-  // dynamicModal();
+  dynamicModal();
 
   // loadDynamicBannerText();
 
