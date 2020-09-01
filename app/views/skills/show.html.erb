@@ -15,10 +15,9 @@
 					</div>
 				</div>
 			 </div>
-					
-				<div class="price-euros align-self-start"><% @skill.experiences.each do |experience| %>
-					<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
-				<% end %>
+			<div class="price-euros align-self-start"><% @skill.experiences.each do |experience| %>
+				<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
+			<% end %>
 			</div>
 		</div>		
 	</div>
@@ -101,7 +100,7 @@
 				   </div>
 				</div>
 
-				<div class="modal-booking">
+				<div class="modal-booking d-flex justify-content-center">
 					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button>
@@ -112,17 +111,18 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <h5 class="modal-title" id="staticBackdropLabel">Détail de la réservation</h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<!-- 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
-					        </button>
+					        </button> -->
 					      </div>
 					      <div class="modal-body">
-					        ...
+					      	<p>Le <span id="modal-date"></span></p>
+					      	<p>De <span id="modal-start-hour"></span><span id="modal-end-hour"></span>A </p>
 					      </div>
 					      <div class="modal-footer">
-					        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
 					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-
+				
 							<%= f.button :submit, "Confirmer", class: "btn-green"%>
 							<% end %>	
 					      </div>
@@ -131,11 +131,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
-
 			<% else %>
 				<% if current_user === @skill.user %>
 				<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %></div>
