@@ -208,10 +208,18 @@
 	font-size: 20px;
 }
 
-.btn-confirm {
-	padding: 10px;
-	border: 1px solid $light-gray;
+.btn-annuler {
+	padding: 5px;
+	border: 1px solid white;
+	background-color: $green;
 	border-radius: 5px;
+	color: white;
+}
+
+.btn-confirm {
+	background-color: $light-gray;
+	border-radius: 5px;
+	color: $green;
 }
 
 .comment {
