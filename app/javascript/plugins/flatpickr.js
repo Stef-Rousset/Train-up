@@ -61,11 +61,13 @@ const dynamicModal = () => {
 	});
 
 	startHour.addEventListener('change', (event) => {
-	modalStartHour.innerText = event.target.value;
+		console.log(modalStartHour)
+		modalStartHour.innerText = event.target.value;
 	});
 
 	endHour.addEventListener('change', (event) => {
-	modalEndHour.innerText = event.target.value;
+		console.log(modalEndHour)
+		modalEndHour.innerText = event.target.value;
 	})
 };
 
