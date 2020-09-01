@@ -21,7 +21,7 @@
 				<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
 			<% end %>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
 
@@ -46,12 +46,12 @@
 						<div class="comp d-flex flex-row"><i class="fas fa-handshake hands"></i> <div class="comp-text"><%= @skill.description %></div></div>
 						<div class="comp d-flex flex-row align-items-center"><i class="fas fa-map-marker-alt"></i> <div class="comp-text"><%= @skill.location %></div></div>
 				</div>
-				<div class="ligne align-self-center"></div>	
+				<div class="ligne align-self-center"></div>
 				<div class="video-show">
 					<h1>Video d'une séance</h1>
 					</br>
 					<% if @skill.video.attached? %>
-						<% cl_video_tag @skill.video.key, class:"video-tape", source_types: :mp4, controls: true %>
+						<%= cl_video_tag @skill.video.key, class:"video-tape", source_types: :mp4, controls: true %>
 					<% else %>
 						<div class="video-container d-flex justify-content-center align-items-center">
 							<video class="video-tape" controls width="250">
@@ -89,8 +89,8 @@
 					<div class="btn-book"><button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button></div>
-					
-					
+
+
 
 
 <!-- Modal -->
@@ -110,15 +110,15 @@
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
 					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-				
+
 							<%= f.button :submit, "Confirmer", class: "btn-green"%>
-							<% end %>	
+							<% end %>
 					      </div>
 					    </div>
 					  </div>
 					</div>
 				</div>
-				
+
 
 <!-- bouton chat -->
 					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
@@ -163,13 +163,13 @@
 				<% end %>
 			</div>
 		<% end %>
-	</div>			
+	</div>
 </div>
 
 
 <!-- <script>
-	
+
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
-})	
+})
 </script>
