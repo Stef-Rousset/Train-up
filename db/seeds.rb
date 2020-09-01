@@ -26,7 +26,7 @@ Sport.destroy_all
 
 
 puts "creating users"
-user_clone = User.create!(first_name: "Eugénie", last_name: "Grison", email: "egrisond@gmail.com", password: "coucou123", sex: "femme", address: "5bis Place Jean Macé, 69007 Lyon", birth_date: Date.parse("04/11/1990"))
+user_clone = User.create!(first_name: "Eugénie", last_name: "Grison", email: "egrison@gmail.com", password: "coucou123", sex: "femme", address: "5bis Place Jean Macé, 69007 Lyon", birth_date: Date.parse("04/11/1990"))
 file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
 user_clone.photo.attach(io: file, filename: 'JulieGrison.jpg', content_type: 'image/jpg')
 
@@ -98,23 +98,23 @@ user_thirteen = User.create!(first_name: "Amandine", last_name: "Primeur", email
 file = URI.open('https://images.unsplash.com/photo-1526080652727-5b77f74eacd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80.jpg')
 user_thirteen.photo.attach(io: file, filename: 'AmandinePrimeur.jpg', content_type: 'image/jpg')
 
-user_fourteen = User.create!(first_name: "Pierre", last_name: "Janvier", email: "pierre.janvier@hotmail.fr", password: "tennis123", sex: "homme", address:"18 rue de Sèvres, 75007 Paris", birth_date: Date.parse("05/05/1995"))
-file = URI.open('https://images.unsplash.com/photo-1590086782792-42dd2350140d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80.jpg')
-user_fourteen.photo.attach(io: file, filename: 'PierreJanvier.jpg', content_type: 'image/jpg')
-
-user_fifteen = User.create!(first_name: "Nawfel", last_name: "Haddad", email: "n.Haddad@gmail.com", password: "123prep", sex: "homme", address:"85 avenue Emile Zola, 75015 Paris", birth_date: Date.parse("06/11/1996"))
+user_fourteen = User.create!(first_name: "Nawfel", last_name: "Haddad", email: "n.Haddad@gmail.com", password: "tennis123", sex: "homme", address:"85 avenue Emile Zola, 75015 Paris", birth_date: Date.parse("06/11/1996"))
 file = URI.open('https://images.unsplash.com/photo-1578924608828-79a71150f711?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2708&q=80.jpg')
-user_fifteen.photo.attach(io: file, filename: 'NawfelHaddad.jpg', content_type: 'image/jpg')
+user_fourteen.photo.attach(io: file, filename: 'NawfelHaddad.jpg', content_type: 'image/jpg')
+
+user_fifteen = User.create!(first_name: "Pierre", last_name: "Janvier", email: "pierre.janvier@hotmail.fr", password: "123prep", sex: "homme", address:"18 rue de Sèvres, 75007 Paris", birth_date: Date.parse("05/05/1995"))
+file = URI.open('https://images.unsplash.com/photo-1590086782792-42dd2350140d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80.jpg')
+user_fifteen.photo.attach(io: file, filename: 'PierreJanvier.jpg', content_type: 'image/jpg')
 
 
 puts "users done"
 
 puts "creating skills"
-skill_first = Skill.create!(name: "Entraîneur", location: "2 rue du Moulin des Lapins, 75014 Paris", description: "J'enseigne en club aussi bien aux débutants qu'aux tireurs compétiteurs confirmés. J'adpate le contenu de ma séance à vos besoins !", user: user_one)
+skill_first = Skill.create!(name: "Entraîneur", location: "2 rue du Moulin des Lapins, 75014 Paris", description: "J'enseigne en club aussi bien aux débutants qu'aux tireurs compétiteurs confirmés. J'adpate le contenu de ma séance à vos besoins!", user: user_one)
 skill_first.save!
-skill_second = Skill.create!(name: "Préparateur physique", location: "99 Boulevard Kellermann, 75013 Paris", description: "Étant préparateur physique du club de tennis du RCF, je vous propose des séances spécifiquement adaptées à ce sport exigeant. Mon but: vous faire progresser !", user: user_two)
+skill_second = Skill.create!(name: "Préparateur physique", location: "99 Boulevard Kellermann, 75013 Paris", description: "Étant préparateur physique du club de tennis du RCF, je vous propose des séances spécifiquement adaptées à ce sport exigeant. Mon but: vous faire progresser!", user: user_two)
 skill_second.save!
-skill_third = Skill.create!(name: "Préparateur mental", location: "15 Boulevard Voltaire, 75011 Paris", description: "Après avoir travaillé avec de nombreux sportifs à l'INSEP, je vous ferai bénéficier des dernières avancées en terme de préparation mentale", user: user_three)
+skill_third = Skill.create!(name: "Préparateur mental", location: "15 Boulevard Voltaire, 75011 Paris", description: "Après avoir travaillé avec de nombreux sportifs à l'INSEP, je vous ferai bénéficier des dernières avancées en terme de préparation mentale.", user: user_three)
 skill_third.save!
 skill_fourth = Skill.create!(name: "Préparateur physique", location: "2 Rue du Bosphore, 35200 Rennes", description: "Je compte parmi mes clients de nombreux boxeurs, lutteurs, judokas et karatéka. Mes séances de travail physique axées Sports de Combat sauront répondre à vous attentes", user: user_four)
 skill_fourth.save!
@@ -124,21 +124,25 @@ skill_six = Skill.create!(name: "Préparateur mental", location: "19 Bd Jean Luc
 skill_six.save!
 skill_seven = Skill.create!(name: "Entraîneur", location: "13 Rue du Bélier, 69002 Lyon", description: "Ancien champion de France de saut en hauteur, je suis dorénavant entraîneur spécialiste des sauts.", user: user_seven)
 skill_seven.save!
-skill_eight = Skill.create!(name: "Entraîneur", location: "45 Rue de la Bourgeonnière, 44300 Nantes", description: "Je suis spécialiste des courses de demi-fond et de fond, et je vous propose des séances adaptées à votre niveau et à vos objectifs. ", user: user_eight)
+skill_eight = Skill.create!(name: "Entraîneur", location: "45 Rue de la Bourgeonnière, 44300 Nantes", description: "Je suis spécialiste des courses de demi-fond et de fond, et je vous propose des séances adaptées à votre niveau et à vos objectifs.", user: user_eight)
 skill_eight.save!
-skill_nine = Skill.create!(name: "Entraîneur", location: "27-31 Boulevard d'Inkermann, 92200 Neuilly-sur-Seine", description: "Je travaille aussi bien avec les enfants qu'avec les adultes, débutants ou confirmés, pour apprendre à nager ou perfectionner votre technique. ", user: user_nine)
+skill_nine = Skill.create!(name: "Entraîneur", location: "27-31 Boulevard d'Inkermann, 92200 Neuilly-sur-Seine", description: "Je travaille aussi bien avec les enfants qu'avec les adultes, débutants ou confirmés, pour apprendre à nager ou perfectionner votre technique.", user: user_nine)
 skill_nine.save!
-skill_ten = Skill.create!(name: "Entraîneur", location: "48 Rue Vieille du Temple, 75004 Paris", description: "Mon arme de prédilection est l'épée, et mon objectif principal est de vous faire atteindre le vôtre ! ", user: user_ten)
+skill_ten = Skill.create!(name: "Entraîneur", location: "48 Rue Vieille du Temple, 75004 Paris", description: "Mon arme de prédilection est l'épée, et mon objectif principal est de vous faire atteindre le vôtre!", user: user_ten)
 skill_ten.save!
 skill_eleven = Skill.create!(name: "Entraîneur", location: "2 Rue Japy, 75011 Paris", description: "Je suis spécialisée dans l'enseignement du Hatha yoga, et mon objectif premier est votre bien être.", user: user_eleven)
 skill_eleven.save!
 skill_twelve = Skill.create!(name: "Préparateur physique", location: "244 rue de Bercy, 75012 Paris", description: "Préparateur physique de l'équipe de France d'épée durant la dernière olympiade, mes séances adaptées à ce sport vous permettront d'améliorer vos performances.", user: user_twelve)
+file = URI.open ('https://res.cloudinary.com/du5qhnalh/video/upload/v1598966246/prepone_nsuhum.mp4')
+skill_twelve.video.attach(io: file, filename: 'amargean.mp4', content_type: 'video/mp4')
 skill_twelve.save!
 skill_thirteen = Skill.create!(name: "Préparateur mental", location: "52 rue de Lourmel, 75015 Paris", description: "Spécialiste de la Sophrologie, j'interviens particulièrement auprès des pratiquants de sports de combat pour leur forger un mental d'acier.", user: user_thirteen)
 skill_thirteen.save!
-skill_fourteen = Skill.create!(name: "Entraîneur", location: "9 Rue des Frères Flavien, 75020 Paris", description: "Ex joueur professionnel classé 258ème à l'ATP, je vous coach en compétition et vous fais bénéficier de toute mon expérience.", user: user_fourteen)
+skill_fourteen = Skill.create!(name: "Entraîneur", location: "9 Rue des Frères Flavien, 75020 Paris", description: "Ex joueur professionnel classé 258ème à l'ATP, je vous conseille en compétition et vous fais bénéficier de toute mon expérience.", user: user_fourteen)
 skill_fourteen.save!
-skill_fifteen = Skill.create!(name: "Préparateur physique", location: "33 rue de l'Église, 75015 Paris", description: "En fonction de votre sport et de votre niveau, je construis pour vous une séance complètement personnalisée", user: user_fifteen)
+skill_fifteen = Skill.create!(name: "Préparateur physique", location: "33 rue de l'Église, 75015 Paris", description: "En fonction de votre sport et de votre niveau, je construis pour vous une séance complètement personnalisée.", user: user_fifteen)
+file = URI.open ('https://res.cloudinary.com/du5qhnalh/video/upload/v1598967409/pjanvier_qewxwd.mp4')
+skill_fifteen.video.attach(io: file, filename: 'pjanvier.mp4', content_type: 'video/mp4')
 skill_fifteen.save!
 puts "skills done"
 
@@ -188,12 +192,12 @@ experience_one.skill = skill_first
 experience_one.sport = sport_one
 experience_one.save!
 
-experience_two = Experience.create(years: 5, specialty: "PPG", price: 45)
+experience_two = Experience.create(years: 5, specialty: "Préparation Physique Généralisée", price: 45)
 experience_two.skill = skill_second
 experience_two.sport = sport_two
 experience_two.save!
 
-experience_three = Experience.create(years: 10, specialty: "PNL", price: 30)
+experience_three = Experience.create(years: 10, specialty: "Programmation Neuro Linguistique", price: 30)
 experience_three.skill = skill_third
 experience_three.sport = sport_three
 experience_three.save!
@@ -203,7 +207,7 @@ experience_four.skill = skill_fourth
 experience_four.sport = sport_four
 experience_four.save!
 
-experience_five = Experience.create(years: 10, specialty: "PPS", price: 30)
+experience_five = Experience.create(years: 10, specialty: "Préparation Physique Spécifique", price: 30)
 experience_five.skill = skill_fifth
 experience_five.sport = sport_five
 experience_five.save!
