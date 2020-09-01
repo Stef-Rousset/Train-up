@@ -67,7 +67,7 @@
                 <hr>
                 <p>Total : <%= booking.total_price %> €</p>
                 <br>
-                <% if policy(booking.review).create? %>
+                <% if policy(booking.reviews).create? %>
                 <%= link_to "Laisse un commentaire", new_booking_review_path(booking), class: "btn-green" %>
                 <% end %>
               <% end %>
