@@ -52,7 +52,7 @@ document.addEventListener('turbolinks:load', () => {
 
   dynamicPriceCalculator();
  
-  dynamicModal();
+  // dynamicModal();
 
   // loadDynamicBannerText();
 
