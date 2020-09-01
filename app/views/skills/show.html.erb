@@ -98,12 +98,24 @@
 						   <p>Prix total : <span id="total-price"></span>€ </p>
 						</div>
 				   </div>
+
 				</div>
 
 				<div class="modal-booking d-flex justify-content-center">
 					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button>
+<!-- 					<div>
+						<%# if @chatroom.new_record? %>
+							<%#= simple_form_for(@chatroom) do |f| %>
+								<%#= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
+								<%#= f.button :submit, "Chat", class: "btn-green" %>
+							<%# end %>
+						<%# else %>
+							<div><%#= link_to "Chat", chatroom_path(@chatroom), class: "btn-green" %></div>
+						<%# end %>`
+					</div> -->
+
 
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
