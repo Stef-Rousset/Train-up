@@ -1,0 +1,7 @@
+<div id= "msg_<%= message.id %>" class="message-container <%=message.user == current_user ? 'speech-bubble-blue' : 'speech-bubble-rose' %> " id="message-<%= message.id %>">
+  <i class="author">
+    <span><%= message.user.first_name %></span>
+    <small><%= message.created_at.strftime("%e-%m-%y à %H:%M") %></small>
+  </i>
+  <h6><%= message.content %></h6>
+</div>
