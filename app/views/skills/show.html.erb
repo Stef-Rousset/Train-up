@@ -21,7 +21,7 @@
 				<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
 			<% end %>
 			</div>
-		</div>
+		</div>		
 	</div>
 </div>
 
@@ -46,12 +46,12 @@
 						<div class="comp d-flex flex-row"><i class="fas fa-handshake hands"></i> <div class="comp-text"><%= @skill.description %></div></div>
 						<div class="comp d-flex flex-row align-items-center"><i class="fas fa-map-marker-alt"></i> <div class="comp-text"><%= @skill.location %></div></div>
 				</div>
-				<div class="ligne align-self-center"></div>
+				<div class="ligne align-self-center"></div>	
 				<div class="video-show">
 					<h1>Video d'une séance</h1>
 					</br>
 					<% if @skill.video.attached? %>
-						<%= cl_video_tag @skill.video.key, class:"video-tape", source_types: :mp4, controls: true %>
+						<% cl_video_tag @skill.video.key, class:"video-tape", source_types: :mp4, controls: true %>
 					<% else %>
 						<div class="video-container d-flex justify-content-center align-items-center">
 							<video class="video-tape" controls width="250">
@@ -84,37 +84,44 @@
 					     <div class="price-resa d-flex flex-column align-items-center">
 						   <p>Prix total : <span id="total-price"></span>€ </p>
 						</div>
-					
-	<!-- bouton trigger modal -->
-						<div class="modal-booking d-flex justify-content-center">
-							<div class="btn-book">
-								<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
-	 								Réserver
-	 							</button>
-							</div>
-	<!-- Modal -->
-							<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-							  	<div class="modal-dialog">
-							    	<div class="modal-content">
-								      	<div class="modal-header">
-								        	<h5 class="modal-title" id="staticBackdropLabel">Détail de la réservation</h5>
-								      	</div>
-								      	<div class="modal-body">
-									      	<p><span class="modal-title">Séance de coaching réservée pour le :</span></p>
-									      	<p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
-									     </div>
-									     <div class="modal-footer">
-											<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
-									        <button type="button" class="btn-annuler" data-dismiss="modal">Annuler</button>
-									        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-											<%#= f.button :submit, "Annuler", class: "btn-annuler"%>	
-								     	 </div>
-							   		</div>
-						  		</div>
-							</div>
-						</div>
-					<% end %>
+				   </div>
+
 				</div>
+<!-- bouton trigger modal -->
+				<div class="modal-booking d-flex justify-content-center">
+					<div class="btn-book"><button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
+					  Réserver
+					</button></div>
+					
+					
+
+
+<!-- Modal -->
+					<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="staticBackdropLabel">Veuillez valider la réservation</h5>
+<!-- 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button> -->
+					      </div>
+					      <div class="modal-body">
+					      	<p><span class="modal-title">Séance de coaching pour le :</span></p>
+					      	<p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
+					      </div>
+					      <div class="modal-footer">
+							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
+							<% end %>	
+					        <button type="button" class="btn-annuler" data-dismiss="modal">Annuler</button>
+					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+				
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</div>
+				
 <!-- bouton chat -->
 					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
 						<% if @chatroom.new_record? %>
@@ -168,8 +175,8 @@
 		<% if @reviewable_booking%>
 			<div id="comment" class='mb-5'>
 				    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
-							<%= f.input :content, label: "Laisse ton commentaire" %>
-							<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+							<%= f.input :content, label: "Laisser un commentaire" %>
+							<%= f.input :rating, collection: (1..5).to_a, label: "Donner une note", required: true %>
 				<!--  <div class="my-3"> -->
 			        <%# 5.times do |index| %>
 			        <!--
@@ -181,13 +188,13 @@
 			    <% end %>
 			</div>
 		<% end %>
-	</div>
+	</div>			
 </div>
 
 
 <!-- <script>
-
+	
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
-})
+})	
 </script>
