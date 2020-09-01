@@ -133,6 +133,8 @@ skill_ten.save!
 skill_eleven = Skill.create!(name: "Entraîneur", location: "2 Rue Japy, 75011 Paris", description: "Je suis spécialisée dans l'enseignement du Hatha yoga, et mon objectif premier est votre bien être.", user: user_eleven)
 skill_eleven.save!
 skill_twelve = Skill.create!(name: "Préparateur physique", location: "244 rue de Bercy, 75012 Paris", description: "Préparateur physique de l'équipe de France d'épée durant la dernière olympiade, mes séances adaptées à ce sport vous permettront d'améliorer vos performances.", user: user_twelve)
+file = URI.open ('https://res.cloudinary.com/du5qhnalh/video/upload/v1598966246/prepone_nsuhum.mp4')
+skill_twelve.video.attach(io: file, filename: 'amargean.mp4', content_type: 'video/mp4')
 skill_twelve.save!
 skill_thirteen = Skill.create!(name: "Préparateur mental", location: "52 rue de Lourmel, 75015 Paris", description: "Spécialiste de la Sophrologie, j'interviens particulièrement auprès des pratiquants de sports de combat pour leur forger un mental d'acier.", user: user_thirteen)
 skill_thirteen.save!
