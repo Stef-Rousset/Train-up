@@ -5,7 +5,7 @@
   </div>
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
-      <% if current_user.messages == false %>
+      <% if current_user != @chatroom.participant_ids[0] %>
       <div class="message-container speech-bubble-blue" id="message-<%= message.id %>">
         <i class="author">
           <span><%= message.user.first_name %></span>
