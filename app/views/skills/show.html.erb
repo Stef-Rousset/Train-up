@@ -26,27 +26,8 @@
 <div class="container-show">
 	<div class="show d-flex flex-column">
 
-			<div class="calandar">
-				
-				<div class="booking-form">
-				    <% if current_user != @skill.user %>
-				    	<%= simple_form_for([@skill, @booking]) do |f| %>
-					      <%= f.input :start_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker start"} %>
-					      <%= f.input :end_date, as: :string, required: false, label: "date de la séance", input_html: {class: "datepicker end"} %>
-					    <p>Prix total : <span id="total-price"></span>€ </p>
-					      <%= f.button :submit, "Réserver", class: "btn-green" %>
-					   <% end %>`
-				   <% end %>
-
-					<% if @chatroom.new_record? %>
-						<%= simple_form_for(@chatroom) do |f| %>
-							<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
-							<%= f.button :submit, "Chat", class: "btn-green" %>
-						<% end %>
-					<% else %>
-						<div><%= link_to "Chat", chatroom_path(@chatroom), class: "btn-green" %></div>
-					<% end %>
-			   </div>
+		<div class="profile-video-calandar d-flex flex-row justify-content-between">
+			<div class="competences-video d-flex flex-column">
 				
 				<div class="competences d-flex flex-column justify-content-around">
 					<% if current_user != @skill.user %>
@@ -105,6 +86,7 @@
 					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button>
+					
 <!-- 					<div>
 						<%# if @chatroom.new_record? %>
 							<%#= simple_form_for(@chatroom) do |f| %>
