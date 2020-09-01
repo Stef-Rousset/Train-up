@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def profile
     @reviews_last = Review.where(user: current_user).last(3)
+
   end
 
 end
