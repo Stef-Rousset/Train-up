@@ -56,17 +56,15 @@ const dynamicModal = () => {
 	const form = document.querySelector('.simple_form.new_booking')
 
 	date.addEventListener('change', (event) => {
-		console.log(event)
+		console.log(modalDate)
 		modalDate.innerText = event.target.value;
 	});
 
 	startHour.addEventListener('change', (event) => {
-	console.log(event)
 	modalStartHour.innerText = event.target.value;
 	});
 
 	endHour.addEventListener('change', (event) => {
-	console.log(event)
 	modalEndHour.innerText = event.target.value;
 	})
 };
