@@ -22,7 +22,11 @@
         <li class="nav-item">
           <%= link_to "Deviens coach",  new_skill_path, class: "nav-link btn-space" %>
         </li>
-
+        <% if Message.where(chatroom: current_user.chatrooms).where.not(user: current_user, read: true).any? %>
+          <li class="nav-item">
+            <h1 style='color:white'>PP</h1>        
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
