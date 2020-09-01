@@ -52,21 +52,21 @@ const dynamicPrice = () => {
 	return nbrOfMn;
 };
 
-// const dynamicModal = () => {
-// 	const modal = document.querySelector(".modal")
-// 	if modal {
-// 		const dateCreated = document.querySelector('.date').value;
-// 		const startHourCreated = document.querySelector('.start').value;
-// 		const endHourCreated = document.querySelector('.end').value;
-// 		modalDate.innerText = dateCreated;
-// 		modalStartHour.innerText = startHourCreated;
-// 		modalEndHour.innerText = endHourCreated
-// 	}
-// };
+const dynamicModal = () => {
+	const modal = document.querySelector(".modal");
+	if (modal) {
+		const dateCreated = document.querySelector('.date').value;
+		const startHourCreated = document.querySelector('.start').value;
+		const endHourCreated = document.querySelector('.end').value;
+		modalDate.innerText = dateCreated;
+		modalStartHour.innerText = startHourCreated;
+		modalEndHour.innerText = endHourCreated
+	};
+};
 
 
 export {dynamicPriceCalculator};
-// export {dynamicModal}
+export {dynamicModal}
 
 
 
