@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-  def new
-    @booking = Booking.find(params[:booking_id])
-    @review = Review.new
-    authorize @review
-  end
+  # def new
+  #   @booking = Booking.find(params[:booking_id])
+  #   @review = Review.new
+  #   authorize @review
+  # end
 
   def show
 
@@ -15,9 +15,9 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     authorize @review
     if @review.save
-      redirect_to skill_path(@review.booking.skill)
+      redirect_to skill_path(@review.booking.skill, anchor: 'comment')
     else
-      render :new
+      redirect_to skill_path(@review.booking.skill, anchor: 'comment')
     end
   end
 

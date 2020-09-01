@@ -161,6 +161,24 @@
 					 	<div class="content"><%= review.content %></div>
 					</div>
 				<% end %>
+<!-- ancre ajout commentaire -->
+
+			</div>
+		<% end %>
+		<% if @reviewable_booking%>
+			<div id="comment" class='mb-5'>
+				    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
+							<%= f.input :content, label: "Laisse ton commentaire" %>
+							<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+				<!--  <div class="my-3"> -->
+			        <%# 5.times do |index| %>
+			        <!--
+			          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
+			        -->
+			        <%# end %>
+			     <!--  </div> -->
+			      <%= f.submit "Valider", class: "btn-green" %>
+			    <% end %>
 			</div>
 		<% end %>
 	</div>			
