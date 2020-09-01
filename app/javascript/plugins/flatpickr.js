@@ -71,7 +71,6 @@ const dynamicModal = () => {
 	})
 };
 
-
 export {dynamicPriceCalculator};
 export {dynamicModal}
 
