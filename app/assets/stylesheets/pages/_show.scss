@@ -121,8 +121,8 @@
 	height: 700px;
 	border-radius: 4px;
 	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
-
 }
+
 .calandar {
 	padding: 30px;
 	height: 520px;
@@ -177,9 +177,41 @@
 }
 
 
-.modal-content {
+.modal-header {
 	background-color: $green;
+	opacity: 0.8;
 	color: $light-gray;
+}
+
+.modal-footer {
+	background-color: $green;
+	opacity: 0.8;
+	color: $light-gray;
+}
+.modal-body p {
+	color: $green;
+	text-align: center;
+}
+
+#modal-date{
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+#modal-start-hour{
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+#modal-end-hour {
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+.btn-confirm {
+	padding: 10px;
+	border: 1px solid $light-gray;
+	border-radius: 5px;
 }
 
 .comment {
