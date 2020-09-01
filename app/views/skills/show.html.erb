@@ -85,7 +85,7 @@
 
 				</div>
 <!-- bouton trigger modal -->
-				<div class="modal-booking d-flex justify-content-center">
+				<div class="modal-booking d-flex jus">
 					<div class="btn-book"><button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button></div>
@@ -98,21 +98,21 @@
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <h5 class="modal-title" id="staticBackdropLabel">Détail de la réservation</h5>
+					        <h5 class="modal-title" id="staticBackdropLabel">Veuillez valider la réservation</h5>
 <!-- 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
 					        </button> -->
 					      </div>
 					      <div class="modal-body">
-					      	<p><span class="modal-title">Séance de coaching réservée pour le :</span></p>
+					      	<p><span class="modal-title">Séance de coaching pour le :</span></p>
 					      	<p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-				
 							<%= f.button :submit, "Confirmer", class: "btn-confirm"%>
 							<% end %>	
+					        <button type="button" class="btn-annuler" data-dismiss="modal">Annuler</button>
+					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+				
 					      </div>
 					    </div>
 					  </div>
@@ -168,8 +168,8 @@
 		<% if @reviewable_booking%>
 			<div id="comment" class='mb-5'>
 				    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
-							<%= f.input :content, label: "Laisse ton commentaire" %>
-							<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+							<%= f.input :content, label: "Laisser un commentaire" %>
+							<%= f.input :rating, collection: (1..5).to_a, label: "Donner une note", required: true %>
 				<!--  <div class="my-3"> -->
 			        <%# 5.times do |index| %>
 			        <!--
