@@ -165,15 +165,17 @@
 }
 
 .bloc-btn-chat {
-	margin-top: 20px;
-	height: 20%;
+	height: 15%;
 }
 
-
-.btn-chat {
-	height: 8%;
+.chat-btn {
+	border: 1px solid $green;
+	color: $green;
+	padding: 8px;
+	border-radius: 5px;
+	width: 170px;
+	text-align: center;
 }
-
 
 
 .comment {
