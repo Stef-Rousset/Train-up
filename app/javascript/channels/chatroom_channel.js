@@ -1,12 +1,13 @@
 import consumer from "./consumer";
-import { setRTLTextPlugin } from "mapbox-gl";
+// import { setRTLTextPlugin } from "mapbox-gl";
 
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
   const inputMessage = document.getElementById('message_content');
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
-    
+    messagesContainer.scrollTo(0,messagesContainer.scrollHeight);
+
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         messagesContainer.insertAdjacentHTML('beforeend', data);
