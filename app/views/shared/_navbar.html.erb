@@ -24,7 +24,7 @@
         </li>
         <% if Message.where(chatroom: current_user.chatrooms).where.not(user: current_user, read: true).any? %>
           <li class="nav-item">
-            <h1 style='color:white'>PP</h1>        
+            <p><%= link_to '<i class="fas fa-circle"></i>'.html_safe, chatrooms_path %></p>        
           </li>
         <% end %>
         <li class="nav-item dropdown">
@@ -35,7 +35,7 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>
-            <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
