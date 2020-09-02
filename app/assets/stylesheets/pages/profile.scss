@@ -20,10 +20,12 @@
   align-items: center;
   width: 30%;
   position: sticky;
+  z-index: 2;
 }
 .profile-tableau, .profile-tableau-client {
     background-color: #f6f6f6;
     padding-top: 20px;
+    z-index: 2;
     .titre {
     padding-left: 20px;
     font-size: 24px;
@@ -102,4 +104,24 @@ h3 {
   p {
     text-align: justify;
   }
+}
+.navbar {
+  position: relative;
+}
+.runner {
+  z-index: 1;
+  height: 450px;
+  width: 225px;
+  position: absolute;
+  left: -20px;
+  top: 210px;
+
+}
+.runnerbis {
+  z-index: 1;
+  height: 450px;
+  width: 275px;
+  position: absolute;
+  right: 0px;
+  top: 190px;
 }
