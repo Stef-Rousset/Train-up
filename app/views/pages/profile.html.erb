@@ -32,7 +32,7 @@
           <h4>Tes réservations en cours </h4>
           <div class="list-resas">
             <% if current_user.bookings.live.any? %>
-              <% current_user.bookings.live.each, remote:true do |booking| %>
+              <% current_user.bookings.live.each do |booking| %>
                 <div class="reservations-en-cours">
                     <% if booking.status == "en attente" %>
                     <div class="btn-attente"><%= booking.status %></div>
