@@ -11,7 +11,7 @@
     <div class="d-flex flex-row justify-content-between align-items-center flex-grow">
       <div class="justify-content-between ">
         <%= select_tag "skill_name", options_for_select(Skill.pluck(:name).uniq, params[:skill_name]), class: "filters", prompt: 'Compétence' %>
-        <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id).uniq, params[:sport_id]), class: "filters", prompt: 'Sport' %>
+        <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id), params[:sport_id]), class: "filters", prompt: 'Sport' %>
         <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, params[:specialty] ), class: "filters", prompt: 'Spécialité' %>
         <%= text_field_tag "skill_location", '', size: 25, class: "filters", placeholder: "Adresse"%>
       </div>

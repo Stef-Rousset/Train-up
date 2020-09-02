@@ -123,8 +123,8 @@
 								<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
 							<% end %>
 						<% else %>
-							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "chat-btn" %></div>
-						<% end %>
+							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
+						<% end %>`
 					</div>
 			</div>
 			<% else %>
