@@ -43,8 +43,8 @@ const dynamicPriceCalculator = () => {
   	}
 };
 
-  		
 const dynamicPrice = () => {
+	// const modal = document.getElementById()
     const dateReverse = date.value.split("-").reverse().join("-");
     const startDate = new Date(dateReverse + "T" + startHour.value + ":00.000Z");
     const endDate = new Date(dateReverse + "T" + endHour.value + ":00.000Z");
@@ -53,22 +53,23 @@ const dynamicPrice = () => {
 };
 
 const dynamicModal = () => {
-	const form = document.querySelector('.simple_form.new_booking')
+	const bookingForm = document.querySelector('.booking-form');
+	if (bookingForm) {
+		date.addEventListener('change', (event) => {
+			console.log(modalDate)	
+			modalDate.innerText = event.target.value;
+		});
 
-	date.addEventListener('change', (event) => {
-		console.log(modalDate)
-		modalDate.innerText = event.target.value;
-	});
+		startHour.addEventListener('change', (event) => {
+			console.log(modalStartHour)
+			modalStartHour.innerText = event.target.value;
+		});
 
-	startHour.addEventListener('change', (event) => {
-		console.log(modalStartHour)
-		modalStartHour.innerText = event.target.value;
-	});
-
-	endHour.addEventListener('change', (event) => {
-		console.log(modalEndHour)
-		modalEndHour.innerText = event.target.value;
-	})
+		endHour.addEventListener('change', (event) => {
+			console.log(modalEndHour)
+			modalEndHour.innerText = event.target.value;
+		})	
+	}
 };
 
 export {dynamicPriceCalculator};
