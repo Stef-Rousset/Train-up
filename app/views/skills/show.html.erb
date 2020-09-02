@@ -103,15 +103,13 @@
 						        </div>
 					      	    <div class="modal-footer">
 					                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler
-					                </button>
-					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-				
+					                </button>				
 							    <%= f.button :submit, "Confirmer", class: "btn-confirm"%>
 							<% end %>	
 					            </div>
 					        </div>
 					     </div>
-					 </div>.
+					 </div>
 				</div>
 				
 				
@@ -124,7 +122,7 @@
 							<% end %>
 						<% else %>
 							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
-						<% end %>`
+						<% end %>
 					</div>
 			</div>
 			<% else %>
