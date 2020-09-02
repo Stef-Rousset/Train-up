@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
   dynamicPriceCalculator();
   // dynamicModal();
   initChatroomCable();
-
+  dynamicModal();
   // loadDynamicBannerText();
 
 });
