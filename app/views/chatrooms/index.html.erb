@@ -1,0 +1,9 @@
+<h1>Tes discussions</h1>
+<ul>
+
+<% @chatrooms.each do |chatroom| %>
+  <% if chatroom.participants.where(user: current_user).present? %>
+  <li><%= link_to "Chat", chatroom_path(chatroom) %></li>
+<% end %>
+<% end %>
+</ul>

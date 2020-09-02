@@ -149,12 +149,12 @@ puts "skills done"
 
 puts "creating sports"
 
-sports = %w[Tous Aikido Athlétisme Aviron Badminton Boxe Danse Equitation Escalade Escrime Golf
-   Judo Kendo Karaté Kitesurf Natation Pilates Plongée Ski Squash Surf Tennis Voile Yoga]
-
-sports.each do |sport|
-  sport = Sport.create!(name: sport)
-end
+# sports = %w[Tous Aikido Athlétisme Aviron Badminton Boxe Danse Equitation Escalade Escrime Golf
+  #  Judo Kendo Karaté Kitesurf Natation Pilates Plongée Ski Squash Surf Tennis Voile Yoga]
+# 
+# sports.each do |sport|
+  # sport = Sport.create!(name: sport)
+# end
 
 sport_one = Sport.create!(name: "Escrime")
 sport_one.save!
@@ -166,22 +166,22 @@ sport_four = Sport.create!(name: "Sports de combat ")
 sport_four.save!
 sport_five = Sport.create!(name: "Natation")
 sport_five.save!
-sport_six = Sport.create!(name: "Tennis")
-sport_six.save!
+# sport_six = Sport.create!(name: "Tennis")
+# sport_six.save!
 sport_seven = Sport.create!(name: "Athlétisme")
 sport_seven.save!
-sport_eight = Sport.create!(name: "Athlétisme")
-sport_eight.save!
-sport_nine = Sport.create!(name: "Natation")
-sport_nine.save!
-sport_ten = Sport.create!(name: "Escrime")
-sport_ten.save!
+# sport_eight = Sport.create!(name: "Athlétisme")
+# sport_eight.save!
+# sport_nine = Sport.create!(name: "Natation")
+# sport_nine.save!
+# sport_ten = Sport.create!(name: "Escrime")
+# sport_ten.save!
 sport_eleven = Sport.create!(name: "Yoga")
 sport_eleven.save!
-sport_twelve = Sport.create!(name: "Escrime")
-sport_twelve.save!
-sport_thirteen = Sport.create!(name: "Sports de combat")
-sport_thirteen.save!
+# sport_twelve = Sport.create!(name: "Escrime")
+# sport_twelve.save!
+# sport_thirteen = Sport.create!(name: "Sports de combat")
+# sport_thirteen.save!
 
 puts "sports done"
 
@@ -214,7 +214,7 @@ experience_five.save!
 
 experience_six = Experience.create(years: 11, specialty: "Biofeedback", price: 50)
 experience_six.skill = skill_six
-experience_six.sport = sport_six
+experience_six.sport = sport_two
 experience_six.save!
 
 experience_seven = Experience.create(years: 10, specialty: "Sauts", price: 60)
@@ -224,17 +224,17 @@ experience_seven.save!
 
 experience_eigth = Experience.create(years: 5, specialty: "Fond et demi-fond", price: 50)
 experience_eigth.skill = skill_eight
-experience_eigth.sport = sport_eight
+experience_eigth.sport = sport_seven
 experience_eigth.save!
 
 experience_nine = Experience.create(years: 10, specialty: "Brasse et crawl", price: 45)
 experience_nine.skill = skill_nine
-experience_nine.sport = sport_nine
+experience_nine.sport = sport_five
 experience_nine.save!
 
 experience_ten = Experience.create(years: 11, specialty: "Épée", price: 40)
 experience_ten.skill = skill_ten
-experience_ten.sport = sport_ten
+experience_ten.sport = sport_one
 experience_ten.save!
 
 experience_eleven = Experience.create(years: 12, specialty: "Hatha yoga", price: 55)
@@ -242,14 +242,14 @@ experience_eleven.skill = skill_eleven
 experience_eleven.sport = sport_eleven
 experience_eleven.save!
 
-experience_twelve = Experience.create(years: 12, specialty: " Épée", price: 70)
+experience_twelve = Experience.create(years: 12, specialty: "Fleuret", price: 70)
 experience_twelve.skill = skill_twelve
-experience_twelve.sport = sport_twelve
+experience_twelve.sport = sport_one
 experience_twelve.save!
 
 experience_thirteen = Experience.create(years: 12, specialty: "Sophrologie", price: 50)
 experience_thirteen.skill = skill_thirteen
-experience_thirteen.sport = sport_thirteen
+experience_thirteen.sport = sport_four
 experience_thirteen.save!
 
 experience_fourteen = Experience.create(years: 8, specialty: "Tennis en compétition", price: 60)
@@ -269,23 +269,23 @@ puts "creating bookings"
 
 booking_one = Booking.create!(user: user_clone, skill: skill_first, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_one.save!
-booking_two = Booking.create!(user: user_clone, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00")
+booking_two = Booking.create!(user: user_clone, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00", status: "en attente")
 booking_two.save!
 booking_three = Booking.create!(user: user_cltwo, skill: skill_third, start_date: "20-08-2020", start_hour: "17:00", end_hour: "18:00")
 booking_three.save!
-booking_four = Booking.create!(user: user_cltwo, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_four = Booking.create!(user: user_cltwo, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_four.save!
 booking_five = Booking.create!(user: user_clthree, skill: skill_ten, start_date: "16-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_five.save!
-booking_six = Booking.create!(user: user_clthree, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_six = Booking.create!(user: user_clthree, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_six.save!
 booking_seven = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "25-06-2020", start_hour: "10:00", end_hour: "11:00")
 booking_seven.save!
-booking_eigth = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_eigth = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_eigth.save!
 booking_nine = Booking.create!(user: user_clfive, skill: skill_fourteen, start_date: "25-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_nine.save!
-booking_ten = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_ten = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_ten.save!
 booking_eleven = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eleven.save!
