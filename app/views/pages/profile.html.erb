@@ -74,7 +74,7 @@
                 <p>Total : <%= booking.total_price %> €</p>
                 <br>
                 <% if policy(booking.reviews).create? %>
-                <%= link_to "Laisse un commentaire", skill_path(booking.skill, anchor: "comment"), class: "btn-green" %>
+                <%= link_to "Laisse un commentaire", skill_path(booking.skill, anchor: "comment"), data: { turbolinks: 'false' }, class: "btn-green" %>
                 <% end %>
               <% end %>
             </div>
