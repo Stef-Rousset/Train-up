@@ -269,23 +269,23 @@ puts "creating bookings"
 
 booking_one = Booking.create!(user: user_clone, skill: skill_first, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_one.save!
-booking_two = Booking.create!(user: user_clone, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00")
+booking_two = Booking.create!(user: user_clone, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00", status: "en attente")
 booking_two.save!
 booking_three = Booking.create!(user: user_cltwo, skill: skill_third, start_date: "20-08-2020", start_hour: "17:00", end_hour: "18:00")
 booking_three.save!
-booking_four = Booking.create!(user: user_cltwo, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_four = Booking.create!(user: user_cltwo, skill: skill_ten, start_date: "27-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_four.save!
 booking_five = Booking.create!(user: user_clthree, skill: skill_ten, start_date: "16-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_five.save!
-booking_six = Booking.create!(user: user_clthree, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_six = Booking.create!(user: user_clthree, skill: skill_fourth, start_date: "25-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_six.save!
 booking_seven = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "25-06-2020", start_hour: "10:00", end_hour: "11:00")
 booking_seven.save!
-booking_eigth = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_eigth = Booking.create!(user: user_clfour, skill: skill_twelve, start_date: "15-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_eigth.save!
 booking_nine = Booking.create!(user: user_clfive, skill: skill_fourteen, start_date: "25-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_nine.save!
-booking_ten = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00")
+booking_ten = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "13-09-2020", start_hour: "10:00", end_hour: "11:00", status: "en attente")
 booking_ten.save!
 booking_eleven = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eleven.save!
