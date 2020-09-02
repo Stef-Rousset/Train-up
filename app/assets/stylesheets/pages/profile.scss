@@ -2,6 +2,8 @@
   display: flex;
   width: 1000px;
   margin: auto;
+  justify-content: center;
+  min-height: 100vh;
 }
 .profile-identity {
   display: flex;
@@ -9,10 +11,19 @@
   background-color: white;
   border: 3px solid #f6f6f6;
   align-items: center;
+  width: 30%;
+  position: sticky;
+}
+.profile-tableau {
+    background-color: #f6f6f6;
+    padding-top: 20px;
+    .titre {
+    padding-left: 20px;
+    font-size: 24px;
+  }
 }
 .profile-resas {
   display: flex;
-  background-color: #f6f6f6;
 }
 .resas-en-cours, .resas-passees {
   display: flex;
@@ -32,7 +43,7 @@
     object-fit: cover;
     border: 0.01rem solid $green;
   }
-.profile-infos {
+.profile-infos, .coach-seance {
   margin: 20px;
 }
 .bold {
@@ -41,7 +52,7 @@
   font-size: 16px;
 }
 p {
-  font-size: 20px;
+  font-size: 18px;
 }
 .reservations-en-cours, .reservations-past {
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
@@ -49,18 +60,23 @@ p {
   padding: 5px;
   padding-left: 15px;
   width: 235px;
-  height: 300px;
+  height: 280px;
   background-color: white;
 }
 h3 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 .link-client {
   padding-bottom: 10px;
 }
 .link-review {
-  padding-bottom: 10px;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-left: 20px;
+}
+.fa-caret-down {
+  padding-left: 20px;
+}
+.no-margin-footer {
+  margin-top: 0px;
 }
