@@ -26,9 +26,9 @@ Sport.destroy_all
 
 
 puts "creating users"
-user_clone = User.create!(first_name: "Eugénie", last_name: "Grison", email: "egrison@gmail.com", password: "coucou123", sex: "femme", address: "5bis Place Jean Macé, 69007 Lyon", birth_date: Date.parse("04/11/1990"))
-file = URI.open('https://i.pinimg.com/originals/fb/65/ec/fb65ec230381da99b146e87b7f68dac8.jpg')
-user_clone.photo.attach(io: file, filename: 'JulieGrison.jpg', content_type: 'image/jpg')
+user_clone = User.create!(first_name: "Eugénie", last_name: "Grison", email: "egrison@gmail.com", password: "coucou123", sex: "femme", address: "95 Rue Blanche, 75009 Paris", birth_date: Date.parse("04/11/1990"))
+file = URI.open('https://res.cloudinary.com/du5qhnalh/image/upload/v1599062746/Euge%CC%81nieGrison_txvdd8.jpg')
+user_clone.photo.attach(io: file, filename: 'EugénieGrison.jpg', content_type: 'image/jpg')
 
 user_cltwo = User.create!(first_name: "Caroline", last_name: "Chamois", email: "caro-chamois@gmail.com", password: "fine123", sex: "femme", address: "10 rue d'Aix, 75010", birth_date: Date.parse("06/11/1981"))
 file = URI.open('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80.jpg')
@@ -99,13 +99,32 @@ file = URI.open('https://images.unsplash.com/photo-1526080652727-5b77f74eacd2?ix
 user_thirteen.photo.attach(io: file, filename: 'AmandinePrimeur.jpg', content_type: 'image/jpg')
 
 user_fourteen = User.create!(first_name: "Nawfel", last_name: "Haddad", email: "n.Haddad@gmail.com", password: "tennis123", sex: "homme", address:"85 avenue Emile Zola, 75015 Paris", birth_date: Date.parse("06/11/1996"))
-file = URI.open('https://images.unsplash.com/photo-1578924608828-79a71150f711?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2708&q=80.jpg')
+file = URI.open('https://images.unsplash.com/photo-1530915534664-4ac6423816b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80.jpg')
 user_fourteen.photo.attach(io: file, filename: 'NawfelHaddad.jpg', content_type: 'image/jpg')
 
 user_fifteen = User.create!(first_name: "Pierre", last_name: "Janvier", email: "pierre.janvier@hotmail.fr", password: "123prep", sex: "homme", address:"18 rue de Sèvres, 75007 Paris", birth_date: Date.parse("05/05/1995"))
 file = URI.open('https://images.unsplash.com/photo-1590086782792-42dd2350140d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80.jpg')
 user_fifteen.photo.attach(io: file, filename: 'PierreJanvier.jpg', content_type: 'image/jpg')
 
+user_sixteen = User.create!(first_name: "Alexandre", last_name: "Barbier", email: "alex.barbier@hotmail.fr", password: "123escrime", sex: "homme", address:"10 Rue de Maubeuge, 75009 Paris", birth_date: Date.parse("05/11/1991"))
+file = URI.open('https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80.jpg')
+user_sixteen.photo.attach(io: file, filename: 'AlexandreBarbier.jpg', content_type: 'image/jpg')
+
+user_seventeen = User.create!(first_name: "Maud", last_name: "Fenix", email: "mfenix@gmail.com", password: "456escrime", sex: "femme", address:"12 Rue d'Alger, 75001 Paris", birth_date: Date.parse("25/10/1996"))
+file = URI.open('https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80.jpg')
+user_seventeen.photo.attach(io: file, filename: 'MaudFenix.jpg', content_type: 'image/jpg')
+
+user_eigtheen = User.create!(first_name: "Gaspard", last_name: "Treport", email: "gtreport@gmail.com", password: "789escrime", sex: "homme", address:"15 Rue de Cléry, 75002 Paris", birth_date: Date.parse("25/12/1990"))
+file = URI.open('https://images.unsplash.com/photo-1508511267-5a04ee04ca95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80.jpg')
+user_eigtheen.photo.attach(io: file, filename: 'GaspardTreport.jpg', content_type: 'image/jpg')
+
+user_nineteen = User.create!(first_name: "Corentin", last_name: "Martial", email: "cmartial@gmail.com", password: "7escrime", sex: "homme", address:"25 rue Massenet 75016 Paris", birth_date: Date.parse("15/09/1993"))
+file = URI.open('https://images.unsplash.com/photo-1567393594901-e66aa5e2ec56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80.jpg')
+user_nineteen.photo.attach(io: file, filename: 'CorentinMartial.jpg', content_type: 'image/jpg')
+
+user_twenty = User.create!(first_name: "Octave", last_name: "Sixte", email: "octave-sixte@gmail.com", password: "9escrime", sex: "homme", address:"95 Rue Orfila, 75020 Paris", birth_date: Date.parse("27/01/1996"))
+file = URI.open('https://images.unsplash.com/photo-1562159278-1253a58da141?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80.jpg')
+user_twenty.photo.attach(io: file, filename: 'OctaveSixte.jpg', content_type: 'image/jpg')
 
 puts "users done"
 
@@ -144,6 +163,18 @@ skill_fifteen = Skill.create!(name: "Préparateur physique", location: "33 rue d
 # file = URI.open ('https://res.cloudinary.com/du5qhnalh/video/upload/v1598967409/pjanvier_qewxwd.mp4')
 # skill_fifteen.video.attach(io: file, filename: 'pjanvier.mp4', content_type: 'video/mp4')
 skill_fifteen.save!
+skill_sixteen = Skill.create!(name: "Entraîneur", location: "45 Rue Saint-Lazare, 75009 Paris", description: "Je suis spécialisé dans l'enseignement de l'escrime pour les débutants, enfants ou adultes", user: user_sixteen)
+skill_sixteen.save!
+skill_seventeen = Skill.create!(name: "Entraîneur", location: "68 Rue Réaumur, 75002 Paris", description: "Je m'adapte à vos exigences, pour vous proposer un cours d'escrime qui remplisse vos objectifs.", user: user_seventeen)
+skill_seventeen.save!
+skill_eigtheen = Skill.create!(name: "Entraîneur", location: "42 rue paul baudry 75008 Paris", description: "J'enseigne aux escrimeurs confirmés qui veulent se perfectionner pour être plus performants en compétition.", user: user_eigtheen)
+skill_eigtheen.save!
+skill_nineteen = Skill.create!(name: "Entraîneur", location: "1 Rue de la Tour, 75016 Paris", description: "J'enseigne l'escrime artistique période grand siècle.", user: user_nineteen)
+skill_nineteen.save!
+skill_twenty = Skill.create!(name: "Entraîneur", location: "89 rue custine 75018 Paris", description: "J'enseigne l'escrime sabre laser à tous les jedis en herbe.", user: user_twenty)
+skill_twenty.save!
+
+
 puts "skills done"
 
 
@@ -151,7 +182,7 @@ puts "creating sports"
 
 # sports = %w[Tous Aikido Athlétisme Aviron Badminton Boxe Danse Equitation Escalade Escrime Golf
   #  Judo Kendo Karaté Kitesurf Natation Pilates Plongée Ski Squash Surf Tennis Voile Yoga]
-# 
+#
 # sports.each do |sport|
   # sport = Sport.create!(name: sport)
 # end
@@ -262,14 +293,39 @@ experience_fifteen.skill = skill_fifteen
 experience_fifteen.sport = sport_three
 experience_fifteen.save!
 
+experience_sixteen = Experience.create(years: 17, specialty: "Fleuret", price: 35)
+experience_sixteen.skill = skill_sixteen
+experience_sixteen.sport = sport_one
+experience_sixteen.save!
+
+experience_seventeen = Experience.create(years: 5,specialty: "Épée", price: 45)
+experience_seventeen.skill = skill_seventeen
+experience_seventeen.sport = sport_one
+experience_seventeen.save!
+
+experience_eigtheen = Experience.create(years: 10, specialty: "Épée",price: 55)
+experience_eigtheen.skill = skill_eigtheen
+experience_eigtheen.sport = sport_one
+experience_eigtheen.save!
+
+experience_nineteen = Experience.create(years: 19, specialty: "Escrime artistique",price: 50)
+experience_nineteen.skill = skill_nineteen
+experience_nineteen.sport = sport_one
+experience_nineteen.save!
+
+experience_twenty = Experience.create(years: 2, specialty: "Escrime sabre laser",price: 50)
+experience_twenty.skill = skill_twenty
+experience_twenty.sport = sport_one
+experience_twenty.save!
+
 
 puts "experiences done"
 
 puts "creating bookings"
 
-booking_one = Booking.create!(user: user_clone, skill: skill_first, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
+booking_one = Booking.create!(user: user_clone, skill: skill_fourteen, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_one.save!
-booking_two = Booking.create!(user: user_clone, skill: skill_second, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00", status: "en attente")
+booking_two = Booking.create!(user: user_clone, skill: skill_fifteen, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00", status: "en attente")
 booking_two.save!
 booking_three = Booking.create!(user: user_cltwo, skill: skill_third, start_date: "20-08-2020", start_hour: "17:00", end_hour: "18:00")
 booking_three.save!
