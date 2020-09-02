@@ -1,10 +1,15 @@
-<div class="form-background", style='background-image: url(<%= asset_path "run.jpg" %>)'>
-<div id="form-design">
-  <h2>Renseigne ta compétence</h2>
-  <br>
-  <% if policy(@skill).create? %>
-    <%= render 'form' %>
-  <% end %>
-</div>
+<div class="min-height-100 d-flex justify-content-center align-items-center flex-wrap flex-row">
+  <div class="left-runners", style='background-image: url(<%= asset_path "runner.png" %>)'>
+  </div>
+  <div id="form-design">
+    <h2>Renseigne ta compétence</h2>
+    <br>
+    <% if policy(@skill).create? %>
+      <%= render 'form' %>
+    <% end %>
+  </div>
+
+  <div class="right-runners", style='background-image: url(<%= asset_path "runnerbis.png" %>)'>
+  </div>
 </div>
 
