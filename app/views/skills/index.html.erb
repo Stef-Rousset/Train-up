@@ -43,7 +43,7 @@
   <div class="container-cards">
   <% @skills.each do |skill| %>
     <div class="card-product">
-      <%= link_to skill_path(skill), data: { turbolinks: false } do %>
+      <%= link_to skill_path(skill), data: { turbolinks: 'false' } do %>
         <% if skill.user.photo.attached? %>
           <%= cl_image_tag skill.user.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
@@ -51,7 +51,7 @@
       <% end %>
 
       <div class="card-product-infos">
-        <%= link_to skill_path(skill), data: { turbolinks: false } do %>
+        <%= link_to skill_path(skill), data: { turbolinks: 'false' } do %>
           <h2><%= skill.user.first_name.capitalize %> <%= skill.user.last_name.capitalize %></h2>
           <h1><%= skill.name.capitalize %></h1>
           <% skill.experiences.each do |experience| %>
