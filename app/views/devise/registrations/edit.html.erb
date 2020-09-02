@@ -1,60 +1,83 @@
-<h2>Modifier mon compte</h2>
+<div class="min-height-300 d-flex justify-content-center align-items-end flex-wrap flex-row">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>En attente de la confirmation de: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :first_name,
-                required: false,
-                autofocus: true,
-                label: "Prénom",
-                input_html: { autocomplete: "Prénom" }%>
-    <%= f.input :last_name,
-                required: false,
-                autofocus: true,
-                label: "Nom",
-                input_html: { autocomplete: "Nom" }%>
-    <%= f.input :sex,
-                required: false,
-                autofocus: true,
-                label: "Sexe (F/H)",
-                input_html: { autocomplete: "Sexe" }%>
-    <%= f.input :birth_date,
-                required: false,
-                autofocus: true,
-                label: "Date de naissance",
-                input_html: { autocomplete: "Date de naissance" }%>
-    <%= f.input :address,
-                required: false,
-                autofocus: true,
-                label: "Adresse",
-                input_html: { autocomplete: "Adresse" }%>
-    <%= f.input :password,
-                label: "Nouveau mot de passe",
-                hint: "Laisser en blanc si pas de modifications",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirmation de mot de passe",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                label: "Mot de passe actuel",
-                hint: "Mot de passe actuel nécéssaire pour valider les modifications",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+  <div class="left-runners", style='background-image: url(<%= asset_path "runner.png" %>)'>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Modifier", class: "btn-green" %>
-    <p> <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete, class: "btn-green" %></p>
-    <p><%= link_to "Retour", :back, class: "btn-green" %></p>
-  </div>
-<% end %>
+  <div class="w-50">
+    <h2>Modifier mon compte</h2>
 
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>En attente de la confirmation de: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <div class="d-flex flex-row justify-content-between">
+            <%= f.input :first_name,
+                        required: false,
+                        autofocus: true,
+                        label: "Prénom",
+                        input_html: { autocomplete: "Prénom" }%>
+            <%= f.input :last_name,
+                        required: false,
+                        autofocus: true,
+                        label: "Nom",
+                        input_html: { autocomplete: "Nom" }%>
+          </div>
+
+          <div class="d-flex flex-row justify-content-between">
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :sex,
+                        required: false,
+                        autofocus: true,
+                        label: "Sexe (F/H)",
+                        input_html: { autocomplete: "Sexe" }%>
+          </div>
+
+          <%= f.input :birth_date,
+                      required: false,
+                      autofocus: true,
+                      label: "Date de naissance",
+                      input_html: { autocomplete: "Date de naissance" }%>
+          <%= f.input :address,
+                      required: false,
+                      autofocus: true,
+                      label: "Adresse",
+                      input_html: { autocomplete: "Adresse" }%>
+          <div class="d-flex flex-row justify-content-between">
+          <%= f.input :password,
+                      label: "Nouveau mot de passe",
+                      hint: "Laisser en blanc si pas de modifications",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      label: "Confirmation de mot de passe",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          </div>
+          <%= f.input :current_password,
+                      label: "Mot de passe actuel",
+                      hint: "Mot de passe actuel nécéssaire pour valider les modifications",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+        </div>
+
+        <div class="form-actions">
+          <div class="d-flex justify-content-between align-items-center w-100 pb-3" >
+            <%= f.button :submit, "Modifier", class: "btn-green" %>
+
+            <p class="mb-0"> <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete, class: " btn btn-green", style: "width:250px;" %></p>
+            <p class="mb-0"><%= link_to "Retour", :back, class: "btn btn-green" %></p>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+
+  <div class="right-runners", style='background-image: url(<%= asset_path "runnerbis.png" %>)'>
+  </div>
+
+</div>
