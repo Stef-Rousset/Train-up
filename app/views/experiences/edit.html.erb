@@ -1,9 +1,20 @@
-<h4>Modifie ton expérience</h4>
 
-<%= simple_form_for (@experience) do |f| %>
-  <%= f.association :sport, :label => "Ton sport" %>
-  <%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
-  <%= f.input :price, label: 'Price' %>
-  <%= f.input :specialty, :label => "Ta spécialité"%>
-  <%= f.submit "Valider l'expérience", class: "btn-green btn-exp" %>
-<% end %>
+<div class="min-height-100 d-flex justify-content-center align-items-center flex-wrap flex-row">
+  <div class="left-runners", style='background-image: url(<%= asset_path "runner.png" %>)'>
+  </div>
+  <div class="w-50">
+    <h2>Modifie ton expérience</h2>
+
+    <%= simple_form_for (@experience) do |f| %>
+      <%= f.association :sport, :label => "Ton sport" %>
+      <%= f.input :years, collection: (1..40).to_a, :label => "Années d'expérience" %>
+      <%= f.input :price, label: 'Price' %>
+      <%= f.input :specialty, :label => "Ta spécialité"%>
+      <%= f.submit "Valider l'expérience", class: "btn-green btn-exp" %>
+    <% end %>
+  </div>
+
+  <div class="right-runners", style='background-image: url(<%= asset_path "runnerbis.png" %>)'>
+  </div>
+</div>
+

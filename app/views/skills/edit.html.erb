@@ -1,7 +1,9 @@
+<div class="form-background", style='background-image: url(<%= asset_path "run.jpg" %>)'>
 <div class="container" id="form-design">
   <h2>Modifie ta compétence </h2>
   <br>
   <% if policy(@skill).update? %>
     <%= render 'form' %>
   <% end %>
+</div>
 </div>
