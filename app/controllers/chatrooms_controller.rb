@@ -5,6 +5,7 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
+    # @skill = @chatroom.messages
     authorize @chatroom
     @interlocutor = @chatroom.participants.where.not(user: current_user).first.user
     @unread_msg = @chatroom.messages.where(user: @interlocutor)
