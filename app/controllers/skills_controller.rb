@@ -5,7 +5,7 @@ class SkillsController < ApplicationController
   def index
     @skills = policy_scope(Skill)
 
-
+    
     @skills = Skill.global_search(params[:query]) if params[:query].present?
    
     @skills = @skills.where("name ILIKE ?", "%#{params[:skill_name]}%") if params[:skill_name].present?
