@@ -1,117 +1,133 @@
 
-h2 {
-  margin-bottom: 60px;
-}
-// profil coach
-.client-resas {
-  margin-left: 10px;
-}
-.zut-one {
-  margin-bottom: 10px;
-  background-color: $light-gray;
-  border-radius: 3px;
-  // padding: 10px;
-}
-.link-client {
+.container-profile, .container-profile-coach {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-    a {
-      width: 40px;
-      height: 35px;
-    }
-}
-#user-modif {
-  padding: 10px 10px;
-}
-.reservations-past {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 3px;
-  padding-top: 5px;
-  padding-bottom: 15px;
-  padding-left: 5px;
-  width: 250px;
-  background-color: white;
-    a {
-  margin-left: 20px;
-  padding: 10px 10px;
-    }
-}
-.profile-coach-container, .profile-container {
   width: 1000px;
-  height: 70%;
-  display: flex;
-  justify-content: center;
   margin: auto;
-  margin-bottom: 20px;
+  justify-content: center;
+  min-height: 100vh;
 }
-#user_photo {
-  object-fit: cover;
-  height: 200px;
-  overflow: hidden;
+.container-profile-coach {
+  display: flex;
+  width: 1300px;
+  margin: auto;
+  justify-content: center;
+  min-height: 100vh;
+}
+.profile-identity {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 3px solid #f6f6f6;
+  align-items: center;
+  width: 30%;
+  position: sticky;
+  z-index: 2;
+}
+.profile-tableau, .profile-tableau-client {
+    background-color: #f6f6f6;
+    padding-top: 20px;
+    z-index: 2;
+    .titre {
+    padding-left: 20px;
+    font-size: 24px;
+  }
+}
+.profile-tableau-client {
+  padding-right: 20px;
+}
+.profile-resas, .coach-as-user-resas {
+  display: flex;
+}
+.coach-as-user-resas {
+  display: flex;
+  flex-direction: column;
+  margin-left: 35px;
+  margin-top: 60px;
+}
+.resas-en-cours, .resas-passees, .reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.profile-image {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#show-profile {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border: 0.01rem solid $green;
+  }
+.profile-infos, .coach-seance {
+  margin: 20px;
 }
 .bold {
   color: black;
   font-weight: bold;
   font-size: 16px;
 }
-.coach {
-  border-radius: 3px;
-  margin-right: 20px;
+p {
+  font-size: 18px;
 }
-.fa-euro-sign {
-  margin-bottom: 20px;
-}
-.profile-reservations, .client-resas {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.card-title, h3 {
-  font-weight: bold;
-  font-size: 22px;
-}
-.coach-dashboard, .coach-as-user, .zut {
-  background-color: $light-gray;
-  border-radius: 3px;
-  padding: 10px;
-}
-.resas {
-  display: flex;
-  flex-direction: column;
-  padding: 5px 8px;
-  border-radius: 3px;
-}
-.list-resas, .reviews {
-  display: flex;
-}
-.link {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.reviews-coach, .reservations-coach-as-user, .reservations-en-cours-coach, .reservations-en-cours {
-  margin-right: 10px;
+.reservations-en-cours, .reservations-past, .reservations-en-cours-coach, .reviews-coach, .reservations-coach-as-user {
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 3px;
-  padding: 15px;
-  padding: 15px;
-  width: 250px;
+  padding: 5px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+  width: 235px;
+  height: 280px;
   background-color: white;
   box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07)
 }
-.reservations-coach-as-user {
+h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.link-client {
   padding-bottom: 10px;
 }
-.coach-as-user-resas {
-margin-left: 8px;
+.link-review {
+  padding-top: 15px;
+  padding-left: 20px;
 }
-.reservations-past {
-  padding-left: 15px;
+.fa-caret-down {
+  padding-left: 20px;
 }
+.no-margin-footer {
+  margin-top: 0px;
+}
+.coach-seance {
+  border-top: 2px solid $light-gray;;
+  padding: 15px 30px 0px 30px;
+  p {
+    text-align: justify;
+  }
+}
+.navbar {
+  position: relative;
+}
+.runner {
+  z-index: 1;
+  height: 450px;
+  width: 225px;
+  position: absolute;
+  left: -20px;
+  top: 210px;
 
+}
+.runnerbis {
+  z-index: 1;
+  height: 450px;
+  width: 275px;
+  position: absolute;
+  right: 0px;
+  top: 190px;
+}
 
 // code Bénédicte
 .reservations-en-cours, .reservations-past {
