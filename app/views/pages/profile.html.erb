@@ -1,3 +1,6 @@
+<% content_for :meta_title, "TrainUp: ton profil" %>
+<% content_for :meta_description, "Retrouve sur ton tableau de bord toutes tes réserations" %>
+<% content_for :meta_image, cl_image_path("banner.png") %>
 
 <% if current_user.skills.empty? %>
   <%= image_tag "runner.png", alt: "runner", class: "runner" %>
