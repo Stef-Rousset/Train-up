@@ -3,7 +3,7 @@
     <%= f.input :name, :label => "Catégorie", :placeholder => "Préparateur physique" %>
     <%= f.input :location, :label => "Localisation", :placeholder => "16 villa Gaudelet 75011 Paris" %>
     <%= f.input :description, :label => "Description", :placeholder => "Détaille ton profil" %>
-    <%= f.input :video, input_html: {class: 'd-none'}, label_html: { class: 'btn btn-outline-light rounded-pill btn-space' }, label: 'Télécharge une vidéo', as: :file %>
+    <%= f.input :video, input_html: {class: 'd-none'}, label_html: { class: 'btn btn-outline-light rounded-pill btn-space video' }, label: 'Télécharge une vidéo', as: :file %>
   <%#= f.input :price, :label => "Prix / heure", :placeholder => "50" %>
 	<%#= f.input :name, :label => "Sport", :placeholder => "Escrime"%>
     <%= f.button :submit, "Soumettre", class: "btn-green" %>
