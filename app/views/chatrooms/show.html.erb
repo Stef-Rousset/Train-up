@@ -1,5 +1,5 @@
 <div class="page-chat", style='background-image: url(<%= asset_path "run.jpg" %>)'>
-<div class= "retour"><i class="fas fa-caret-left"></i><%= link_to "Retour", :back, class: "btn-retour", data: { turbolinks: 'false' } %></div>
+<div class= "retour"><i class="fas fa-caret-left"></i><%= link_to "Retour", skill_path(@skill), class: "btn-retour", data: { turbolinks: 'false' } %></div>
 
 <div class="chatroom d-flex flex-column align-items-center justify-content-center">
   <div class="title-chat">
@@ -19,5 +19,5 @@
       <%= f.submit "Envoyer", class: "btn-green", id: "sent", data: { turbolinks: 'false' } %>
     </div>
   <% end %>
-</div>
+  </div>
 </div>
