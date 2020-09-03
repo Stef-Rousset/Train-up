@@ -134,8 +134,9 @@
             <p><i class="fas fa-map-marker-alt"></i> <%= skill.location%></p>
               <% skill.experiences.each do |experience| %>
                 <p><i class="fas fa-tags logo-price"></i>  <%= experience.price %> €/h</p>
-                <%= link_to "Modifier", edit_experience_path(experience), class: "btn-green" %>
+                <%= link_to "Modifier ton expérience", edit_experience_path(experience), class: "btn-green" %>
               <% end %>
+                <%= link_to "Modifier ta compétence", edit_skill_path(skill), class: "btn-green" %>
           <% end %>
       </div>
     </div>
