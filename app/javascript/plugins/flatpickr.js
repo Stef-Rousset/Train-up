@@ -12,16 +12,18 @@ flatpickr(".startpicker", {
 	enableTime: true,
 	noCalendar: true,
 	time_24hr: true,
+  	defaultHour: 18,
+  	defaultMinute: 0,
   	dateFormat: "H:i",
-  	defaultHour: 18
 });
 
 flatpickr(".endpicker", {
 	enableTime: true,
 	noCalendar: true,
 	time_24hr: true,
-  	dateFormat: "H:i",
   	defaultHour: 19,
+  	defaultMinute: 0,
+  	dateFormat: "H:i",
 });
 
 const date = document.querySelector(".date");
