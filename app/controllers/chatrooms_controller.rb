@@ -17,6 +17,7 @@ class ChatroomsController < ApplicationController
     participants = @chatroom.participants.map do |part|
       User.find(part.user_id) 
     end
+    # participants = @chatroom.users
     coach = participants.reject{|user| user.skills.empty? }
     @skill = coach[0].skills.first.id
 
