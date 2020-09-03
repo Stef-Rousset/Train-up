@@ -8,6 +8,11 @@
   }
 }
 
+.retour {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
 .page-chat {
   min-height: calc(100vh - 100px);
   background-size: cover;
@@ -107,4 +112,8 @@
 	border-bottom: 0;
 	margin-top: -19px;
 	margin-right: -30px;
+}
+
+#chatrooms-index > div.container.custom-container > ul {
+  flex-direction: column;
 }

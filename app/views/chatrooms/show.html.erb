@@ -1,4 +1,6 @@
 <div class="page-chat", style='background-image: url(<%= asset_path "run.jpg" %>)'>
+<div class= "retour"><i class="fas fa-caret-left"></i><%= link_to "Retour", skill_path(@skill), class: "btn-retour", data: { turbolinks: 'false' } %></div>
+
 <div class="chatroom d-flex flex-column align-items-center justify-content-center">
   <div class="title-chat">
     <h1><i class="fas fa-comments"></i> TrainUp chat <i class="fas fa-comments"></i></h1>
@@ -14,8 +16,8 @@
       <%= f.input :content, label: false, placeholder: "Message"%>
     </div>
     <div class="btn-chat d-flex justify-content-center">
-      <%= f.submit "Envoyer", class: "btn-green", id: "sent" %>
+      <%= f.submit "Envoyer", class: "btn-green", id: "sent", data: { turbolinks: 'false' } %>
     </div>
   <% end %>
-</div>
+  </div>
 </div>

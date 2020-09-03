@@ -37,6 +37,18 @@
   margin-top: 0;
 }
 
+#navbarDropdown {
+  position: relative;
+  z-index: 1;
+}
+
+#navbarSupportedContent > ul > li:nth-child(3) > p > a {
+  position: absolute;
+  right: 10px;
+  z-index: 2;
+  color: red;
+}
+
 .btn-space {
     margin-right: 20px;
 }

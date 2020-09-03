@@ -5,6 +5,7 @@ class Experience < ApplicationRecord
   validates :sport, presence: true
   validates :years, presence: true
   validates :price, presence: true
+  validates :specialty, presence: true
 
   def duration
     (end_date - start_date).to_i
