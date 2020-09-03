@@ -143,11 +143,13 @@
           <% current_user.skills.each do |skill|  %>
             <p><span class="bold">Description : </span><%= skill.description%></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= skill.location%></p>
-              <% skill.experiences.each do |experience| %>
-                <p><i class="fas fa-tags logo-price"></i>  <%= experience.price %> €/h</p>
-                <%= link_to "Modifier ton expérience", edit_experience_path(experience), class: "btn-green" %>
-              <% end %>
-                <%= link_to "Modifier ta compétence", edit_skill_path(skill), class: "btn-green" %>
+              <div class="modifier-btns">
+                <% skill.experiences.each do |experience| %>
+                  <p class="price-info"><i class="fas fa-tags logo-price"></i>  <%= experience.price %> €/h</p>
+                  <%= link_to "Modifier ton expérience", edit_experience_path(experience), class: "btn-green modifier-btn" %>
+                <% end %>
+                <%= link_to "Modifier ta compétence", edit_skill_path(skill), class: "btn-green modifier-btn" %>
+              </div>
           <% end %>
       </div>
     </div>
