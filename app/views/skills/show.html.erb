@@ -3,7 +3,7 @@
 <div class="profil-price-container">
 	<div class="container-show">
 		<div class="profile-price d-flex flex-row justify-content-between">
-			<div class="show-card d-flex flex-row justify-content-between align-items-center">
+			<div class="show-card d-flex flex-row align-items-center">
 				<div><%= cl_image_tag @skill.user.photo.key, data: { turbolinks: false }, class:"show-avatar"%></div>
 				<div class="details-show d-flex flex-column">
 
@@ -18,7 +18,7 @@
 				</div>
 			 </div>
 			<div class="price-euros align-self-start"><% @skill.experiences.each do |experience| %>
-				<span class="price"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
+				<span class="price-show"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
 			<% end %>
 			</div>
 		</div>		
@@ -28,9 +28,8 @@
 <!-- bloc profile video calandrier -->
 
 <div class="container-show">
-	<div class="show d-flex flex-column">
-
-		<div class="profile-video-calandar d-flex flex-row justify-content-between">
+	<div class="show d-flex flex-row">
+		<div class="profile-video-comment d-flex flex-column justify-content-between">
 			<div class="competences-video d-flex flex-column">
 <!-- bloc compétences -->
 				<div class="competences d-flex flex-column justify-content-around">
@@ -40,23 +39,28 @@
 						<h1>Ton profil</h1>
 					<% end %>
 					<% @skill.experiences.each do |experience|%>
-						<div class="comp d-flex flex-row align-items-center"><i class="far fa-arrow-alt-circle-right"></i> <div class="comp-text"><%= experience.years %> années d'expérience</div>
+						<div class="comp d-flex flex-row align-items-center"><i class="far fa-arrow-alt-circle-right"></i> 
+							<div class="comp-text"><%= experience.years %> années d'expérience
+							</div>
 						</div>
 						<% end %>
-						<div class="comp d-flex flex-row"><i class="fas fa-handshake hands"></i> <div class="comp-text"><%= @skill.description %></div></div>
-						<div class="comp d-flex flex-row align-items-center"><i class="fas fa-map-marker-alt"></i> <div class="comp-text"><%= @skill.location %></div></div>
+						<div class="comp d-flex flex-row"><i class="fas fa-handshake hands"></i>
+							<div class="comp-text"><%= @skill.description %></div>
+						</div>
+						<div class="comp d-flex flex-row align-items-center"><i class="fas fa-map-marker-alt"></i>
+							<div class="comp-text"><%= @skill.location %></div>
+						</div>
 				</div>
 				<div class="ligne align-self-center"></div>	
 				<div class="video-show">
 					<h1>Video d'une séance</h1>
-					</br>
 					<% if @skill.video.attached? %>
 						<% cl_video_tag @skill.video.key, data: { turbolinks: false }, class:"video-tape", source_types: :mp4, controls: true %>
 					<% else %>
 						<p>Ce Coach n'a pas encore ajouté de vidéo.</p>
 						<!-- <div class="video-container d-flex justify-content-center align-items-center">
 							<video class="video-tape" controls width="250">
-						    	<source src= "<%= asset_path('video.mp4') %>"
+						    	<source src= "<%#= asset_path('video.mp4') %>"
 						            type="video/mp4">
 							</video>
 						</div> -->
@@ -64,80 +68,12 @@
 				</div>
 			</div>
 <!-- bloc calandrier -->
-			<% if current_user != @skill.user %>
-			<div class="calandar-modal d-flex flex-column">
-				<div class="calandar">
-					<h1>Réservation</h1>
-					<div class="booking-form d-flex justify-content-around align-center">
-				    	<%= simple_form_for([@skill, @booking]) do |f| %>
-					     <div class="input-date"><%= f.input :start_date, as: :string, required: false, label: "Sélectionner une date", placeholder: "Sélectionner une date", input_html: {class: "datepicker date"} %></div>
-					     <div class="hour d-flex justify-content-between align-items-center">
-					      	<div class="d-flex hour-de"><span>De</span>
-						     	<%= f.input :start_hour, as: :string, required: false, label: false, placeholder: "17:00", input_html: {class: "hourpicker start"} %>
-						     </div>
-						     <div class="d-flex hour-a justify-content-between">
-						     	<span>A</span>
-						     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "19:00", input_html: {class: "hourpicker end"} %></div>
-					     </div>
-					     <div class="price-resa d-flex flex-column align-items-center">
-						   <p>Prix total : <span id="total-price"></span>€ </p>
-						</div>
-				   </div>
-
-				</div>
-<!-- bouton trigger modal -->
-				<div class="modal-booking d-flex justify-content-center">
-					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
-					  Réserver
-					</button>
-<!-- Modal -->
-					<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					    <div class="modal-dialog">
-					        <div class="modal-content">
-					           <div class="modal-header">
-					            <h5 class="modal-title" id="staticBackdropLabel">Détail de la réservation</h5>
-					           </div>
-						       <div class="modal-body">
-						      	 <p><span class="modal-title">Séance de coaching réservée pour le :</span></p>
-						      	 <p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
-						        </div>
-					      	    <div class="modal-footer">
-					                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler
-					                </button>
-					        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
-				
-							    <%= f.button :submit, "Confirmer", class: "btn-confirm"%>
-							<% end %>	
-					            </div>
-					        </div>
-					     </div>
-					 </div>.
-				</div>
-				
-				
-<!-- bouton chat -->
-					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
-						<% if @chatroom.new_record? %>
-							<%= simple_form_for(@chatroom) do |f| %>
-								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
-								<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
-							<% end %>
-						<% else %>
-							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
-						<% end %>`
-					</div>
-			</div>
-			<% else %>
-				<% if current_user === @skill.user %>
-					<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %>
-					</div>
-				<% end %>
-	   		<% end %>
-		</div>
+			
+		<!-- </div> -->
 
 <!-- bloc commentaires -->
-		<% if @skill.reviews.present? %>
-			<div class="comment">
+		<div class="comment">
+			<% if @skill.reviews.present? %>
 				<h1>Commentaires</h1>
 				<% @skill.reviews.each do |review| %>
 					<div class="review d-flex flex-column">
@@ -154,29 +90,101 @@
 	              				<% end %>
 	              		    </div>
 	              		</div>
-					 	<div class="content"><%= review.content %></div>
+					 	<div class="content"><%= review.content %>
+					 	</div>
 					</div>
 				<% end %>
-<!-- ancre ajout commentaire -->
+	<!-- ancre ajout commentaire -->
+			<% end %>
+			<% if @reviewable_booking%>
+				<div id="comment" class='mb-5'>
+					    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
+								<%= f.input :content, label: "Laisse ton commentaire" %>
+								<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+					<!--  <div class="my-3"> -->
+				        <%# 5.times do |index| %>
+				        <!--
+				          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
+				        -->
+				        <%# end %>
+				     <!--  </div> -->
+				      <%= f.submit "Valider", class: "btn-green" %>
+				    <% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 
+
+		<% if current_user != @skill.user %>
+			<div class="calandar-modal d-flex flex-column">
+				<div class="calandar">
+					<h1>Réservation</h1>
+					<div class="booking-form d-flex justify-content-around align-center">
+				    	<%= simple_form_for([@skill, @booking]) do |f| %>
+					     <div class="input-date"><%= f.input :start_date, as: :string, required: false, label: "Sélectionner une date", placeholder: "Sélectionner une date", input_html: {class: "datepicker date"} %></div>
+					     <div class="hour d-flex justify-content-between align-items-center">
+					      	<div class="d-flex hour-de"><span>De</span>
+						     	<%= f.input :start_hour, as: :string, required: false, label: false, placeholder: "12:00", input_html: {class: "hourpicker start"} %>
+						     </div>
+						     <div class="d-flex hour-a justify-content-between">
+						     	<span>A</span>
+						     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "13:00", input_html: {class: "hourpicker end"} %></div>
+					     </div>
+						     <div class="price-resa d-flex flex-column align-items-center">
+							   <p>Prix total : <span id="total-price"></span>€ </p>
+							</div>
+						 <% end %>
+				   </div>
+				</div>
+<!-- bouton trigger modal -->
+				<div class="book-chat d-flex justify-content-around">
+					<!-- <div class="modal-booking d-flex justify-content-center"> -->
+					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
+					  Réserver
+					</button>
+<!-- bouton chat -->
+					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
+						<% if @chatroom.new_record? %>
+							<%= simple_form_for(@chatroom) do |f| %>
+								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
+								<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
+							<% end %>
+						<% else %>
+							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
+						<% end %>
+					</div>
+					<!-- </div> -->				
+				</div>
 			</div>
-		<% end %>
-		<% if @reviewable_booking%>
-			<div id="comment" class='mb-5'>
-				    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
-							<%= f.input :content, label: "Laisse ton commentaire" %>
-							<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
-				<!--  <div class="my-3"> -->
-			        <%# 5.times do |index| %>
-			        <!--
-			          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
-			        -->
-			        <%# end %>
-			     <!--  </div> -->
-			      <%= f.submit "Valider", class: "btn-green" %>
-			    <% end %>
+	<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				           <div class="modal-header">
+				            <h5 class="modal-title" id="staticBackdropLabel">Détail de la réservation</h5>
+				           </div>
+					       <div class="modal-body">
+					      	 <p><span class="modal-title">Séance de coaching réservée pour le :</span></p>
+					      	 <p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
+					        </div>
+				      	    <div class="modal-footer">
+				                <button type="button" id="btn-confirm" class="btn-confirm">Confirmer
+				                </button>				
+				                <button type="button" class="btn-annuler" data-dismiss="modal">Annuler
+				                </button>
+						    <%#= f.button :submit, "Confirmer", class: "btn-confirm"%>
+				            </div>
+				        </div>
+				     </div>
+				 </div>
 			</div>
-		<% end %>
+			<% else %>
+				<% if current_user === @skill.user %>
+					<div class="btn-delete"><%= link_to "Supprime ta compétence", skill_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn-green" %>
+					</div>
+				<% end %>
+	   		<% end %>
 	</div>			
 </div>
 

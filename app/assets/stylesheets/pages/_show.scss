@@ -17,6 +17,7 @@
 
 .show-card {
 	width: 43%;
+	gap: 10px;
 	.show-avatar {
 		border-radius: 50%;
 		height: 120px;
@@ -42,8 +43,9 @@
 .price-euros {
 	margin-top: 30px;
 	font-size: 26px;
-	.price {
+	.price-show {
 		font-weight: bolder;
+		font-size: 28px;
 	}
 }
 
@@ -52,12 +54,12 @@
 	color: black;
 }
 
-.profile-video-calandar {
+.profile-video-comment {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	.competences-video {
 		border-radius: 10px;
-		width: 55%;
+		width: 88%;
 		height: 700px;
 		background-color: #fff;
     	border-radius: 4px;
@@ -119,10 +121,11 @@
 .calandar-modal {
 	width: 35%;
 	height: 700px;
+	margin-top: 20px;
 	border-radius: 4px;
 	box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
-	// position: sticky;
-	// top: 0;
+	position: sticky;
+	top: 0;
 	.chatroom_user_id {
 	    margin: 0;
 	}
@@ -132,6 +135,9 @@
 	padding: 30px 30px 15px 30px;
 	height: max-content;
 	background-color: #fff;
+	::-webkit-input-placeholder {
+	color: $gray;
+	}
 	.booking-form {
 		p {
 			font-size: 22px;
@@ -139,6 +145,7 @@
 			// text-align:center;
 			#total-price {
 				font-weight: bolder;
+				font-size: 24px;
 			}
 		}
 		.input-date label {
@@ -169,8 +176,11 @@
 	padding-right: 20px;
 }
 
+.book-chat {
+	padding: 10px;
+}
 
-.chat-btn {
+.bloc-btn-chat {
 	border: 1px solid $green;
 	color: $green;
 	padding: 8px;
@@ -178,7 +188,6 @@
 	width: 170px;
 	text-align: center;
 }
-
 
 .modal-header {
 	background-color: $green;
@@ -223,14 +232,15 @@
 	background-color: $light-gray;
 	border-radius: 5px;
 	color: $green;
+	border: none !important;
+	padding: 5px;
+	font-weight: boldere;
 }
 
-.bloc-btn-chat {
-	margin-top: 20px;
-}
+
 
 .comment {
-	width: 55%;
+	width: 88%;
 	margin-bottom: 20px;
 	padding: 30px;
 	border-radius: 4px;

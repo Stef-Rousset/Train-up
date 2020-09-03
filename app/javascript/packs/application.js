@@ -32,10 +32,12 @@ import "../plugins/flatpickr";
 // Internal imports, e.g:
 import { fadeText } from '../components/fade_text';
 // import { loadDynamicBannerText } from '../components/banner';
-import { dynamicPriceCalculator } from '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
+//flatpicker
+import { dynamicPriceCalculator } from '../plugins/flatpickr';
 import { dynamicModal } from '../plugins/flatpickr';
+import { dynamicBooking } from '../plugins/flatpickr';
 // import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initChatroomCable } from '../channels/chatroom_channel';
 
@@ -47,10 +49,11 @@ document.addEventListener('turbolinks:load', () => {
   // initAutocomplete();
   initStarRating();
   fadeText();
-  dynamicPriceCalculator();
-  // dynamicModal();
   initChatroomCable();
+  //flatpicker
+  dynamicPriceCalculator();
   dynamicModal();
+  dynamicBooking();
   // loadDynamicBannerText();
 
 });
