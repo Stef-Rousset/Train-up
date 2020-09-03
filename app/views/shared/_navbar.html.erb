@@ -17,14 +17,14 @@
         <li class="nav-item">
         <!--<button type="button" class="">Light</button> -->
 
-          <%= link_to "Réserve un cours", skills_path, class: "btn btn-outline-light rounded-pill btn-space" %>
+          <%= link_to "Réserve un cours", skills_path, class: "btn btn-light rounded-pill btn-space" %>
         </li>
         <li class="nav-item">
           <%= link_to "Deviens coach",  new_skill_path, class: "nav-link btn-space" %>
         </li>
         <% if Message.where(chatroom: current_user.chatrooms).where.not(user: current_user, read: true).any? %>
           <li class="nav-item">
-            <p><%= link_to '<i class="fas fa-circle"></i>'.html_safe, chatrooms_path %></p>        
+            <p><%= link_to '<i class="fas fa-circle"></i>'.html_safe, chatrooms_path %></p>
           </li>
         <% end %>
         <li class="nav-item dropdown">
