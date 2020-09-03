@@ -1,20 +1,38 @@
-<h1>Tes discussions</h1>
+<div class="page-chat", style='background-image: url(<%= asset_path "run.jpg" %>)'>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <% if @chatrooms.first.participants.where(user: current_user).present? %>
-      <% @chatrooms.each_with_index do |chatroom, index| %>
-        <% if index == 0 %>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="true">Chat <%= chatroom.id  %></a>
-          </li>
-        <% else %>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="false">Chat <%= chatroom.id  %></a>
-          </li>
+    <div class="title-chat">
+      <h1><i class="fas fa-comments"></i> TrainUp chats <i class="fas fa-comments"></i></h1>
+    </div>
+  <div class="side-bar d-flex">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <% @unread_chatrooms = current_user.chatrooms.has_unread_messages(current_user) %>
+        <% if @chatrooms.first.participants.where(user: current_user).present? %>
+          <% @chatrooms.reverse.each_with_index do |chatroom, index| %>
+            <% if index == 0 %>
+              <% if @unread_chatrooms.include?(chatroom) %>
+                <li class="nav-item" role="presentation" id="unread">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" araria-selected="true" turbolinks: {data: false}><%= chatroom.participants.where.not(user: current_user).first.user.first_name %> <%= chatroom.participants.where.not(user: current_user).first.user.last_name %></a>
+                </li>
+              <% else %>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="true" turbolinks: {data: false}><%= chatroom.participants.where.not(user: current_user).first.user.first_name %> <%= chatroom.participants.where.not(user: current_user).first.user.last_name %></a>
+                </li>
+              <% end %>
+            <% else %>
+              <% if @unread_chatrooms.include?(chatroom) %>
+                <li class="nav-item" role="presentation" id="unread">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="false" turbolinks: {data: false}><%= chatroom.participants.where.not(user: current_user).first.user.first_name %> <%= chatroom.participants.where.not(user: current_user).first.user.last_name %></a>
+                </li>
+              <% else %>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="false" turbolinks: {data: false}><%= chatroom.participants.where.not(user: current_user).first.user.first_name %> <%= chatroom.participants.where.not(user: current_user).first.user.last_name %></a>
+                </li>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    <% end %>
-</ul>
+      </ul>
+
 <div class="tab-content" id="myTabContent">
   <% @chatrooms.each_with_index do |chatroom, index| %>
     <% if index == 0 %>
@@ -27,9 +45,10 @@
       </div>
     <% end %>
   <% end %>
-  
 </div>
 
+</div>
 
+</div>
 
 
