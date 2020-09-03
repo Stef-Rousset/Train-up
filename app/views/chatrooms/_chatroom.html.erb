@@ -1,0 +1,14 @@
+<div id="messages" data-chatroom-id="<%= chatroom.id %>">
+  <% chatroom.messages.each do |message| %>
+  <%= render 'messages/message', message: message %>
+  <% end %>
+</div>
+<br>
+<%=  simple_form_for [ chatroom, message ], html: {class: "form-chat"}, remote: true do |f| %>
+  <div class="input-chat d-flex justify-content-center">
+    <%= f.input :content, label: false, placeholder: "Message"%>
+  </div>
+  <div class="btn-chat d-flex justify-content-center">
+    <%= f.submit "Envoyer", class: "btn-green", id: "sent", data: { turbolinks: 'false' } %>
+  </div>
+<% end %>

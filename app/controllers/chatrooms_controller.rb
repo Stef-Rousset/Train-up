@@ -1,6 +1,9 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom)
+    # @chatroom = @mychatrooms.first
+    # @chatrooms = @mychatrooms.second_to_last
+    @message = Message.new
   end
 
   def show

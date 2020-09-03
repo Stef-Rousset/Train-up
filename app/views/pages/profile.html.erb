@@ -53,6 +53,14 @@
                        <%#= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "chat-btn" %>
                     </div>
                 </div>
+                <% if Chatroom.find_by_users(current_user, booking.skill.user) %>
+                  <%= link_to "chat", chatroom_path(Chatroom.find_by_users(current_user, booking.skill.user))  %>
+                <% else %>
+                  	<%= simple_form_for(Chatroom.new) do |f| %>
+								      <%= f.input :user_id, input_html: {value: booking.skill.user.id}, as: :hidden %>
+								      <%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
+							      <% end %>
+                <% end %>
               <% end %>
             <% else %>
               <div class="reservations-en-cours">
