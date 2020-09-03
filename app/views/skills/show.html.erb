@@ -72,48 +72,52 @@
 		<!-- </div> -->
 
 <!-- bloc commentaires -->
-		<div class="comment">
-			<% if @skill.reviews.present? %>
-				<h1>Commentaires</h1>
-				<% @skill.reviews.each do |review| %>
-					<div class="review d-flex flex-column">
-  						<div class="name-rating d-flex flex-row justify-content-between">
-		      				<%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
-							<div class="rating d-flex flex-row">
-								<% count = 0 %>
-								<% review.rating.times do %>
-	              					<i class="fas fa-star star"></i>
-	              					<% count += 1 %>
-	              				<% end %>
-	              				<% (5-count).times do %>
-	              					<i class="far fa-star"></i>
-	              				<% end %>
-	              		    </div>
-	              		</div>
-					 	<div class="content"><%= review.content %>
-					 	</div>
+			<div class="comment-show">
+				<% if @skill.reviews.present? || @reviewable_booking.present? %>
+					<div class="comment">
+						<% if @skill.reviews %>
+							<h1>Commentaires</h1>
+							<% @skill.reviews.each do |review| %>
+								<div class="review d-flex flex-column">
+			  						<div class="name-rating d-flex flex-row justify-content-between">
+					      				<%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
+										<div class="rating d-flex flex-row">
+											<% count = 0 %>
+											<% review.rating.times do %>
+				              					<i class="fas fa-star star"></i>
+				              					<% count += 1 %>
+				              				<% end %>
+				              				<% (5-count).times do %>
+				              					<i class="far fa-star"></i>
+				              				<% end %>
+				              		    </div>
+				              		</div>
+								 	<div class="content"><%= review.content %>
+								 	</div>
+								</div>
+							<% end %>
+				<!-- ancre ajout commentaire -->
+						<% end %>
+						<% if @reviewable_booking.present? %>
+							<div id="comment" class='mb-5'>
+								    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
+											<%= f.input :content, label: "Laisse ton commentaire" %>
+											<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
+								<!--  <div class="my-3"> -->
+							        <%# 5.times do |index| %>
+							        <!--
+							          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
+							        -->
+							        <%# end %>
+							     <!--  </div> -->
+							      <%= f.submit "Valider", class: "btn-green" %>
+							    <% end %>
+							</div>
+						<% end %>
 					</div>
 				<% end %>
-	<!-- ancre ajout commentaire -->
-			<% end %>
-			<% if @reviewable_booking%>
-				<div id="comment" class='mb-5'>
-					    <%= simple_form_for [@reviewable_booking, @review] do |f| %>
-								<%= f.input :content, label: "Laisse ton commentaire" %>
-								<%= f.input :rating, collection: (1..5).to_a, label: "Note ton expérience", required: true %>
-					<!--  <div class="my-3"> -->
-				        <%# 5.times do |index| %>
-				        <!--
-				          <i id="<%#= index + 1 %>" class="review-rating far fa-star"></i>
-				        -->
-				        <%# end %>
-				     <!--  </div> -->
-				      <%= f.submit "Valider", class: "btn-green" %>
-				    <% end %>
-				</div>
-			<% end %>
+			</div>
 		</div>
-	</div>
 
 
 		<% if current_user != @skill.user %>

@@ -11,13 +11,26 @@ a:hover {
 	text-decoration: none;
 }
 
+.retour {
+  margin-left: 20px;
+  margin-top: 10px;
+  .btn-retour {
+  	color: lightgray;
+  }
+  	.fas {
+  		color: lightgray;
+  		font-size: 28px;
+  	}
+}
+
 a.btn-retour {
-	color: $green;
+	// color: $green;
 	margin-left: 5px;
 	&:hover {
 		text-decoration: none;
-		color: $green;
-		text-shadow: 1px 1px 3px rgba(15,93,94,.2);
+		color: grey;
+		// color: $green;
+		// text-shadow: 1px 1px 3px rgba(15,93,94,.2);
 	}
 }
 
