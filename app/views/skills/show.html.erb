@@ -21,7 +21,7 @@
 				<span class="price-show"><%= experience.price%></span> € /h<span>   <i class="fas fa-tags logo-price"></i></span>
 			<% end %>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
 
@@ -41,7 +41,7 @@
 						<h1>Ton profil</h1>
 					<% end %>
 					<% @skill.experiences.each do |experience|%>
-						<div class="comp d-flex flex-row align-items-center"><i class="far fa-arrow-alt-circle-right"></i> 
+						<div class="comp d-flex flex-row align-items-center"><i class="far fa-arrow-alt-circle-right"></i>
 							<div class="comp-text"><%= experience.years %> années d'expérience
 							</div>
 						</div>
@@ -53,24 +53,31 @@
 							<div class="comp-text"><%= @skill.location %></div>
 						</div>
 				</div>
-				<div class="ligne align-self-center"></div>	
+				<div class="ligne align-self-center"></div>
 				<div class="video-show">
 					<h1>Video d'une séance</h1>
-					<% if @skill.video.attached? %>
+          <div class="video-tape">
+            <% if @skill.url %>
+              <%= YouTubeRails.youtube_embed_url(@skill.url).html_safe %>
+            <% else %>
+              <p>Ce Coach n'a pas encore ajouté de vidéo.</p>
+            <% end %>
+          </div>
+			<!-- 		<% if @skill.video.attached? %>
 						<% cl_video_tag @skill.video.key, data: { turbolinks: false }, class:"video-tape", source_types: :mp4, controls: true %>
 					<% else %>
-						<p>Ce Coach n'a pas encore ajouté de vidéo.</p>
+						<p>Ce Coach n'a pas encore ajouté de vidéo.</p> -->
 						<!-- <div class="video-container d-flex justify-content-center align-items-center">
 							<video class="video-tape" controls width="250">
 						    	<source src= "<%#= asset_path('video.mp4') %>"
 						            type="video/mp4">
 							</video>
 						</div> -->
-					<% end %>
+		<!-- 			<% end %> -->
 				</div>
 			</div>
 <!-- bloc calandrier -->
-			
+
 		<!-- </div> -->
 
 <!-- bloc commentaires -->
@@ -160,7 +167,7 @@
 							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
 						<% end %>
 					</div>
-					<!-- </div> -->				
+					<!-- </div> -->
 				</div>
 			</div>
 	<!-- Modal -->
@@ -176,7 +183,7 @@
 					        </div>
 				      	    <div class="modal-footer">
 				                <button type="button" id="btn-confirm" class="btn-confirm">Confirmer
-				                </button>				
+				                </button>
 				                <button type="button" class="btn-annuler" data-dismiss="modal">Annuler
 				                </button>
 						    <%#= f.button :submit, "Confirmer", class: "btn-confirm"%>
@@ -191,13 +198,13 @@
 					</div>
 				<% end %>
 	   		<% end %>
-	</div>			
+	</div>
 </div>
 
 
 <!-- <script>
-	
+
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
-})	
+})
 </script>
