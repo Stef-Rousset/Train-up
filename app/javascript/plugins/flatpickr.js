@@ -73,17 +73,18 @@ const dynamicModal = () => {
 };
 
 const dynamicBooking = () => {
-	const btnConfirm = document.getElementById("new_booking")
+	const btnConfirm = document.getElementById("new_booking");
 	const bookingForm = document.querySelector('.booking-form');
 	if (bookingForm) {
 		btnConfirm.addEventListener('change', (event) => {
-			btnConfirm.submit()
+			btnConfirm.submit();
 		})
 	}
 };
 
 export {dynamicPriceCalculator};
-export {dynamicModal}
+export {dynamicModal};
+export {dynamicBooking}
 
 
 
