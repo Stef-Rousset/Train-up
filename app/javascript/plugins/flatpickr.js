@@ -18,7 +18,7 @@ flatpickr(".hourpicker", {
 const date = document.querySelector(".date");
 const startHour = document.querySelector(".start");
 const endHour = document.querySelector(".end");	
-const pricePerHour = document.querySelector(".price");
+const pricePerHour = document.querySelector(".price-show");
 const totalPriceElement = document.getElementById("total-price");
 
 const modalDate = document.getElementById("modal-date")
@@ -69,6 +69,16 @@ const dynamicModal = () => {
 			console.log(modalEndHour)
 			modalEndHour.innerText = event.target.value;
 		})	
+	}
+};
+
+const dynamicBooking = () => {
+	const btnConfirm = document.getElementById("new_booking")
+	const bookingForm = document.querySelector('.booking-form');
+	if (bookingForm) {
+		btnConfirm.addEventListener('change', (event) => {
+			btnConfirm.submit()
+		})
 	}
 };
 
