@@ -64,26 +64,26 @@
         <div class="resas-passees">
           <h3>Réservations passées<i class="fas fa-caret-down"></i></h3>
           <% if current_user.bookings.past.any? %>
-            <div class="reservations-past">
               <% current_user.bookings.past.each do |booking| %>
-                <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                <p class="italique"><%= booking.skill.name %>
-                    <% booking.skill.experiences.each do |experience| %>
-                      (<%= experience.sport.name %>)
-                    <% end %></p>
-                <p class="calendar"><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y") %></p>
-                <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
-                <hr>
-                <p>Total : <%= booking.total_price %> €</p>
+                <div class="reservations-past">
+                  <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
+                  <p class="italique"><%= booking.skill.name %>
+                      <% booking.skill.experiences.each do |experience| %>
+                        (<%= experience.sport.name %>)
+                      <% end %></p>
+                  <p class="calendar"><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y") %></p>
+                  <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
+                  <hr>
+                  <p>Total : <%= booking.total_price %> €</p>
 
-                <div class="link-review">
-                <% if policy(booking.reviews).create? %>
+                  <div class="link-review">
+                  <% if policy(booking.reviews).create? %>
 
-                <%= link_to "Laisse un commentaire", skill_path(booking.skill, anchor: "comment"), data: { turbolinks: 'false' }, class: "btn-green" %>
-                <% end %>
+                  <%= link_to "Laisse un commentaire", skill_path(booking.skill, anchor: "comment"), data: { turbolinks: 'false' }, class: "btn-green" %>
+                  <% end %>
+                  </div>
                 </div>
               <% end %>
-            </div>
           <% else %>
             <div class="reservations-past">
               <p>Tu n'as aucune réservation passée...</p>
