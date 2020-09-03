@@ -21,7 +21,7 @@ flatpickr(".endpicker", {
 	noCalendar: true,
 	time_24hr: true,
   	dateFormat: "H:i",
-  	defaultHour: 19,
+  	defaultHour: 19
 });
 
 const date = document.querySelector(".date");
