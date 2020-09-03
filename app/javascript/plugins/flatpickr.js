@@ -73,11 +73,12 @@ const dynamicModal = () => {
 };
 
 const dynamicBooking = () => {
-	const btnConfirm = document.getElementById("new_booking");
-	const bookingForm = document.querySelector('.booking-form');
+	const bookingForm = document.getElementById("new_booking");
+	const btnConfirm = document.querySelector('#btn-confirm');
 	if (bookingForm) {
-		btnConfirm.addEventListener('change', (event) => {
-			btnConfirm.submit();
+		btnConfirm.addEventListener('click', (event) => {
+			console.log(event);
+			bookingForm.submit();
 		})
 	}
 };

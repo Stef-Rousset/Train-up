@@ -53,7 +53,7 @@ document.addEventListener('turbolinks:load', () => {
   //flatpicker
   dynamicPriceCalculator();
   dynamicModal();
-  // dynamicBooking();
+  dynamicBooking();
   // loadDynamicBannerText();
 
 });

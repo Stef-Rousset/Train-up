@@ -140,23 +140,23 @@
 <!-- bouton trigger modal -->
 				<div class="book-chat d-flex justify-content-around">
 					<!-- <div class="modal-booking d-flex justify-content-center"> -->
-						<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
-						  Réserver
-						</button>
-	<!-- bouton chat -->
-						<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
-							<% if @chatroom.new_record? %>
-								<%= simple_form_for(@chatroom) do |f| %>
-									<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
-									<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
-								<% end %>
-							<% else %>
-								<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
+					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
+					  Réserver
+					</button>
+<!-- bouton chat -->
+					<div class="bloc-btn-chat d-flex justify-content-center align-items-center">
+						<% if @chatroom.new_record? %>
+							<%= simple_form_for(@chatroom) do |f| %>
+								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
+								<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
 							<% end %>
-						</div>
-					<!-- </div> -->				
+						<% else %>
+							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
+						<% end %>
 					</div>
+					<!-- </div> -->				
 				</div>
+			</div>
 	<!-- Modal -->
 				<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				    <div class="modal-dialog">
@@ -169,7 +169,7 @@
 					      	 <p><span id="modal-date"></span><span class="modal-title">   de </span><span id="modal-start-hour"></span><span class="modal-title">   à </span><span id="modal-end-hour"></span></p>
 					        </div>
 				      	    <div class="modal-footer">
-				                <button type="button" id="btn-confirm", class="btn-confirm">Confirmer
+				                <button type="button" id="btn-confirm" class="btn-confirm">Confirmer
 				                </button>				
 				                <button type="button" class="btn-annuler" data-dismiss="modal">Annuler
 				                </button>
