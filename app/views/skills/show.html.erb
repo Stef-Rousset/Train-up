@@ -125,11 +125,11 @@
 					     <div class="input-date"><%= f.input :start_date, as: :string, required: false, label: "Sélectionner une date", placeholder: "Sélectionner une date", input_html: {class: "datepicker date"} %></div>
 					     <div class="hour d-flex justify-content-between align-items-center">
 					      	<div class="d-flex hour-de"><span>De</span>
-						     	<%= f.input :start_hour, as: :string, required: false, label: false, placeholder: "17:00", input_html: {class: "hourpicker start"} %>
+						     	<%= f.input :start_hour, as: :string, required: false, label: false, placeholder: "12:00", input_html: {class: "hourpicker start"} %>
 						     </div>
 						     <div class="d-flex hour-a justify-content-between">
 						     	<span>A</span>
-						     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "19:00", input_html: {class: "hourpicker end"} %></div>
+						     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "13:00", input_html: {class: "hourpicker end"} %></div>
 					     </div>
 						     <div class="price-resa d-flex flex-column align-items-center">
 							   <p>Prix total : <span id="total-price"></span>€ </p>

@@ -135,6 +135,9 @@
 	padding: 30px 30px 15px 30px;
 	height: max-content;
 	background-color: #fff;
+	::-webkit-input-placeholder {
+	color: $gray;
+	}
 	.booking-form {
 		p {
 			font-size: 22px;
