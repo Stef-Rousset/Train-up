@@ -33,9 +33,14 @@
   vertical-align: middle !important;
 }
 
+.container-cards {
+  margin-right: 20px;
+}
+
 .exp {
-  width: 150px;
+  width: 120px;
   margin: 0;
+  margin-right: 20px;
   margin-bottom: 5px;
   vertical-align: top;
 }
@@ -71,4 +76,28 @@
 .label-exp {
   margin-left: 0px;
   margin-bottom: 0;
+}
+
+#specialty {
+  width: 120px;
+}
+
+#sport_id {
+  width: 120px;
+}
+
+#skill_name {
+  width: 150px;
+}
+
+#skill_location {
+  width: 170px;
+}
+
+#exp_years {
+  width: 120px;
+}
+
+#exp_price {
+  width: 120px;
 }
