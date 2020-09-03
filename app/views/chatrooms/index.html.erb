@@ -1,21 +1,35 @@
 <h1>Tes discussions</h1>
 
-<ul class="nav">
-  <% @chatrooms.each do |chatroom| %>
-    <% if chatroom.participants.where(user: current_user).present? %>
-      <li class="nav-item">
-        <%= link_to "Chat", chatroom_path(chatroom), class: "nav-link" %>
-
-        <div class="chatroom d-flex flex-column align-items-center justify-content-center">
-  <div class="title-chat">
-    <h1><i class="fas fa-comments"></i> TrainUp chat <i class="fas fa-comments"></i></h1>
-  </div>
-  <div id="messages" data-chatroom-id="<%= chatroom.id %>">
-    <% chatroom.messages.each do |message| %>
-    <%= render 'messages/message', message: message %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <% if @chatrooms.first.participants.where(user: current_user).present? %>
+      <% @chatrooms.each_with_index do |chatroom, index| %>
+        <% if index == 0 %>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="true">Chat <%= chatroom.id  %></a>
+          </li>
+        <% else %>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#chat-<%= chatroom.id %>" role="tab" aria-controls="chat-<%= chatroom.id %>" aria-selected="false">Chat <%= chatroom.id  %></a>
+          </li>
+        <% end %>
+      <% end %>
     <% end %>
-  </div>
-      </li>
-     <% end %>
-  <% end %>
 </ul>
+<div class="tab-content" id="myTabContent">
+  <% @chatrooms.each_with_index do |chatroom, index| %>
+    <% if index == 0 %>
+      <div class="tab-pane fade show active" id="chat-<%= chatroom.id %>" role="tabpanel" aria-labelledby="home-tab">
+        <%= render 'chatroom', chatroom: chatroom, message: @message %>
+      </div>
+    <% else %>
+      <div class="tab-pane fade" id="chat-<%= chatroom.id %>" role="tabpanel" aria-labelledby="home-tab">
+        <%= render 'chatroom', chatroom: chatroom, message: @message %>
+      </div>
+    <% end %>
+  <% end %>
+  
+</div>
+
+
+
+
