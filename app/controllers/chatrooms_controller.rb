@@ -1,6 +1,9 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom)
+    # @chatroom = @mychatrooms.first
+    # @chatrooms = @mychatrooms.second_to_last
+    @message = Message.new
   end
 
   def show
@@ -9,10 +12,8 @@ class ChatroomsController < ApplicationController
     participants = @chatroom.participants.map do |part|
       User.find(part.user_id) 
     end
-    
     coach = participants.reject{|user| user.skills.empty? }
     @skill = coach[0].skills.first.id
-
 
     authorize @chatroom
     @interlocutor = @chatroom.participants.where.not(user: current_user).first.user

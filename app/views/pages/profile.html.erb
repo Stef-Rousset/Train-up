@@ -54,6 +54,14 @@
                        <%#= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "chat-btn" %>
                     </div>
                 </div>
+                <% if Chatroom.find_by_users(current_user, booking.skill.user) %>
+                  <%= link_to "chat", chatroom_path(Chatroom.find_by_users(current_user, booking.skill.user))  %>
+                <% else %>
+                  	<%= simple_form_for(Chatroom.new) do |f| %>
+								      <%= f.input :user_id, input_html: {value: booking.skill.user.id}, as: :hidden %>
+								      <%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
+							      <% end %>
+                <% end %>
               <% end %>
           <% else %>
               <div class="reservations-en-cours">
@@ -64,26 +72,26 @@
         <div class="resas-passees">
           <h3>Réservations passées<i class="fas fa-caret-down"></i></h3>
           <% if current_user.bookings.past.any? %>
-            <div class="reservations-past">
               <% current_user.bookings.past.each do |booking| %>
-                <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
-                <p class="italique"><%= booking.skill.name %>
-                    <% booking.skill.experiences.each do |experience| %>
-                      (<%= experience.sport.name %>)
-                    <% end %></p>
-                <p class="calendar"><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y") %></p>
-                <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
-                <hr>
-                <p>Total : <%= booking.total_price %> €</p>
+                <div class="reservations-past">
+                  <p><span class="bold"><%= booking.skill.user.first_name.capitalize %> <%= booking.skill.user.last_name.capitalize %></span></p>
+                  <p class="italique"><%= booking.skill.name %>
+                      <% booking.skill.experiences.each do |experience| %>
+                        (<%= experience.sport.name %>)
+                      <% end %></p>
+                  <p class="calendar"><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_date.strftime("%e %m %Y") %></p>
+                  <p><i class="far fa-clock"></i> <%= booking.start_hour %>h à <%= booking.end_hour %>h</p>
+                  <hr>
+                  <p>Total : <%= booking.total_price %> €</p>
 
-                <div class="link-review">
-                <% if policy(booking.reviews).create? %>
+                  <div class="link-review">
+                  <% if policy(booking.reviews).create? %>
 
-                <%= link_to "Laisse un commentaire", skill_path(booking.skill, anchor: "comment"), data: { turbolinks: 'false' }, class: "btn-green" %>
-                <% end %>
+                  <%= link_to "Laisse un commentaire", skill_path(booking.skill, anchor: "comment"), data: { turbolinks: 'false' }, class: "btn-green" %>
+                  <% end %>
+                  </div>
                 </div>
               <% end %>
-            </div>
           <% else %>
             <div class="reservations-past">
               <p>Tu n'as aucune réservation passée...</p>
@@ -143,10 +151,13 @@
           <% current_user.skills.each do |skill|  %>
             <p><span class="bold">Description : </span><%= skill.description%></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= skill.location%></p>
-              <% skill.experiences.each do |experience| %>
-                <p><i class="fas fa-tags logo-price"></i>  <%= experience.price %> €/h</p>
-                <%= link_to "Modifier", edit_experience_path(experience), class: "btn-green" %>
-              <% end %>
+              <div class="modifier-btns">
+                <% skill.experiences.each do |experience| %>
+                  <p class="price-info"><i class="fas fa-tags logo-price"></i>  <%= experience.price %> €/h</p>
+                  <%= link_to "Modifier ton expérience", edit_experience_path(experience), class: "btn-green modifier-btn" %>
+                <% end %>
+                <%= link_to "Modifier ta compétence", edit_skill_path(skill), class: "btn-green modifier-btn" %>
+              </div>
           <% end %>
       </div>
     </div>
