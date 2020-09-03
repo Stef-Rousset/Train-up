@@ -8,11 +8,20 @@ flatpickr(".datepicker", {
 
 });
 
-flatpickr(".hourpicker", {
+flatpickr(".startpicker", {
 	enableTime: true,
 	noCalendar: true,
 	time_24hr: true,
   	dateFormat: "H:i",
+  	defaultHour: 18
+});
+
+flatpickr(".endpicker", {
+	enableTime: true,
+	noCalendar: true,
+	time_24hr: true,
+  	dateFormat: "H:i",
+  	defaultHour: 19,
 });
 
 const date = document.querySelector(".date");
