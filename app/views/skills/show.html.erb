@@ -138,7 +138,7 @@
 						     	<%= f.input :end_hour, as: :string, required: false, label: false, placeholder: "19:00", input_html: {class: "endpicker end"} %></div>
 					     </div>
 						     <div class="price-resa d-flex flex-column align-items-center">
-							   <p>Prix total : <span id="total-price"></span>€ </p>
+							   <p>Prix total : <span id="total-price">0</span>€ </p>
 							</div>
 						 <% end %>
 				   </div>
@@ -146,7 +146,7 @@
 <!-- bouton trigger modal -->
 				<div class="book-chat d-flex justify-content-around">
 					<!-- <div class="modal-booking d-flex justify-content-center"> -->
-					<button type="button" class="btn-green" data-toggle="modal" data-target="#staticBackdrop">
+					<button type="button" class="btn-green" id="modal-trig" data-toggle="modal" data-target="#staticBackdrop">
 					  Réserver
 					</button>
 <!-- bouton chat -->
