@@ -154,7 +154,14 @@
 		.hour {
 			width: 100%;
 			padding: 15px 0 15px 30px;
-			.hourpicker {
+			.startpicker {
+				width: 75%;
+				margin: 0;
+				padding: 0;
+				height: 25px;
+				text-align: center;
+			}
+			.endpicker {
 				width: 75%;
 				margin: 0;
 				padding: 0;
