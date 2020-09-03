@@ -20,3 +20,15 @@ a.btn-retour {
 		text-shadow: 1px 1px 3px rgba(15,93,94,.2);
 	}
 }
+
+.modifier-btns {
+	display: flex;
+	flex-direction: column;
+
+		.btn-green.modifier-btn {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+}
+
+
