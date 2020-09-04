@@ -161,10 +161,10 @@
 						<% if @chatroom.new_record? %>
 							<%= simple_form_for(@chatroom) do |f| %>
 								<%= f.input :user_id, input_html: {value: @skill.user_id}, as: :hidden %>
-								<%= f.button :submit, "Chat avec le coach", class: "chat-btn" %>
+								<%= f.button :submit, "Chat avec le coach", class: "chaton" %>
 							<% end %>
 						<% else %>
-							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "btn-chat" %></div>
+							<div><%= link_to "Chat avec le coach", chatroom_path(@chatroom, anchor: "msg_#{@chatroom.messages.last}"), class: "chaton" %></div>
 						<% end %>
 					</div>
 					<!-- </div> -->
