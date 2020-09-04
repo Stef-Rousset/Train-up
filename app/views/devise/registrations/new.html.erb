@@ -1,60 +1,84 @@
-<h2>Inscription</h2>
+<div class="min-height-200 d-flex justify-content-center align-items-end flex-wrap flex-row">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                label: "Prénom",
-                placeholder: "Stéphanie",
-                input_html: { autocomplete: "Prénom" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                label: "Nom",
-                placeholder: "Rousset",
-                input_html: { autocomplete: "Nom" }%>
-    <%= f.input :sex,
-                required: true,
-                autofocus: true,
-                label: "Sexe (F/H)",
-                placeholder: "F",
-                input_html: { autocomplete: "Sexe" }%>
-    <%= f.input :birth_date, order: [:day, :month, :year],
-                required: true,
-                autofocus: true,
-                label: "Date de naissance",
-                input_html: { autocomplete: "Date de naissance" }%>
-    <%= f.input :address,
-                required: true,
-                autofocus: true,
-                label: "Adresse",
-                placeholder: "16 villa Gaudelet 75011 Paris",
-                input_html: { autocomplete: "Adresse" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                label: "Email",
-                placeholder: "contact@train-up.com",
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                label: "Mot de passe",
-                placeholder: "******",
-                hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                label: "Confirmation du mot de passe",
-                placeholder: "******",
-                input_html: { autocomplete: "new-password" } %>
+  <div class="left-runners", style='background-image: url(<%= asset_path "runner.png" %>)'>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "S'inscrire" %>
-  </div>
-<% end %>
+  <div class="w-50">
+    <h2>Inscription</h2>
+    <br>
+    <br>
 
-<%= render "devise/shared/links" %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="d-flex flex-row justify-content-between">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    label: "Prénom",
+                    placeholder: "Stéphanie",
+                    input_html: { autocomplete: "Prénom" }%>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    label: "Nom",
+                    placeholder: "Rousset",
+                    input_html: { autocomplete: "Nom" }%>
+      </div>
+
+      <div class="d-flex flex-row justify-content-between">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    label: "Email",
+                    placeholder: "contact@train-up.com",
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :sex,
+                    required: true,
+                    autofocus: true,
+                    label: "Sexe (F/H)",
+                    placeholder: "F",
+                    input_html: { autocomplete: "Sexe" }%>
+      </div>
+
+      <%= f.input :birth_date, order: [:day, :month, :year],
+                  required: true,
+                  autofocus: true,
+                  label: "Date de naissance",
+                  input_html: { autocomplete: "Date de naissance" }%>
+
+      <%= f.input :address,
+                  required: true,
+                  autofocus: true,
+                  label: "Adresse",
+                  placeholder: "16 villa Gaudelet 75011 Paris",
+                  input_html: { autocomplete: "Adresse" }%>
+
+      <div class="d-flex flex-row justify-content-between">
+        <%= f.input :password,
+                    required: true,
+                    label: "Mot de passe",
+                    placeholder: "******",
+                    hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    label: "Confirmation du mot de passe",
+                    placeholder: "******",
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "S'inscrire", class: "btn-green"  %>
+      <%= render "devise/shared/links", class: "btn btn-green btn-light rounded-pill btn-space inscription" %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="right-runners", style='background-image: url(<%= asset_path "runnerbis.png" %>)'>
+  </div>
+
+</div>
