@@ -53,8 +53,12 @@ a.btn-retour {
   color: #0F5D5E;
 }
 
-.btn.btn-outline-light.rounded-pill.btn-space.inscription {
+#button-outline a.btn.rounded-pill.inscription {
 	border: 1px solid #0F5D5E;
-  color: #0F5D5E;
+	color: #0F5D5E;
+
 }
 
+#button-outline {
+	margin-bottom: 10px;
+}
