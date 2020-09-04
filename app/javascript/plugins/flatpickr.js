@@ -84,12 +84,17 @@ const dynamicPrice = () => {
 };
 
 const dynamicModal = () => {
-	document.querySelector('#modal-trig').addEventListener('click', e => {
-		console.log(startHour.innerText)
-		console.log(endHour.innerText)
-		modalStartHour.innerText = startHour.value
-		modalEndHour.innerText = endHour.value
-	}) 
+	const modalTrig = document.querySelector('#modal-trig');
+	if (modalTrig) {
+		modalTrig.addEventListener('click', e => {
+			console.log(startHour.innerText)
+			console.log(endHour.innerText)
+			modalStartHour.innerText = startHour.value
+			modalEndHour.innerText = endHour.value
+		});
+	}
+	
+
 
 	const bookingForm = document.querySelector('.booking-form');
 	if (bookingForm) {

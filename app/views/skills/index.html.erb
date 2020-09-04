@@ -14,9 +14,9 @@
         <%#= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id).uniq, (Sport.find_by(name: params[:query].capitalize).id if Sport.find_by(name: params[:query].capitalize))), class: "filters", prompt: 'Sport' %>
         <%#= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, (Experience.find_by(specialty: params[:query].capitalize).specialty if Experience.find_by(specialty: params[:query].capitalize))), class: "filters", prompt: 'Spécialité' %>
         
-         <%= select_tag "skill_name", options_for_select(Skill.pluck(:name).uniq, (params[:skill_name] || (Skill.find_by(name: params[:query].capitalize).name if Skill.find_by(name: params[:query].capitalize)))), class: "filters", prompt: 'Compétence' %>
-         <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id), (params[:sport_id] || (Sport.find_by(name: params[:query].capitalize).id if Sport.find_by(name: params[:query].capitalize)))), class: "filters", prompt: 'Sport' %>
-         <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, (params[:specialty] || (Experience.find_by(specialty: params[:query].capitalize).specialty if Experience.find_by(specialty: params[:query].capitalize)))), class: "filters", prompt: 'Spécialité' %>
+         <%= select_tag "skill_name", options_for_select(Skill.pluck(:name).uniq, (params[:skill_name] || (Skill.find_by(name: params[:query].capitalize).name if params[:query].present? && Skill.find_by(name: params[:query].capitalize)))), class: "filters", prompt: 'Compétence' %>
+         <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id), (params[:sport_id] || (Sport.find_by(name: params[:query].capitalize).id if params[:query].present? && Sport.find_by(name: params[:query].capitalize)))), class: "filters", prompt: 'Sport' %>
+         <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, (params[:specialty] || (Experience.find_by(specialty: params[:query].capitalize).specialty if params[:query].present? &&  Experience.find_by(specialty: params[:query].capitalize)))), class: "filters", prompt: 'Spécialité' %>
         <%= text_field_tag "skill_location", '', size: 25, class: "filters", placeholder: "Adresse"%>
       </div>
 
