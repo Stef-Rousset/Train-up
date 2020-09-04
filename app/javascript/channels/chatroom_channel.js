@@ -4,12 +4,15 @@ import consumer from "./consumer";
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
   const inputMessage = document.getElementById('message_content');
+
   if (messagesContainer) {
+    const currentUserId = messagesContainer.dataset.currentUser
     const id = messagesContainer.dataset.chatroomId;
     messagesContainer.scrollTo(0,messagesContainer.scrollHeight);
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
+        console.log(data)
         messagesContainer.insertAdjacentHTML('beforeend', data);
         inputMessage.value = '';
         messagesContainer.scrollTo(0,messagesContainer.scrollHeight);
