@@ -151,9 +151,9 @@ skill_ten = Skill.create!(name: "Entraîneur", location: "48 Rue Vieille du Temp
 skill_ten.save!
 skill_eleven = Skill.create!(name: "Entraîneur", location: "2 Rue Japy, 75011 Paris", description: "Je suis spécialisée dans l'enseignement du Hatha yoga, et mon objectif premier est votre bien être.", user: user_eleven)
 skill_eleven.save!
-skill_twelve = Skill.create!(name: "Préparateur physique", location: "244 rue de Bercy, 75012 Paris", description: "Préparateur physique de l'équipe de France d'épée durant la dernière olympiade, mes séances adaptées à ce sport vous permettront d'améliorer vos performances.", user: user_twelve)
-# file = URI.open ('https://res.cloudinary.com/du5qhnalh/video/upload/v1598966246/prepone_nsuhum.mp4')
-# skill_twelve.video.attach(io: file, filename: 'amargean.mp4', content_type: 'video/mp4')
+skill_twelve = Skill.create!(name: "Préparateur physique", location: "244 rue de Bercy, 75012 Paris", description: "Préparateur physique de l'équipe de France de fleuret durant la dernière olympiade, mes séances adaptées à ce sport vous permettront d'améliorer vos performances.", user: user_twelve,
+              url: "https://www.youtube.com/watch?v=hS4YLDWNKUw")
+
 skill_twelve.save!
 skill_thirteen = Skill.create!(name: "Préparateur mental", location: "52 rue de Lourmel, 75015 Paris", description: "Spécialiste de la Sophrologie, j'interviens particulièrement auprès des pratiquants de sports de combat pour leur forger un mental d'acier.", user: user_thirteen)
 skill_thirteen.save!
@@ -167,7 +167,8 @@ skill_sixteen = Skill.create!(name: "Entraîneur", location: "45 Rue Saint-Lazar
 skill_sixteen.save!
 skill_seventeen = Skill.create!(name: "Entraîneur", location: "68 Rue Réaumur, 75002 Paris", description: "Je m'adapte à vos exigences, pour vous proposer un cours d'escrime qui remplisse vos objectifs.", user: user_seventeen)
 skill_seventeen.save!
-skill_eigtheen = Skill.create!(name: "Entraîneur", location: "42 rue paul baudry 75008 Paris", description: "J'enseigne aux escrimeurs confirmés qui veulent se perfectionner pour être plus performants en compétition.", user: user_eigtheen)
+skill_eigtheen = Skill.create!(name: "Entraîneur", location: "42 rue paul baudry 75008 Paris", description: "J'enseigne aux escrimeurs confirmés qui veulent se perfectionner pour être plus performants en compétition.", user: user_eigtheen,
+                                url: "https://www.youtube.com/watch?v=gYRwstMmacc")
 skill_eigtheen.save!
 skill_nineteen = Skill.create!(name: "Entraîneur", location: "1 Rue de la Tour, 75016 Paris", description: "J'enseigne l'escrime artistique période grand siècle.", user: user_nineteen)
 skill_nineteen.save!
