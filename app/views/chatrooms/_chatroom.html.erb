@@ -1,5 +1,5 @@
 <div class="chatroom d-flex flex-column align-items-center justify-content-center">
-<div id="messages" data-chatroom-id="<%= chatroom.id %>">
+<div id="messages" data-chatroom-id="<%= chatroom.id %>" data-current-user="<%= current_user.id %>">
   <% chatroom.messages.each do |message| %>
   <%= render 'messages/message', message: message %>
   <% end %>

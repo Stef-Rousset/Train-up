@@ -16,7 +16,10 @@
 .chatroom {
   width: 800px;
   margin: 0 auto;
+  margin-bottom: 30px;
   padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #ffffff;
   opacity: 0.9;
   box-shadow: 0px 0px 5px $green;
@@ -51,11 +54,14 @@
   margin-bottom: 30px;
 }
 
-.author span {
+.sender span {
   color: #ffffff;
 }
 
 #messages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
   overflow-y: auto;
   height: 300px;
@@ -66,30 +72,41 @@
   }
 }
 
+.message-container {
+  margin: 10px;
+  min-width: 250px;
+  max-width: 400px;
+}
+
 .speech-bubble-blue {
 	position: relative;
 	background: #F5832D;
   border-radius: 30px;
   padding: 10px;
   color: #ffffff;
-  max-width: 300px;
-  margin-bottom: 20px;
-  margin-left: 460px;
+/*   margin-bottom: 20px */;
+/*   margin-left: 460px; */
 }
 
 .speech-bubble-blue:after {
 	content: '';
 	position: absolute;
-	left: 0;
-	top: 50%;
+	right: -10px;
+	top: 85%;
 	width: 0;
 	height: 0;
-	border: 38px solid transparent;
-	border-right-color: #F5832D;
-	border-left: 0;
+	border: 16px solid transparent;
+	border-left-color: #F5832D;
+	border-right: 0;
 	border-bottom: 0;
 	margin-top: -19px;
 	margin-left: -30px;
+}
+
+
+.author {
+  @extend .speech-bubble-blue;
+  align-self: flex-end !important;
 }
 
 .speech-bubble-rose {
@@ -98,21 +115,21 @@
   border-radius: 30px;
   padding: 10px;
   color: #ffffff;
-  margin-bottom: 20px;
-  max-width: 300px;
-  margin-left: 40px;
+/*   margin-bottom: 20px; */
+/*   max-width: 300px; */
+/*   margin-left: 40px; */
 }
 
 .speech-bubble-rose:after {
 	content: '';
 	position: absolute;
-	right: 0;
-	top: 50%;
+	left: -10px;
+	top: 85%;
 	width: 0;
 	height: 0;
-	border: 38px solid transparent;
-	border-left-color: #BC214D;
-	border-right: 0;
+	border: 16px solid transparent;
+	border-right-color: #BC214D;
+	border-left: 0;
 	border-bottom: 0;
 	margin-top: -19px;
 	margin-right: -30px;
