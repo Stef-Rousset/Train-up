@@ -10,10 +10,12 @@
   <%= form_tag skills_path, method: :get do %>
     <div class="d-flex flex-row justify-content-between align-items-center flex-grow">
       <div class="justify-content-between ">
-        <%= select_tag "skill_name", options_for_select(Skill.pluck(:name).uniq, (Skill.find_by(name: params[:query].capitalize).name if Skill.find_by(name: params[:query].capitalize))), class: "filters", prompt: 'Compétence' %>
-        <%# raise %>
-        <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id).uniq, (Sport.find_by(name: params[:query].capitalize).id if Sport.find_by(name: params[:query].capitalize))), class: "filters", prompt: 'Sport' %>
-        <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, (Experience.find_by(specialty: params[:query].capitalize).specialty if Experience.find_by(specialty: params[:query].capitalize))), class: "filters", prompt: 'Spécialité' %>
+        <%#= select_tag "skill_name", options_for_select(Skill.pluck(:name).uniq, (Skill.find_by(name: params[:query].capitalize).name if Skill.find_by(name: params[:query].capitalize))), class: "filters", prompt: 'Compétence' %>
+        <%#= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id).uniq, (Sport.find_by(name: params[:query].capitalize).id if Sport.find_by(name: params[:query].capitalize))), class: "filters", prompt: 'Sport' %>
+        <%#= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, (Experience.find_by(specialty: params[:query].capitalize).specialty if Experience.find_by(specialty: params[:query].capitalize))), class: "filters", prompt: 'Spécialité' %>
+         <%= select_tag "skill_name", options_for_select(Skill.pluck(:name).uniq, (params[:skill_name] || (Skill.find_by(name: params[:query].capitalize).name if Skill.find_by(name: params[:query].capitalize)))), class: "filters", prompt: 'Compétence' %>
+         <%= select_tag "sport_id", options_for_select(Sport.pluck(:name, :id), (params[:sport_id] || (Sport.find_by(name: params[:query].capitalize).id if Sport.find_by(name: params[:query].capitalize)))), class: "filters", prompt: 'Sport' %>
+         <%= select_tag "specialty", options_for_select(Experience.pluck(:specialty).uniq, (params[:specialty] || (Experience.find_by(specialty: params[:query].capitalize).specialty if Experience.find_by(specialty: params[:query].capitalize)))), class: "filters", prompt: 'Spécialité' %>
         <%= text_field_tag "skill_location", '', size: 25, class: "filters", placeholder: "Adresse"%>
       </div>
 
@@ -27,7 +29,7 @@
       </div>
       <div class="exp flex-column">
         <label for="customRange2", class= "label-exp">Prix</label>
-        <%= range_field_tag "exp_price", 0, min: 30, max: 100, class: "custom-range"%>
+        <%= range_field_tag "exp_price", 30, min: 30, max: 100, step: 10, class: "custom-range"%>
         <div class="d-flex flex-row justify-content-between">
           <label for="min" class="pull-left">30</label>
           <label for="max" class="pull-right">100</label>
