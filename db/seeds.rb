@@ -348,6 +348,7 @@ booking_eleven = Booking.create!(user: user_clfive, skill: skill_fifteen, start_
 booking_eleven.save!
 booking_twelve = Booking.create!(user: user_cltwo, skill: skill_eigtheen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_twelve.save!
+
 booking_thirteen = Booking.create!(user: user_clthree, skill: skill_eigtheen, start_date: "15-07-2020", start_hour: "15:00", end_hour: "16:00")
 booking_thirteen.save!
 puts "booking done"
