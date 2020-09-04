@@ -167,7 +167,7 @@ skill_sixteen = Skill.create!(name: "Entraîneur", location: "45 Rue Saint-Lazar
 skill_sixteen.save!
 skill_seventeen = Skill.create!(name: "Entraîneur", location: "68 Rue Réaumur, 75002 Paris", description: "Je m'adapte à vos exigences, pour vous proposer un cours d'escrime qui remplisse vos objectifs.", user: user_seventeen)
 skill_seventeen.save!
-skill_eigtheen = Skill.create!(name: "Entraîneur", location: "42 rue paul baudry 75008 Paris", description: "J'enseigne aux escrimeurs confirmés qui veulent se perfectionner pour être plus performants en compétition.", user: user_eigtheen,
+skill_eigtheen = Skill.create!(name: "Entraîneur", location: "42 rue paul baudry 75008 Paris", description: "J'enseigne aux escrimeurs confirmés qui veulent se perfectionner pour être plus performants en compétition. Ma séance type se décompose comme suit: quinze minutes d'échauffement puis travail technique intensif et se termine par un retour au calme de dix minutes. Je suis prêt à adapter mon cours en fonction de vos besoins.", user: user_eigtheen,
                                 url: "https://www.youtube.com/watch?v=gYRwstMmacc")
 skill_eigtheen.save!
 skill_nineteen = Skill.create!(name: "Entraîneur", location: "1 Rue de la Tour, 75016 Paris", description: "J'enseigne l'escrime artistique période grand siècle.", user: user_nineteen)
@@ -324,7 +324,7 @@ puts "experiences done"
 
 puts "creating bookings"
 
-booking_one = Booking.create!(user: user_clone, skill: skill_fourteen, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
+booking_one = Booking.create!(user: user_clone, skill: skill_twelve, start_date: "12-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_one.save!
 booking_two = Booking.create!(user: user_clone, skill: skill_fifteen, start_date: "16-09-2020", start_hour: "13:00", end_hour: "15:00", status: "en attente")
 booking_two.save!
@@ -346,6 +346,10 @@ booking_ten = Booking.create!(user: user_clfive, skill: skill_fifteen, start_dat
 booking_ten.save!
 booking_eleven = Booking.create!(user: user_clfive, skill: skill_fifteen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
 booking_eleven.save!
+booking_twelve = Booking.create!(user: user_cltwo, skill: skill_eigtheen, start_date: "29-08-2020", start_hour: "10:00", end_hour: "11:00")
+booking_twelve.save!
+booking_thirteen = Booking.create!(user: user_three, skill: skill_eigtheen, start_date: "15-07-2020", start_hour: "10:00", end_hour: "11:00")
+booking_thirteen.save!
 puts "booking done"
 
 
