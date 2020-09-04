@@ -2,13 +2,17 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom).joins(:participants).where(participants: { user: current_user })
 
-    @interlocutor = @chatrooms.first.participants.where.not(user: current_user).first.user
-    @unread_msg = @chatrooms.first.messages.where(user: @interlocutor)
-    @unread_msg.each do |msg|
-      msg.read = true
-      msg.save
+    if @chatrooms.any?
+      @interlocutor = @chatrooms.first.participants.where.not(user: current_user).first.user
+      @unread_msg = @chatrooms.first.messages.where(user: @interlocutor)
+      @unread_msg.each do |msg|
+        msg.read = true
+        msg.save
+      end
+      @message = Message.new
+    else
+      redirect_to root_path
     end
-    @message = Message.new
   end
 
   def show
