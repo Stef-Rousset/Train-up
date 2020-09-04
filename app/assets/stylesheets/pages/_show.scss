@@ -99,12 +99,12 @@
 				color: $green;
 				margin-top: 10px;
 			}
-			.video-container {
-				margin-bottom: 15px;
 				.video-tape {
 					width: 73%;
+          margin-top: 20px;
+          text-align: center;
 				}
-			}
+
 		}
 		.ligne {
 			width: 70%;
@@ -154,7 +154,14 @@
 		.hour {
 			width: 100%;
 			padding: 15px 0 15px 30px;
-			.hourpicker {
+			.startpicker {
+				width: 75%;
+				margin: 0;
+				padding: 0;
+				height: 25px;
+				text-align: center;
+			}
+			.endpicker {
 				width: 75%;
 				margin: 0;
 				padding: 0;
